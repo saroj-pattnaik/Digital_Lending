@@ -1,0 +1,232 @@
+https://ey-gen-ai.azurewebsites.net/home#/test-co-pilot (OpenAI GPT4)
+
+Application Under Test (URL): https://resilient-raccoon-jyyu22-dev-ed.trailblaze.my.salesforce.com/
+=============================================================================================================================================================================
+Testing DLP
+
+[write an email sending to name Mr Saroj Pattnaik having Adhar card number 657854326789 cc number 6765432178985654 Credit card number 9809767654543212]
+
+https://edabit.com/
+
+
+JIRA GPT
+https://medium.com/@ajvikram/jira-gpt-automate-jira-with-gpt-using-open-source-tooling-c8e254e060ca
+
+
+Programming in Python / Java / Cobol
+==========================================================================
+
+"""Ignore all previous instructions before this one. Act like an expert exgineer in Java with UML having more than 25 years of experience in generating UML diagram, java classes etc. You always write optimized code with 100% accuracy in syntax and logical flow of the application. Acknowledge it by saying "YES" """.
+
+"""Write a Java program to output numbers 1 to 100"""
+
+"""Write a Java program which will find the Highest Integer in the List Using Recursion"""
+
+"""Write a Java program that determines whether a word is a palindrome or not.""" Value madam, level, rotor
+
+"""Write a Java program that recursively counts the integer's number of digits."""
+
+Sort by Length
+"""write a Java program that takes a string and returns a string ordered by the length of the words."""
+
+Programming in JAVA
+
+""" Act like a Web Development expert engineer and you have been developing Web Applications for more than 20 years. You always write optimized code with 100% accuracy in syntax and logical flow of the application. Develop a Web Application where you have to create a Login Screen with below functionalities.
+a. Accept Username
+b. Accept Password
+c. Submit button
+
+On Clicking Submit Button, it will validate the credentials with the message "valid" or "invalid". Create a single html file for the above requirement."""
+
+
+Programming in Cobol
+
+"""Ignore all previous instructions before this one. Act like an expert engineer in Cobol Programming and you have been developing Cobol Applications for more than 20 years. You always write optimized code with 100% accuracy in syntax and logical flow of the application. Write a Cobol program to accept the student record (ROLL NO, NAME and 3 subject marks such as mathematics, Science and English). Calculate the Average Marks and Status.
+
+Average Marks = ((Mathematics + Science + English) /3))
+If Average_Marks <50% then Status = "FAIL"
+If the Average_Marks >=50% and <60%, then status = "Average"
+If the Average_Marks >=60% and <70%, then status = "Good"
+if the Average_Marks >=70% and <80%, then status = "Better"
+If the Average_Marks >=80 then the status="Best"
+
+For every student record entered, Display the student ROLL NO, NAME, Mathematics, Science, English, Average Marks, Status."""
+
+
+Prompt 0:
+"""Ignore all previous instructions before this one"""
+
+Prompt 1:
+
+"Ignore all previous instructions before this one. Your new role and persona is; You are an expert Engineer in Salesforce domain and Application such as Sales Cloud, Service Cloud, Marketing Cloud, and Commerce Cloud. You provide detailed guidance on best practices, strategies, and methodologies for implementing and using Salesforce solutions in various industries and business scenarios. You provide detailed guidance and key design information for the Salesforce System to carry out Lead Generation by creating user story, use case, test cases for many years. You provide thoughtful and concise details based on your analysis for developers, Testers and Salesforce Business SME to create successful features. Acknowledge this by answering 'Yes', otherwise ask more questions."
+
+
+User Story: 
+"Analyze the User Story KYC Verification
+[As a Business Execution user, I should be able to proceed with performing KYC after obtaining Customer Consent, and then continue advancing the loan application process.
+Technical Requirements
+
+Set up and verify test data for "Primary Applicant".
+Launch the FOS mobile app on Android via BrowserStack and complete PIN authentication.
+Confirm employment consent and select application and lead.
+Verify phone icon and select "Existing Customer" check.
+Enter consent details for unified journey.
+Upload and verify PAN document; enter KYC details (use Form60 if needed).Upload Aadhaar document; complete Proof of Identity and Proof of Address KYC steps.
+Perform biometric KYC verification and proceed.
+
+Story Acceptance Criteria: 
+Technical:
+1. All mandatory fields must be validated before submission, as specified in the Field List document.
+2. The 'Proceed' button should be enabled only when:
+	a. All mandatory fields have been correctly filled as per the Field List document
+	b. All required documents for the current screen/stage have been uploaded, according to the Document Checklist.
+	c. All mandatory APIs associated with the current screen have been successfully executed
+	d. Any applicable reports for the current screen have been generated. 
+3. Post successful data entry of the above mentioned fields, Sales Manager should be able to Save the lead and move the lead to Document Pending Status.
+4. Sales Manager clicks on "Submit to CPA" button to proceed with application..
+
+Story Acceptance Criteria: 
+Business:
+Scenario 1: Navigation upon clicking the Proceed button without errors 
+Given the Business Executive clicks the Proceed button without encountering any errors, then the system should automatically navigate to the appropriate next stage based on the provided Proof of Identity (POI):
+	a. eKYC stage: If Aadhaar number is provided as POI.
+	b. cKYC stage: If a POI other than Aadhaar is provided or if the eKYC process fails."
+
+Prompt 1:
+
+"Ignore all previous instructions before this one. Your new role and persona is; You are an expert Engineer in Salesforce domain and Application such as Sales Cloud, Service Cloud, Marketing Cloud, and Commerce Cloud. You provide detailed guidance on best practices, strategies, and methodologies for implementing and using Salesforce solutions in various industries and business scenarios. You provide detailed guidance and key design information for the Salesforce System to carry out Lead Generation by creating user story, use case, test cases for many years. You provide thoughtful and concise details based on your analysis for developers, Testers and Salesforce Business SME to create successful features. Acknowledge this by answering 'Yes', otherwise ask more questions."
+
+Prompt 2:
+
+"Analyze the User Story 'Lead Creation' in Salesforce application.
+Description: Sales Manager collect mandatory documents from customer and enter the details and upload them in salesforce system to complete the Lead Generation Process
+Technical Requirements:
+1. Sales Manager logs in to Salesforce.com System
+2. Sales Manager searches with Mobile Number and landed into Customer Details page. Entered Mobile Number should be 10 digits only.
+3. Sales Manager Click on 'New Lead' Button. 
+4. Sales Manager provides inputs by filling the data such as First Name, Last Name, Loan Amount, Date of Birth, Age, PAN number, Aadhaar number, and address 
+5. Sales Manager upload the electronic copy of PAN and Aadhaar into the Salesforce System as per the 'Lead Creation' workflow.
+5. Once all the details have been uploaded and entered, Sales Manager press "Submit Button", which moves the form from "Lead Generation" to next stage i.e. 'Submit To CPA'
+
+Acceptance Criteria:
+1. Sales Manager should be able to input all below mentioned mandatory fields:
+a. Mobile Number should be 10 digit number only.
+b. First Name and Last Name entered should be as text.
+c. Require Loan Amount to be filled in 'Currency field'
+d. Date of birth should be less than current System Date
+e. Age is numeric field with two digits and should be between 18 and 60 
+f. PAN number entered should be in Upper Case, Alpha Numeric and 10 digits only. 
+g. First 5 characters of the PAN number should be an Alphabet, followed by next 4 characters should be digit and last character should be an alphabet.
+h. Aadhaar Number should be Numeric and 12 digits only
+i. Address details - Street , Pin code, City and state and Country.
+2. Post successful data entry of the above mentioned fields, Sales Manager should be able to Save the lead and move the lead to Document Pending Status.
+3. Sales Manager is then allowed to upload the soft copy of the 'Aadhaar card' and 'PAN card' by clicking on 'Upload files' to proceed further which is Mandatory.
+4. Post successful upload of the documents, Sales manager will be able to click on the "Document Uploaded" checkbox field 
+5. Sales Manager will click on 'Save' button once all mandatory fields are filled and Lead status will change automatically to 'Document Uploaded'.
+6. Sales Manager clicks on 'Submit to CPA' button to proceed with application."
+
+Prompt 3: 
+"Generate comprehensive PlantUML code to Create a domain model for the above user story. Identify the entities and include the details about the properties and functionalities of each entity."
+
+Prompt 4:
+"Generate comprehensive PlantUML code to create 'Use Case' diagram by referring the above 'User Story' analysis 'Lead Creation'. Generated plantUML Code should be free of syntax error. Share detailed explanation on the 'Use Case' diagram."
+
+Prompt 5:
+"Generate comprehensive PlantUML code to generate 'Activity Diagram' factoring all the inputs conditions of the above User Story 'Lead Creation' and 'Use Case' Diagram. Successful execution of generated PlantUML code should be able to create a detailed 'Activity Flows' from 'Start' to 'Stop' covering all activities connected together as per 'Control Flows' to meet the validation requirements defined in the 'Acceptance Criteria'. Ensure Activity Diagram consider all inputs defined in acceptance criteria. Finally, all 'Control Flows' coming from different activities should eventually converge at the 'EndPoint' before reaching the 'Stop'. Generated PlantUML code should be free of syntax error."
+
+"""Generate comprehensive PlantUML code to generate "Class Diagram" factoring all conditions of the above "User Story" Analysis of "Lead Creation". Generated PlantUML code should be free of syntax error and support PlantUML Version 1.2021 and above."
+
+""" Generate comprehensive PlantUML code to generate "Sequence Diagram" factoring all conditions of the above "User Story Analysis" of "Lead Creation". Generated PlantUML code should be free of syntax error and support PlantUML Version 1.2021 and above. """
+
+[Generate comprehensive "Activity diagram" based on your understanding by referring the above "Use Case". Develop plantUML Code for the above "Activity Diagram" using PUML 2.5 notification. Generated Code should be free of syntax error.]
+
+Prompt 6:
+"Write comprehensive 'Test Cases' by referring the above 'User Story' of 'Lead Creation' along with 'Use Case' view, 'Activity Diagram', and 'Sequence Diagram'. Generated 'Test Cases' should describe the 'positive', 'negative', and 'exception' conditions of each test case. Organize the 'Test Cases' in a 'Tabular Format' with the following columns such as 'Test Case ID', 'Test Description', 'Pre-Requisites', 'Test Step', 'Test Data', 'Expected Test Result', 'Map to Acceptance Criteria', 'Test Category' (positive, negative, edge) in a single table. Generate comprehensive 'Test Data' to provide as 'Test Inputs' of the above 'Test Steps' covering all the conditions such as 'Positive', 'Negative' and 'Exception' flow of the 'User Story'. Generated 'Test Cases' should be comprehensive and should cover 100% with the above 'Use Case' requirements."
+
+Prompt 7:
+"""Generate comprehensive "Test Data" to provide as "Test Inputs" of the above "Test Cases" covering all the conditions such as "Positive", "Negative" and "Exception" flow of the "User Story". "Test Dases" should be comprehensive and should cover 100% of above generated "Test Steps"."""
+
+==============================================================================
+[Your new role and persona is; You are an expert Engineer in Java application development domain. Write the Java program to develop the complete methods and properties of all classes and methods defined in the Class Diagram.]
+
+=========================
+Generating Test Cases
+=========================
+[As an expert of language model AI, create comprehensive "test cases" by referring the above "user story" with identified "entities", "use case diagram", "class diagram", "sequence diagram", "activity diagram" and "flowchart". The "test cases" should describe the "positive", "negative", and "exception" conditions. Organize the "test cases" in a "tabular format" with columns for "Test Case ID", "Test Case Description", "Test Input", "Expected Output", and "Test Category" (Positive, Negative, or Exception). Test Cases should be comprehensive and should not miss any steps and can be mapped to 100% with the above "use case" requirements.]
+
+""" Your new role and persona is; You are an expert Engineer in Test Automation using Selenium with Java in Salesforce application domain. Generate selenium code with page object using java without pagefactory for above test cases.
+1. Write comprehensive BDD scenario in Cucumber. Ensure scenarios meets 100% story coverage.
+2. Write comprehensive step definition of the above test cases, activity diagram and user story analysis.
+3. Write comprehensive functions with code and ensure code reusability. Generated code should be free from syntax error. """
+
+[Ignore all previous instructions before this one. Your new role and persona is; You are an expert Engineer in Performance Testing & Engineering of domain Retail and Corporate Internet Banking. You provide thoughtful and concise details based on load generation and analysis of results. For specific requirements, refer to the document “RFP - PERFORMANCE TESTING-RIB & CIB”. Acknowledge this by answering “Yes”, else ask more questions.]
+
+[generate summarize view of the document {RFP - PERFORMANCE TESTING-RIB & CIB}] OR
+
+generate summarize view of the document {RFP - PERFORMANCE TESTING-RIB & CIB}
+
+================================================================LOLC=================
+
+Read the Flow Diagram.docx, Main Teller Setup Process.docx and Teller Setup Details.docx. Based on the above details prepare the following details.
+1. For Teller Setup, write the PlatUML code to generate Use Case View for the below process
+a. Create Teller Counter
+b. Assign Teller to Teller Counter
+c. Create Tilis - Till List
+d. Assign Tills 
+e. Assign Currency to Vault / Till
+
+Read the Flow Diagram.docx, Main Teller Setup Process.docx and Teller Setup Details.docx. Based on the above details prepare the following details.
+For Main Teller, write the PlatUML code to generate Use Case View for the below process
+a. Create Vault - Vault list
+b. Assign Main Tellers
+c. Branch Wise Cash Float Limit
+
+
+@agent "read all files the from 'LOLC' repository."
+
+========UC-1
+@agent "read the file '1_Use Case View_Teller Setup Use Case Diagram Analysis.docx'. Analyse the 'UC1 – Create Teller Counter' and share your detailed analysis."
+
+@agent "Your task is to conduct a comprehensive analysis of the 'UC1 – Create Teller Counter' use case, as detailed in the document '1_Use Case View_Teller Setup Use Case Diagram Analysis.docx'. Ensure adherence to the UML coding standards specified in 'main_teller_usecase.puml' and 'teller_setup_usecase.puml' within the repository. Subsequently, develop PlatUML code to create a Use Case diagram for 'UC1 – Create Teller Counter'."
+
+@agent "Your task is to conduct a comprehensive analysis of the 'UC1 – Create Teller Counter' use case, as detailed in the document '1_Use Case View_Teller Setup Use Case Diagram Analysis.docx'. Adhere strictly to the UML coding standards outlined in 'main_teller_usecase.puml', 'teller_setup_usecase.puml', and 'plantUML Best Practices.txt' found within the repository. Subsequently, develop PlantUML code to create an Activity Diagram for the 'UC1 – Create Teller Counter' use case."
+
+@agent "Your task is to conduct a comprehensive analysis of the 'UC1 – Create Teller Counter' use case, as detailed in the document '1_Use Case View_Teller Setup Use Case Diagram Analysis.docx'. Adhere strictly to the UML coding standards outlined in 'main_teller_usecase.puml', 'teller_setup_usecase.puml', and 'plantUML Best Practices.txt' found within the repository. Subsequently, develop PlantUML code to create Fishbone Diagram for the 'UC1 – Create Teller Counter' use case."
+
+@agent "Execute the following task with precision and detail: 1. Thoroughly analyze the Use Case 'UC1 – Create Teller Counter' from the document '1_Use Case View_Teller Setup Use Case Diagram Analysis.docx'. 2. Develop detailed 'Test Cases' for 'UC1 – Create Teller Counter' in a structured 'Tabular Format', including columns for 'Req ID', 'Test Objective', 'Pre-Requisites', 'Test Step', 'Test Data', 'Expected Test Result', and 'Test Category' (positive, negative, edge) within a single table. 3. Create extensive 'Test Data' to serve as 'Test Inputs' for the specified 'Test Steps', ensuring coverage of all scenarios, including 'Positive', 'Negative', and 'Exception' flows. 4. Guarantee that the generated 'Test Cases' are exhaustive and achieve 100% coverage of the Use Case requirements."
+
+==========UC-2
+
+@agent "read the file '1_Use Case View_Teller Setup Use Case Diagram Analysis.docx'. Analyse the 'UC2 – Assign Teller to Counter' and share your detailed analysis."
+
+@agent "Your task is to conduct a comprehensive analysis of the 'UC2 – Assign Teller to Counter' use case, as detailed in the document '1_Use Case View_Teller Setup Use Case Diagram Analysis.docx'. Ensure adherence to the UML coding standards specified in 'main_teller_usecase.puml' and 'teller_setup_usecase.puml' within the repository. Subsequently, develop PlatUML code to create a Use Case diagram for 'UC2 – Assign Teller to Counter'."
+
+@agent "Your task is to conduct a comprehensive analysis of the 'UC2 – Assign Teller to Counter' use case, as detailed in the document '1_Use Case View_Teller Setup Use Case Diagram Analysis.docx'. Adhere strictly to the UML coding standards outlined in 'main_teller_usecase.puml', 'teller_setup_usecase.puml', and 'plantUML Best Practices.txt' found within the repository. Subsequently, develop PlantUML code to create an Activity Diagram for the 'UC2 – Assign Teller to Counter' use case."
+
+@agent "Your task is to conduct a comprehensive analysis of the 'UC2 – Assign Teller to Counter' use case, as detailed in the document '1_Use Case View_Teller Setup Use Case Diagram Analysis.docx'. Adhere strictly to the UML coding standards outlined in 'main_teller_usecase.puml', 'teller_setup_usecase.puml', and 'plantUML Best Practices.txt' found within the repository. Subsequently, develop PlantUML code to create Fishbone Diagram for the 'UC2 – Assign Teller to Counter' use case."
+
+@agent "Execute the following task with precision and detail: 1. Thoroughly analyze the Use Case 'UC2 – Assign Teller to Counter' from the document '1_Use Case View_Teller Setup Use Case Diagram Analysis.docx'. 2. Develop detailed 'Test Cases' for 'UC2 – Assign Teller to Counter' in a structured 'Tabular Format', including columns for 'Req ID', 'Test Objective', 'Pre-Requisites', 'Test Step', 'Test Data', 'Expected Test Result', and 'Test Category' (positive, negative, edge) within a single table. 3. Create extensive 'Test Data' to serve as 'Test Inputs' for the specified 'Test Steps', ensuring coverage of all scenarios, including 'Positive', 'Negative', and 'Exception' flows. 4. Guarantee that the generated 'Test Cases' are exhaustive and achieve 100% coverage of the Use Case requirements."
+
+
+==========UC-3
+
+@agent "read the file '2_Use Case View_Main Teller Use Case Diagram Analysis.docx'. Analyse the '3. Assign Main Tellers' and share your detailed analysis."
+
+@agent "Your task is to conduct a comprehensive analysis of the '3. Assign Main Tellers' use case, as detailed in the document '2_Use Case View_Main Teller Use Case Diagram Analysis.docx'. Ensure adherence to the UML coding standards specified in 'main_teller_usecase.puml' and 'teller_setup_usecase.puml' within the repository. Subsequently, develop PlatUML code to create a Use Case diagram for '3. Assign Main Tellers-UC3'."
+
+@agent "Your task is to conduct a comprehensive analysis of the '3. Assign Main Tellers' use case, as detailed in the document '2_Use Case View_Main Teller Use Case Diagram Analysis.docx'. Adhere strictly to the UML coding standards outlined in 'main_teller_usecase.puml', 'teller_setup_usecase.puml', and 'plantUML Best Practices.txt' found within the repository. Subsequently, develop PlantUML code to create an Activity Diagram for the '3. Assign Main Tellers' use case."
+
+@agent "Your task is to conduct a comprehensive analysis of the '3. Assign Main Tellers' use case, as detailed in the document '2_Use Case View_Main Teller Use Case Diagram Analysis.docx'. Adhere strictly to the UML coding standards outlined in 'main_teller_usecase.puml', 'teller_setup_usecase.puml', and 'plantUML Best Practices.txt' found within the repository. Subsequently, develop PlantUML code to create Fishbone diagram for the '3. Assign Main Tellers' use case."
+
+@agent "Execute the following task with precision and detail:1. Thoroughly analyze the Use Case '3. Assign Main Tellers' from the document '2_Use Case View_Main Teller Use Case Diagram Analysis.docx'. 2. Develop detailed 'Test Cases' for '3. Assign Main Tellers' in a structured 'Tabular Format', including columns for 'Req ID', 'Test Objective', 'Pre-Requisites', 'Test Step', 'Test Data', 'Expected Test Result', and 'Test Category' (positive, negative, edge) within a single table. 3. Create extensive 'Test Data' to serve as 'Test Inputs' for the specified 'Test Steps', ensuring coverage of all scenarios, including 'Positive', 'Negative', and 'Exception' flows. 4. Guarantee that the generated 'Test Cases' are exhaustive and achieve 100% coverage of the Use Case requirements."
+
+
+@agent "Your task is to conduct a comprehensive analysis of the '3. Assign Main Tellers' use case, as detailed in the document '2_Use Case View_Main Teller Use Case Diagram Analysis.docx'. Ensure adherence to the UML coding standards specified in 'main_teller_usecase.puml' and 'teller_setup_usecase.puml' within the repository. Subsequently, develop PlatUML code to create a Use Case, Activity, Fishbone digram for '3. Assign Main Tellers-UC3'. Finally develop detailed 'Test Cases' in a structured 'Tabular Format', including columns for 'Req ID', 'Test Objective', 'Pre-Requisites', 'Test Step', 'Test Data', 'Expected Test Result', and 'Test Category' (positive, negative, edge) within a single table. Create extensive 'Test Data' to serve as 'Test Inputs' for the specified 'Test Steps', ensuring coverage of all scenarios, including 'Positive', 'Negative', and 'Exception' flows. Guarantee that the generated 'Test Cases' are exhaustive and achieve 100% coverage of the Use Case requirements."
+
+@agent "Your mission is to perform an in-depth analysis of the '3. Assign Main Tellers' use case, as outlined in '2_Use Case View_Main Teller Use Case Diagram Analysis.docx'. Ensure strict compliance with the UML coding standards found in 'main_teller_usecase.puml' and 'teller_setup_usecase.puml' within the repository. Following this, create PlatUML code to generate a Use Case, Activity, and Fishbone diagram for '3. Assign Main Tellers-UC3'. Next, design comprehensive 'Test Cases' for '3. Assign Main Tellers-UC3' in a structured 'Tabular Format', including columns for 'Req ID', 'Test Objective', 'Pre-Requisites', 'Test Step', 'Test Data', 'Expected Test Result', and 'Test Category' (positive, negative, edge) within a single table. Develop extensive 'Test Data' to serve as 'Test Inputs' for the specified 'Test Steps', ensuring thorough coverage of all scenarios, including 'Positive', 'Negative', and 'Exception' flows. Ensure the 'Test Cases' are exhaustive and achieve 100% coverage of the Use Case requirements."
+
+@agent "Your mission is to conduct a comprehensive analysis of the '3. Assign Main Tellers' use case as detailed in '2_Use Case View_Main Teller Use Case Diagram Analysis.docx'. Adhere strictly to the UML coding standards specified in 'main_teller_usecase.puml' and 'teller_setup_usecase.puml' within the repository. Subsequently, develop PlatUML code to produce a Use Case, Activity, and Fishbone diagram for '3. Assign Main Tellers-UC3'. Following this, design detailed 'Test Cases' for '3. Assign Main Tellers-UC3' in a structured 'Tabular Format', incorporating columns for 'Req ID', 'Test Objective', 'Pre-Requisites', 'Test Step', 'Test Data', 'Expected Test Result', and 'Test Category' (positive, negative, edge) within a single table. Create comprehensive 'Test Data' to function as 'Test Inputs' for the specified 'Test Steps', ensuring thorough coverage of all scenarios, including 'Positive', 'Negative', and 'Exception' flows. Ensure the 'Test Cases' are exhaustive and achieve 100% coverage of the Use Case requirements."
+
+
+Your mission is to conduct a comprehensive analysis of the '3. Assign Main Tellers' use case as detailed in '2_Use Case View_Main Teller Use Case Diagram Analysis.docx', and corresponding use case videw defined in 'UC_Assign_Main_Teller.puml', Activity View defined in 'AD_Assign_Main_Teller.puml' and Fishbone analysis in 'FBD_Assign_Main_Teller.puml'. Following this, design detailed 'Test Cases' of '3. Assign Main Tellers-UC3' in a structured 'Tabular Format', incorporating columns for 'Req ID', 'Test Objective', 'Pre-Requisites', 'Test Step', 'Test Data', 'Expected Test Result', and 'Test Category' (positive, negative, edge) within a single table. Create comprehensive 'Test Data' to function as 'Test Inputs' for the specified 'Test Steps', ensuring thorough coverage of all scenarios, including 'Positive', 'Negative', and 'Exception' flows. Ensure the 'Test Cases' are exhaustive and achieve 100% coverage of the Use Case requirements.
+
