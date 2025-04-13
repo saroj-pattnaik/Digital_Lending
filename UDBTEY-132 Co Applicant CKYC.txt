@@ -1,0 +1,74 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P / E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Faile	"Defect-ID (JIRA)
+(if Fail)"
+UDBTEY-132	As a user (System), system should be able to capture Co Applicant's CKYC details using their  Aadhar number/PAN number/Voter ID/Driver's License/Passport number so that the Co applicant's KYC can be completed successfully	High	Ready for review	"
+This user story focuses on enhancing a lending system's functionality to capture Co-Applicant's CKYC (Central Know Your Customer) details efficiently. Users can input Co-Applicant information using various identification methods, including Aadhar number, PAN number, Voter ID, Driver's License, or Passport number, to successfully complete their KYC process. The system also includes features for auto-populating data, displaying relevant fields, storing CKYC responses, and capturing date and timestamps. Integration with FinTech ensures accurate verification.
+
+**Pre-conditions to Test:**
+1. Ensure the lending system is operational and accessible.
+2. Adequate test data is available, including sample Co-Applicant identification details.
+3. The system UI includes fields for entering Co-Applicant CKYC information.
+4. Ensure the availability of valid documents (e.g., Driver's License or Passport) for testing purposes if needed.
+5. Integration with FinTech for CKYC verification is set up and functional.
+6. Co-Applicant consent for KYC verification has been obtained.
+7. The system is in a state where Co-Applicant KYC needs to be completed.
+8. Verify the availability of Co-Applicant information for testing purposes, such as titles, names, DOB, etc."	"
+Product-to-Product Integrations:
+
+1. Integration between User Interface (UI) and Customer Consent Data:
+   - Requirement: The UI should capture and store the Aadhar number, PAN number, or other CKYC input parameters from the customer consent screen.
+   - Details: The UI should be able to communicate with the customer consent data source to retrieve the relevant Co-Applicant data entered during the consent stage.
+
+2. Integration between UI and FinTech API:
+   - Requirement: The UI should interact with the FinTech API to trigger the CKYC process and receive responses.
+   - Details: The UI should send CKYC input parameters (Aadhar number, PAN number, etc.) to the FinTech API and handle responses, including successful verification or failures.
+
+End-to-End Integrations:
+
+1. End-to-End Integration between UI, Customer Consent Data, and FinTech API:
+   - Requirement: Ensure a seamless flow of data from the customer consent screen to the FinTech API for CKYC verification.
+   - Details: The UI should transmit CKYC input parameters to the FinTech API for verification and retrieve the CKYC response. This process should be tracked and tested end-to-end.
+
+2. End-to-End Integration between UI, CKYC Response Data, and Co-Applicant Confirmation:
+   - Requirement: Validate that the CKYC response data is displayed accurately on the UI and that the Co-Applicant can review and confirm the details.
+   - Details: The UI should present the CKYC response data to the Business executive and the Co-Applicant for verification. The process should proceed based on their confirmation or disagreement.
+
+3. End-to-End Integration between UI, Database, and CKYC Response:
+   - Requirement: Confirm that CKYC responses are accurately stored and retrieved from the database.
+   - Details: After receiving CKYC responses, the UI should update the database with the data and timestamps. The data should be retrievable for auditing and tracking purposes.
+
+4. End-to-End Integration between UI, Manual KYC Process, and Co-Applicant Decision:
+   - Requirement: Ensure a smooth transition from the CKYC process to Manual KYC in case the Co-Applicant disagrees or if the document has expired.
+   - Details: If the Co-Applicant disagrees with the CKYC data or if the document (Driver's license or Passport) has expired, the UI should seamlessly initiate the Manual KYC process. The decision and process should be recorded.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"	TC001	Verify successful auto-population of CKYC details.	Co-Applicant's Aadhar number	Auto-population of CKYC details	Positive			
+						TC002	Verify CKYC response when document is not expired.	CKYC response with unexpired document	Proceed to QDE	Positive			
+						TC003	Verify CKYC response when document has expired.	CKYC response with expired document	Proceed with Manual KYC	Positive			
+						TC004	Verify manual KYC initiation after three CKYC failures.	Three consecutive API response failures	Allow Manual KYC initiation	Positive			
+						TC005	Retry CKYC after a single API response failure.	API response failure	Retry CKYC process	Positive			
+						TC006	Retry CKYC after three API response failures.	Three consecutive API response failures	Retry CKYC process	Positive			
+						TC007	Test for CKYC details not auto-populated.	Invalid or non-existent Co-Applicant input	Retry CKYC process	Negative			
+						TC008	Test for zero response from the API.	Zero response from the API	Retry CKYC process	Negative			
+						TC009	Test for unsuccessful manual KYC initiation.	Four consecutive API response failures	Allow Manual KYC initiation	Exception			
+						TC010	Test for manual KYC initiation after three CKYC failures.	Three consecutive API response failures	Allow Manual KYC initiation	Exception			
+						TC011	Test for timer expiration during the eKYC process.	Start eKYC with timer set to expire	Retry eKYC process or auto-initiate CKYC	Exception			

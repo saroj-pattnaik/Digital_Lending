@@ -1,0 +1,65 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P/E2E Integration Requirements	Activity Diagram	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Faile	Defect-ID (JIRA)
+						(Control Flow)								(if Fail)
+UDBTEY-153	Guarantor - Manual KYC -Data fetched via FinTech API service for Driver's license			"
+As a user (System), I want to be able to fetch and verify Guarantor details from the Data aggregator's response. This will enable the successful completion of Manual Know Your Customer (KYC) processes. The system should collect information based on the Driver's License details, display the received data, store it in the database, and provide an option to check for additional OSV documents. The goal is to ensure that accurate customer information is obtained from the data aggregator, allowing for a streamlined KYC process.
+
+Pre-conditions to Test:
+
+The system is properly configured and operational.
+Integration with Data aggregators via the FinTech API is established and functioning.
+The user has initiated the Manual KYC process.
+Valid input parameters (Driver's License No. and Expiry Date) are available for testing.
+The Data aggregator is responsive and accessible for testing.
+Data discrepancies or inaccuracies may be simulated for certain negative test cases.
+Proper error handling for exceptions such as API errors and timeouts is implemented."	"Product-to-Product Integration Requirements:
+
+Data Aggregator Integration:
+
+The system must integrate with the Data Aggregator's service using a FinTech API.
+Establish secure authentication and authorization mechanisms to access the Data Aggregator's data.
+Data Mapping and Transformation:
+
+Define data mapping rules to ensure that data received from the Data Aggregator is correctly transformed and mapped to the system's data model.
+Handle potential data format differences and ensure data consistency.
+Error Handling and Logging:
+
+Implement error handling mechanisms to capture and log any errors or exceptions that occur during the integration process.
+Define protocols for notifying administrators or support teams in case of integration failures.
+Data Validation:
+
+Establish data validation checks to ensure that the data received from the Data Aggregator is accurate and meets the defined criteria.
+Implement mechanisms to handle invalid or inconsistent data.
+Performance and Scalability:
+
+Conduct load testing to ensure that the integration can handle a significant number of concurrent requests from the Data Aggregator without performance degradation.
+Ensure that the integration is scalable to accommodate future increases in data volume.
+End-to-End Integration Requirements:
+
+User Interface (UI) Integration:
+
+Ensure that the UI elements for entering Driver's License No. and Expiry Date are correctly implemented and integrated with the backend system.
+Verify that the fetched data from the Data Aggregator is correctly displayed on the UI.
+Database Integration:
+
+Validate that the fetched guarantor details are correctly stored in the database.
+Verify that the database schema aligns with the data structure received from the Data Aggregator.
+Manual KYC Workflow:
+
+Test the end-to-end manual KYC workflow to ensure that it functions as intended.
+Confirm that the system moves to the Quality Data Entry (QDE) phase when the data is accurate, and it re-routes to selecting POI/POA type when there is no response from the Data Aggregator.
+OSV Document Checkbox:
+
+Verify that the OSV (Other Supporting Verification) document checkbox functions correctly within the user interface.
+Confirm that selecting or deselecting this checkbox appropriately affects the KYC workflow."		TC01	Successfully fetch customer data from aggregator	Valid Driver's License No. and Expiry Date	Display customer data; Business executive can proceed	Positive			
+							TC02	Store data in the Database	Valid customer data	Data is stored successfully in the Database	Positive			
+							TC03	Verify OSV checkbox functionality	Checkbox selected	OSV documents checkbox is selected	Positive			
+							TC04	Handle no response from Data Aggregator	Valid Driver's License No. and Expiry Date	Redirect to POI/POA selection screen	Positive			
+							TC05	Display accurate customer data	Valid customer data	Displayed data matches data from Data Aggregator	Positive			
+							TC06	Handle inaccurate data display	Data with discrepancies	Displayed data highlights discrepancies	Negative			
+							TC07	Handle no data from Data Aggregator	Data Aggregator response: No data available	Displayed data fields remain empty	Exception			
+							TC08	Handle FinTech API error	FinTech API returns an error response	Proper error message is displayed	Exception			
+							TC09	Verify Business executive's ability to proceed	Valid customer data	Business executive can proceed to QDE	Positive			
+							TC10	Verify correct re-routing to POI/POA selection	No response from Data Aggregator	Redirect to POI/POA selection screen	Positive			
+							TC11	Handle inaccuracies in customer data	Data with inaccuracies	Displayed data highlights inaccuracies	Negative			
+							TC12	Handle empty response from Data Aggregator	Data Aggregator response: Empty response	Displayed data fields remain empty	Exception			
+							TC13	Handle FinTech API connection timeout	FinTech API connection times out	Proper connection timeout error message is displayed	Exception			

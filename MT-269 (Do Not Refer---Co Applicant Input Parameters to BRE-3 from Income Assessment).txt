@@ -1,0 +1,29 @@
+Test Step ID	Test Steps 	Test DATA	Expected Output	Detailed Test Category	Actual Result	Pass/Failed	Defect-ID (JIRA)	Comments
+								
+TC-01	Verify BRE system receives salary receipts for Salaried (Cash Salary) applicants	Salary receipts	BRE processes salary receipts for scheme recommendation	Positive				
+TC-02	Verify BRE system receives salary slips for Salaried (Cash Salary) applicants when receipts are not available	Salary slips	BRE processes salary slips for scheme recommendation	Positive				
+TC-03	Verify BRE system receives physical P&L for Self Employed Prof applicants	Physical P&L statements	BRE processes physical P&L for scheme recommendation	Positive				
+TC-04	Verify BRE system receives receipts for Self Employed Non Prof + Business applicants	Business receipts	BRE processes receipts for scheme recommendation	Positive				
+TC-05	Verify BRE system receives land/agri docs for Self Employed Non Prof + Business applicants when receipts are not available	Land/agricultural documents	BRE processes land/agri docs for scheme recommendation	Positive				
+TC-06	Verify BRE system receives receipts for Self Employed - Agri applicants	Agricultural receipts	BRE processes receipts for scheme recommendation	Positive				
+TC-07	Verify BRE system receives land docs for Self Employed - Agri applicants when receipts are not available	Land documents	BRE processes land documents for scheme recommendation	Positive				
+TC-08	Verify BRE system receives receipts for Self-employed - DCO applicants	DCO receipts	BRE processes receipts for scheme recommendation	Positive				
+TC-09	Verify BRE system receives land docs for Self-employed - DCO applicants when receipts are not available	Land documents	BRE processes land documents for scheme recommendation	Positive				
+TC-10	Verify system triggers BRE-3 call with co-applicant details from income assessment	Co-applicant income assessment details	BRE-3 is executed with co-applicant details	Positive				
+TC-11	Verify BRE system handles additional fields over and above PV for all journeys & contract types	Additional fields in API Input/Output parameters	BRE processes additional fields correctly	Positive				
+Test Cases related to Validation								
+TC-12	Verify system pulls all required fields from Income Assessment	Complete Income Assessment data	All required fields are provided to BRE-3 request	Positive				
+TC-13	Verify system pulls data for Salaried (Cash Salary) applicants	Income Assessment data for Salaried applicant	Relevant fields for Salaried applicant are provided to BRE-3	Positive				
+TC-14	Verify system pulls data for Self Employed Prof applicants	Income Assessment data for Self Employed Prof	Relevant fields for Self Employed Prof are provided to BRE-3	Positive				
+TC-15	Verify system pulls data for Self Employed Non Prof + Business applicants	Income Assessment data for Self Employed Non Prof + Business	Relevant fields for Self Employed Non Prof + Business are provided to BRE-3	Positive				
+TC-16	Verify system pulls data for Self Employed - Agri applicants	Income Assessment data for Self Employed - Agri	Relevant fields for Self Employed - Agri are provided to BRE-3	Positive				
+TC-17	Verify system pulls data for Self-employed - DCO applicants	Income Assessment data for Self-employed - DCO	Relevant fields for Self-employed - DCO are provided to BRE-3	Positive				
+TC-18	Verify system sends BRE-3 request when additional fields are present	Income Assessment data with additional fields	BRE-3 request is sent with all fields, including additional ones	Positive				
+Scenario 1: Income Assessment stored at database to be triggered to BRE system(CRIF) to execute BRE-3								
+TC-19	Verify system triggers BRE-3 execution with stored Income Assessment data	Stored Income Assessment data in the database	BRE-3 execution is triggered with correct data	Positive 				
+TC-20	Verify system fetches co-applicant details from Income Assessment	Co-applicant Income Assessment data	Co-applicant details are included in BRE-3 feed	Positive 				
+TC-21	Verify BRE-3 execution with complete feed from Quick Data Entry 2	Complete Quick Data Entry 2 data	BRE-3 is executed with data from Quick Data Entry 2	Positive 				
+TC-22	Verify BRE-3 execution with complete feed from Bureau	Complete Bureau data	BRE-3 is executed with data from Bureau	Positive 				
+TC-23	Verify BRE-3 execution with complete feed from Scorecard	Complete Scorecard data	BRE-3 is executed with data from Scorecard	Positive 				
+TC-24	Verify data format consistency for BRE-3 feed	Income Assessment data in defined data format	BRE-3 feed adheres to defined data format	Positive 				
+TC-25	Verify system updates BRE-3 feed based on policy rationalization	Updated Income Assessment data post-policy update	BRE-3 feed reflects updated policy data	Positive 				

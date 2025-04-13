@@ -1,0 +1,360 @@
+Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Faile	"Defect-ID (JIRA)
+(if Fail)"
+Scope							
+Scenario 1.1: Verify Vertical and Contract Type Mapping							
+							
+Test Case ID	Test Step Description	Test Input	Expected Output	Test Category			
+TC1-001	"Select Vertical ""PV"" and Contract Type ""New"""	Vertical: PV, Contract Type: New	"System processes request based on ""PV"" Vertical and ""New"" Contract Type"	Positive		Pass	
+TC1-002	"Select Vertical ""FES"" and Contract Type ""New"""	Vertical: FES, Contract Type: New	"System processes request based on ""FES"" Vertical and ""New"" Contract Type"	Positive		Pass	
+TC1-003	"Select Vertical ""FES"" and Contract Type ""Internal BT/Refinance"""	Vertical: FES, Contract Type: Internal BT/Refinance	"System processes request based on ""FES"" Vertical and ""Internal BT/Refinance"" Contract Type"	Positive			
+TC1-004	"Select Vertical ""FES"" and Contract Type ""Sale Purchase"""	Vertical: FES, Contract Type: Sale Purchase	"System processes request based on ""FES"" Vertical and ""Sale Purchase"" Contract Type"	Positive			
+TC1-005	"Select Vertical ""FES"" and Contract Type ""External Refinance"""	Vertical: FES, Contract Type: External Refinance	"System processes request based on ""FES"" Vertical and ""External Refinance"" Contract Type"	Positive			
+TC1-006	"Select Vertical ""SOT"" and Contract Type ""New"""	Vertical: SOT, Contract Type: New	"System processes request based on ""SOT"" Vertical and ""New"" Contract Type"	Positive			
+TC1-007	"Select Vertical ""POCL"" and Contract Type ""Internal BT/Refinance"""	Vertical: POCL, Contract Type: Internal BT/Refinance	"System processes request based on ""POCL"" Vertical and ""Internal BT/Refinance"" Contract Type"	Positive			
+TC1-008	"Select Vertical ""POCL"" and Contract Type ""Sale Purchase"""	Vertical: POCL, Contract Type: Sale Purchase	"System processes request based on ""POCL"" Vertical and ""Sale Purchase"" Contract Type"	Positive			
+TC1-009	"Select Vertical ""POCL"" and Contract Type ""External Refinance"""	Vertical: POCL, Contract Type: External Refinance	"System processes request based on ""POCL"" Vertical and ""External Refinance"" Contract Type"	Positive			
+TC1-010	"Select Vertical ""SOT"" or ""PV"" "	Vertical: PV or SOT 	Ensure that System does not display the unallowed contract types such as 'Internal BT/Refinance, sale purchase, External Refinanace'	Positive			
+Test Case 2: Verify Persona Applicability							
+							
+Scenario 2.1: Verify User Story for Different Personas							
+							
+Test Case ID	Test Step Description	Test Input	Expected Output	Test Category			
+TC2-011	Verify user story applicability for applicant	Persona: Applicant	System processes request based on applicant persona	Positive			
+TC2-012	Verify user story applicability for co-applicant	Persona: Co-applicant	System processes request based on co-applicant persona	Positive			
+TC2-013	Verify user story applicability for multiple co-applicants	Persona: Multiple Co-applicants	System processes request for all co-applicants	Positive			
+TC2-014	Verify user story applicability for guarantor	Persona: Guarantor	System processes request based on guarantor persona	Positive			
+TC2-015	Verify user story applicability for multiple guarantors	Persona: Multiple Guarantors	System processes request for all guarantors	Positive			
+TC2-016	Verify user story for invalid persona	Persona: Duplicate or Existing person details as persona	System does not process request due to duplicate/exisitng details of person in persona	Negative			
+Navigation							
+TC2-017	Verification of Navigation of Basic customer profile accordion	Application Details > Sanction > Basic Customer Profile	Ensure that Accrodion should be opened and displayed with all the details	Positive			
+Test Case 3: Display Fields for Basic Customer Profile Details							
+							
+Scenario 3.1: Verify Display of Additional Fields Based on Vertical and Customer Segment							
+							
+Test Case ID	Test Step Description	Test Input	Expected Output	Test Category			
+TC2-018	"Select Vertical ""PV"" and verify additional fields display"	Vertical: PV; customer segment:Salaried	"Additional fields for customer profile details are displayed as follows in Basic customer profile section:
+Customer Segment ,
+Sub-segment, 
+Mahindra Employee Radio button
+ Income Proof Availability, 
+Total Employment
+Name of organisation
+Dclared Annual Gross income
+Declared Annual Gross Obligations
+"	Positive			
+TC2-019	"Select Vertical ""PV"" and verify additional fields display"	Vertical: PV, Customer Segment: salaried( Corporate /private employee)	"Additional fields for customer profile details are displayed as follows in Basic customer profile section:
+Customer Segment ,
+Sub-segment, 
+Mahindra Employee Radio button
+EMployee ID(If mahindra employee-- yes)
+ Income Proof Availability, 
+Total Employment
+Dclared Annual Gross income
+Declared Annual Gross Obligations
+"	Positive			
+TC2-020	"Select Vertical ""PV"" and verify additional fields display"	Vertical: PV, Customer Segment: salaried Corporate /private employee)	"Additional fields for customer profile details are displayed as follows in Basic customer profile section:
+Customer Segment ,
+Sub-segment, 
+Mahindra Employee Radio button
+ Income Proof Availability, 
+Total Employment
+Name of Organisation
+Dclared Annual Gross income
+Declared Annual Gross Obligations
+"	Positive			
+TC2-021	"Select Vertical ""PV"" and verify additional fields display"	Vertical: PV, Customer Segment: other than salaried(Self employe Business - Trader)	"Additional fields for customer profile details are displayed as follows in Basic customer profile section:
+Customer Segment ,
+Sub-segment, 
+Work/Business stability
+ Income Proof Availability, 
+Name of Organisation
+Dclared Annual Gross income
+Declared Annual Gross Obligations
+"	Positive			
+TC2-022	"Select Vertical ""PV"" and verify additional fields display"	Vertical: PV, Customer Segment: other than salaried(Self employe Professional - Engineer)	"Additional fields for customer profile details are displayed as follows in Basic customer profile section:
+Customer Segment ,
+Sub-segment, 
+Work/Business stability
+ Income Proof Availability, 
+Name of Organisation
+Dclared Annual Gross income
+Declared Annual Gross Obligations
+"	Negative			
+TC2-023	"Select Vertical ""PV"" and verify additional fields display"	Vertical: PV, Customer Segment: other than salaried(Agriculture)	"Additional fields for customer profile details are displayed as follows in Basic customer profile section:
+Customer Segment ,
+Sub-segment, 
+Work/Business stability
+ Income Proof Availability, 
+Dclared Annual Gross income
+Declared Annual Gross Obligations
+"	Negative			
+TC2-024	"Select Vertical ""PV"" and verify additional fields display"	Vertical: PV, Customer Segment: other than salaried(Captive - Earn&Pay)	"Additional fields for customer profile details are displayed as follows in Basic customer profile section:
+Customer Segment ,
+Sub-segment, 
+Work/Business stability
+ Income Proof Availability, 
+Dclared Annual Gross income
+Declared Annual Gross Obligations
+"				
+TC2-025	"Select Vertical ""PV"" and verify additional fields display"	Vertical: PV; customer segment:Salaried	"Additional fields for customer profile details are displayed as follows in Basic customer profile section:
+Customer Segment ,
+Sub-segment, 
+Mahindra Employee Radio button
+ Income Proof Availability, 
+Total Employment
+Stability Proof
+Name of organisation
+Dclared Annual Gross income
+Declared Annual Gross Obligations
+"	Positive			
+TC2-026	"Select Vertical ""SOT"" and verify additional fields display"	Vertical: SOT, Customer Segment: salaried( Corporate /private employee)	"Additional fields for customer profile details are displayed as follows in Basic customer profile section:
+Customer Segment ,
+Sub-segment, 
+Mahindra Employee Radio button
+EMployee ID(If mahindra employee-- yes)
+ Income Proof Availability, 
+Total Employment
+Stability proof
+Dclared Annual Gross income
+Declared Annual Gross Obligations
+"	Positive			
+TC2-027	"Select Vertical ""SOT"" and verify additional fields display"	Vertical: SOT, Customer Segment: salaried Corporate /private employee)	"Additional fields for customer profile details are displayed as follows in Basic customer profile section:
+Customer Segment ,
+Sub-segment, 
+Mahindra Employee Radio button
+ Income Proof Availability, 
+Total Employment
+Stability Proof
+Name of Organisation
+Dclared Annual Gross income
+Declared Annual Gross Obligations
+"	Positive			
+TC2-028	"Select Vertical ""SOT"" and verify additional fields display"	Vertical: SOT, Customer Segment: other than salaried(Self employe Business - Trader)	"Additional fields for customer profile details are displayed as follows in Basic customer profile section:
+Customer Segment ,
+Sub-segment, 
+Work/Business stability
+Stability proof
+ Income Proof Availability, 
+Name of Organisation
+Dclared Annual Gross income
+Declared Annual Gross Obligations
+"	Positive			
+TC2-029	"Select Vertical ""SOT"" and verify additional fields display"	Vertical: SOT, Customer Segment: other than salaried(Self employe Professional - Engineer)	"Additional fields for customer profile details are displayed as follows in Basic customer profile section:
+Customer Segment ,
+Sub-segment, 
+Work/Business stability
+stability proof
+ Income Proof Availability, 
+Name of Organisation
+Dclared Annual Gross income
+Declared Annual Gross Obligations
+"	Positive			
+TC2-030	"Select Vertical ""SOT"" and verify additional fields display"	Vertical: SOT, Customer Segment: other than salaried(Agriculture)	"Additional fields for customer profile details are displayed as follows in Basic customer profile section:
+Customer Segment ,
+Sub-segment, 
+Work/Business stability
+ Income Proof Availability, 
+Dclared Annual Gross income
+Declared Annual Gross Obligations
+"	Positive			
+TC2-031	"Select Vertical ""SOT"" and verify additional fields display"	Vertical: SOT, Customer Segment: other than salaried(Captive - Earn&Pay)	"Additional fields for customer profile details are displayed as follows in Basic customer profile section:
+Customer Segment ,
+Sub-segment, 
+Work/Business stability
+ Income Proof Availability, 
+Dclared Annual Gross income
+Declared Annual Gross Obligations
+"	Positive			
+TC2-032	"Select Vertical ""FES"" and verify additional fields display"	Vertical: FES; customer segment:Salaried	"Additional fields for customer profile details are displayed as follows in Basic customer profile section:
+Customer Segment ,
+Sub-segment, 
+Mahindra Employee Radio button
+ Income Proof Availability, 
+Total Employment
+Name of organisation
+Dclared Annual Gross income
+Declared Annual Gross Obligations
+"	Positive			
+TC2-033	"Select Vertical ""FES"" and verify additional fields display"	Vertical: FES, Customer Segment: salaried( Corporate /private employee)	"Additional fields for customer profile details are displayed as follows in Basic customer profile section:
+Customer Segment ,
+Sub-segment, 
+Mahindra Employee Radio button
+EMployee ID(If mahindra employee-- yes)
+ Income Proof Availability, 
+Total Employment
+Dclared Annual Gross income
+Declared Annual Gross Obligations
+"	Positive			
+TC2-034	"Select Vertical ""FES"" and verify additional fields display"	Vertical: FES, Customer Segment: salaried Corporate /private employee)	"Additional fields for customer profile details are displayed as follows in Basic customer profile section:
+Customer Segment ,
+Sub-segment, 
+Mahindra Employee Radio button
+ Income Proof Availability, 
+Total Employment
+Name of Organisation
+Dclared Annual Gross income
+Declared Annual Gross Obligations
+"	Positive			
+TC2-035	"Select Vertical ""FES"" and verify additional fields display"	Vertical: FES, Customer Segment: other than salaried(Self employe Business - Trader)	"Additional fields for customer profile details are displayed as follows in Basic customer profile section:
+Customer Segment ,
+Sub-segment, 
+Work/Business stability
+ Income Proof Availability, 
+Name of Organisation
+Dclared Annual Gross income
+Declared Annual Gross Obligations
+"	Positive			
+TC2-036	"Select Vertical ""FES"" and verify additional fields display"	Vertical: FES, Customer Segment: other than salaried(Self employe Professional - Engineer)	"Additional fields for customer profile details are displayed as follows in Basic customer profile section:
+Customer Segment ,
+Sub-segment, 
+Work/Business stability
+ Income Proof Availability, 
+Name of Organisation
+Dclared Annual Gross income
+Declared Annual Gross Obligations
+"	Positive			
+TC2-037	"Select Vertical ""FES"" and verify additional fields display"	Vertical: FES, Customer Segment: other than salaried(Agriculture)	"Additional fields for customer profile details are displayed as follows in Basic customer profile section:
+Customer Segment ,
+Sub-segment, 
+Work/Business stability
+ Income Proof Availability, 
+Dclared Annual Gross income
+Declared Annual Gross Obligations
+"	Positive			
+TC2-038	"Select Vertical ""FES"" and verify additional fields display"	Vertical: FES, Customer Segment: other than salaried(Captive - Earn&Pay)	"Additional fields for customer profile details are displayed as follows in Basic customer profile section:
+Customer Segment ,
+Sub-segment, 
+Work/Business stability
+ Income Proof Availability, 
+Dclared Annual Gross income
+Declared Annual Gross Obligations
+"				
+TC2-039	"Select Vertical ""POCL"" and verify additional fields display"	Vertical: POCL, Customer Segment: salaried( Corporate /private employee)	"Additional fields for customer profile details are displayed as follows in Basic customer profile section:
+Customer Segment ,
+Sub-segment, 
+Mahindra Employee Radio button
+Months in current employment/business
+EMployee ID(If mahindra employee-- yes)
+ Income Proof Availability, 
+Total Employment
+Stability proof
+Dclared Annual Gross income
+Declared Annual Gross Obligations
+"	Positive			
+TC2-040	"Select Vertical ""POCL"" and verify additional fields display"	Vertical: POCL, Customer Segment: salaried Corporate /private employee)	"Additional fields for customer profile details are displayed as follows in Basic customer profile section:
+Customer Segment ,
+Sub-segment, 
+Mahindra Employee Radio button
+Months in current employment/business
+ Income Proof Availability, 
+Total Employment
+Stability Proof
+Name of Organisation
+Dclared Annual Gross income
+Declared Annual Gross Obligations
+"	Positive			
+TC2-041	"Select Vertical ""POCL"" and verify additional fields display"	Vertical: POCL, Customer Segment: other than salaried(Self employe Business - Trader)	"Additional fields for customer profile details are displayed as follows in Basic customer profile section:
+Customer Segment ,
+Sub-segment, 
+Work/Business stability
+Months in current employment/business
+Ownership in business proofs
+Stability proof
+ Income Proof Availability, 
+Name of Organisation
+Dclared Annual Gross income
+Declared Annual Gross Obligations
+"	Positive			
+TC2-042	"Select Vertical ""POCL"" and verify additional fields display"	Vertical: POCL, Customer Segment: other than salaried(Self employe Professional - Engineer)	"Additional fields for customer profile details are displayed as follows in Basic customer profile section:
+Customer Segment ,
+Sub-segment, 
+Months in current employment/business
+Ownership in business proofs
+Work/Business stability
+stability proof
+ Income Proof Availability, 
+Name of Organisation
+Dclared Annual Gross income
+Declared Annual Gross Obligations
+"	Positive			
+TC2-043	"Select Vertical ""POCL"" and verify additional fields display"	Vertical: POCL, Customer Segment: other than salaried(Agriculture)	"Additional fields for customer profile details are displayed as follows in Basic customer profile section:
+Customer Segment ,
+Sub-segment, 
+Work/Business stability
+ Income Proof Availability, 
+Dclared Annual Gross income
+Declared Annual Gross Obligations
+"	Positive			
+TC2-044	"Select Vertical ""POCL"" and verify additional fields display"	Vertical: POCL, Customer Segment: other than salaried(Captive - Earn&Pay)	"Additional fields for customer profile details are displayed as follows in Basic customer profile section:
+Customer Segment ,
+Sub-segment, 
+Work/Business stability
+ Income Proof Availability, 
+Dclared Annual Gross income
+Declared Annual Gross Obligations
+"	Positive			
+Acceptance Criteria							
+Test Case 1: Display Fields in Basic Customer Profile Sub-Accordion							
+							
+Scenario 1.1: Verify Field Display Based on Vertical and Customer Segment							
+							
+Test Case ID	Test Step Description	Test Input	Expected Output	Test Category			
+TC2-045	Click on Basic Customer Profile sub-accordion	Click on Basic Customer Profile sub-accordion	System displays fields based on the application's Vertical and Customer Segment combination	Positive			
+TC2-046	Verify field display for unsupported Vertical or Customer Segment	Unsupported Vertical or Customer Segment	System does not display fields or shows incorrect fields	Negative			
+							
+Test Case 2: Enter and Validate Information in Fields							
+							
+Scenario 2.1: Enter Information and Validate Based on Field List							
+							
+Test Case ID	Test Step Description	Test Input	Expected Output	Test Category			
+TC2-047	Enter valid information in all fields	Enter valid data according to field list	System validates and accepts the information	Positive			
+TC2-048	Enter invalid information in a field	Enter invalid data according to field list	System displays validation error message	Negative			
+TC2-049	Leave mandatory field empty	Leave a mandatory field empty	System prompts for mandatory field completion	Negative			
+							
+Test Case 3: Verify Field-Level Logic and Validation Rules							
+							
+Scenario 3.1: Verify Field Logic and Validation as per Basic Customer Profile Worksheet							
+							
+Test Case ID	Test Step Description	Test Input	Expected Output	Test Category			
+TC2-050	Verify applicability of fields for each Vertical	Vertical-specific fields	Fields are displayed as per applicability	Positive			
+TC2-051	Verify field validation based on ‘Basic Customer Profile’ worksheet	Enter data and validate against worksheet	System validates data based on worksheet logic	Positive			
+TC2-052	Verify incorrect application of field-level logic	Enter data against incorrect logic	System fails to validate correctly	Negative			
+							
+Test Case 4: Verify Vertical-Specific Field Applicability							
+							
+Scenario 4.1: Verify Field Display for Applicable Verticals							
+							
+Test Case ID	Test Step Description	Test Input	Expected Output	Test Category			
+TC4-053	Verify field applicability for Vertical 1	Vertical: Vertical 1	Fields are displayed as applicable for Vertical 1	Positive			
+TC4-054	Verify field applicability for Vertical 2	Vertical: Vertical 2	Fields are displayed as applicable for Vertical 2	Positive			
+TC4-055	Verify field display for non-applicable Vertical	Vertical: Unsupported/Invalid	Fields are not displayed or shown incorrectly	Negative			
+							
+Test Case 5: Verify Customer Segment-Specific Field Applicability							
+							
+Scenario 5.1: Verify Field Display for Applicable Customer Segments							
+							
+Test Case ID	Test Step Description	Test Input	Expected Output	Test Category			
+TC5-056	Verify field applicability for Customer Segment 1	Customer Segment: Segment 1	Fields are displayed as applicable for Customer Segment 1	Positive			
+TC5-057	Verify field applicability for Customer Segment 2	Customer Segment: Segment 2	Fields are displayed as applicable for Customer Segment 2	Positive			
+TC5-058	Verify field display for non-applicable Customer Segment	Customer Segment: Unsupported/Invalid	Fields are not displayed or shown incorrectly	Negative			
+							
+Test Case 6: Verify Field Values Based on Customer Classification							
+							
+Scenario 6.1: Verify Field Values Populated from Customer Classification Worksheet							
+							
+Test Case ID	Test Step Description	Test Input	Expected Output	Test Category			
+TC5-059	Verify ‘Type of Organisation’ value based on Vertical & Segment	Select Vertical and Customer Segment	Correct ‘Type of Organisation’ value is populated	Positive			
+TC5-060	Verify ‘Sector’ value based on Vertical & Segment	Select Vertical and Customer Segment	Correct ‘Sector’ value is populated	Positive			
+TC5-061	Verify ‘Designation’ value based on Vertical & Segment	Select Vertical and Customer Segment	Correct ‘Designation’ value is populated	Positive			
+TC5-062	Verify ‘Employment Type’ value based on Vertical & Segment	Select Vertical and Customer Segment	Correct ‘Employment Type’ value is populated	Positive			
+TC5-063	Verify incorrect value population for any field	Select Vertical and Customer Segment	Incorrect field value is populated	Negative			
+							
+Test Case 7: Verify Delta and Delta Remarks Logic							
+							
+Scenario 7.1: Verify Changes in Fields Marked as Delta							
+							
+Test Case ID	Test Step Description	Test Input	Expected Output	Test Category			
+TC5-064	Verify new fields added in Delta	View Delta-marked fields	New fields are displayed as per Delta	Positive			
+TC5-065	Verify changes in field logic for Delta-marked fields	Enter data in Delta fields	System applies updated logic for Delta fields	Positive			
+TC5-066	Verify removal of Delta-marked fields	View fields after Delta update	Delta-marked fields are correctly removed or repositioned	Positive			
+TC5-067	Verify incorrect handling of Delta logic	View or enter data in Delta fields	System fails to apply Delta logic correctly	Negative			

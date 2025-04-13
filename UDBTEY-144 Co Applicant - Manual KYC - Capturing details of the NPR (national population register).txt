@@ -1,0 +1,45 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P/E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Faile	"Defect-ID (JIRA)
+(if Fail)"
+UDBTEY-144	As a Business executive I should be able to capture Co Applicant's NPR (national population register) during manual KYC procedure, so that Manual KYC can be conducted	Low	Ready for review	"The user story revolves around enabling Business executives to capture the Co Applicant's NPR (national population register) data as part of the manual KYC (Know Your Customer) process. The story also includes the need to store customer's Proof of Address (POA) documents and incorporate a checkbox for confirming On-site Verification (OSV). To ensure data accuracy, there should be proper validation for NPR. Additionally, the user story specifies integration with a Document Management System (DMS).
+
+Pre-conditions for Testing:
+
+1. Properly configured system with fields for NPR capture, POA document storage, and OSV checkbox.
+2. Valid and accurate NPR data to input during testing.
+3. A functional integration with the Document Management System (DMS) for storing documents.
+4. Knowledge of the expected behavior after capturing NPR and checking the OSV checkbox as per the acceptance criteria."	"Product-to-Product Integration Requirements:
+
+1. Document Management System (DMS) Integration:
+   - The manual KYC system must seamlessly integrate with the Document Management System (DMS) to enable the storage and retrieval of POA (Proof of Address) documents.
+   - Verify that the DMS can receive documents captured during the manual KYC process.
+   - Ensure that the DMS can return document references or links for retrieval when needed.
+
+2. CKYC System Integration:
+   - If the CKYC system is a separate component, ensure it is integrated with the manual KYC system to identify CKYC failures and trigger the scenario mentioned in the User Story.
+   - Validate that CKYC failure information is properly communicated to the manual KYC system.
+
+End-to-End Integration Requirements:
+
+1. Data Flow from NPR Capture to QDE and Dedupe Stages:
+   - Confirm that data captured during the NPR (national population register) process is correctly passed to the Quality Data Entry (QDE) stage and Dedupe (Duplicate Check) stage.
+   - Ensure that relevant NPR data is available for deduplication checks.
+
+2. OSV Confirmation Integration:
+   - Verify that when the Business executive ticks the OSV checkbox, it triggers the required actions or notifications in the system.
+   - Check if OSV confirmation is a prerequisite for progressing to the QDE and Dedupe stages.
+
+3. POA Document Handling:
+   - Ensure that captured POA documents are securely transmitted to the Document Management System (DMS) for storage.
+   - Validate that the system can retrieve and associate stored documents with the Co Applicant's record for reference.
+
+4. Validation of NPR Data:
+   - Verify that the system performs accurate field validation for NPR data, including format, completeness, and correctness.
+   - Confirm that validation failures are handled appropriately, providing clear feedback to the Business executive."	TC-001	Capture NPR	Valid NPR data	NPR data captured successfully	Positive			
+						TC-002	Tick OSV Checkbox	Checkbox checked	OSV checkbox marked as checked	Positive			
+						TC-003	Continue with KYC (No CKYC Failure)	No CKYC Failure	KYC process continues	Positive			
+						TC-004	Validation for NPR - Valid Data	Valid NPR data	Validation passed, continue with KYC	Positive			
+						TC-005	Validation for NPR - Invalid Data	Invalid NPR data	Validation failed, error message displayed	Negative			
+						TC-006	CKYC System Integration - CKYC Failure Notification	CKYC Failure Notification	Notification received, CKYC Failure scenario triggered	Positive			
+						TC-007	Error Handling - CKYC System Integration Failure	CKYC system integration fails	Error message displayed, retry mechanism initiated	Exception			
+						TC-008	Move to QDE and Dedupe Stage	CKYC Failure, NPR capture, and OSV confirmation successful	Transition to QDE and Dedupe stage initiated	Positive			
+						TC-009	Handle Exception - CKYC Failure with Invalid Data	CKYC Failure, Invalid NPR data corrected, OSV confirmation	Transition to QDE and Dedupe stage initiated	Positive			

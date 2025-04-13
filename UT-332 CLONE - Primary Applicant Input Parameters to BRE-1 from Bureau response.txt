@@ -1,0 +1,60 @@
+Story #	Story Description	Scope	Integrations	Validations	Acceptance Criteria	Test Step ID	Test Step Description	Test Input	Expected Output	Test Category	Actual Result	Pass/Failed	"Defect-ID (JIRA)
+(if Fail)"	"Automation
+(Status)"	MMFSL Remarks
+UT-332	"As a user(System), results from Bureau needs to be taken as an input parameters for BRE-1 so that BRE can consume the feed for scheme approvals
+Note: This is a system driven Step"	"1. BRE system(CRIF) should consume following feed from FOS for executing BRE-1:
+a. Bureau Name
+b. Customer Name
+c. Bureau Score
+d. No. of Tradelines
+e. Current Overdue Amount
+f. No. of Overdue Accounts 
+g. New delinquent accounts in last 6 months.
+h. Write off amount
+I. Current max DPD
+j. Overall Max DPD
+k. No. Of DPD
+l. No. Of Write Off
+m. No. Of Settle Off
+n. LSS/SMA Accounts
+o. Past Enquiries made
+p. Response from Bureau
+q. Thick Response.
+r. Thin Response
+**Response from bureau to be pushed in BRE must be defined based on the field list
+2. Refer field list for input/output parameters
+Detailed Bureau report must be available at backend and must be available to download the report post BRE-1 response"	Integration of BRE system(CRIF) with FOS	1) System should pull the input parameters from Bureau response and provide a feed to the BRE-1 request	"Scenario1: Bureau Results/Report stored at database to be triggered to BRE system(CRIF) to execute BRE-1
+FOS to fetch required details of customer from Bureau Response and can be fed as input to BRE system(CRIF) in defined data Performa so that BRE-1 can be executed (provided feed from Quick Data Entry, Scorecard is available to trigger BRE-1 call)"	Scope: BRE system(CRIF) should consume following feed from FOS for									
+						TC_001	Verify BRE system processes valid Bureau Name and Customer Name	Valid Bureau Name, Customer Name	Bureau and Customer Names processed successfully	Positive					
+						TC_002	Reject incomplete/invalid Bureau Name and Customer Name	Invalid/Empty Bureau Name, Customer Name	Error messages for invalid input fields	Negative					
+						TC_003	Accept valid Bureau Score, Tradelines, Overdue Amount and Accounts	Valid Bureau Score, Tradelines, Overdue Amount, Overdue Accounts	All credit-related inputs accepted	Positive					
+						TC_004	Reject invalid Bureau Score, Tradelines, Overdue Amount and Accounts	Invalid inputs or formats for above fields	Error messages for invalid formats or data	Negative					
+						TC_005	Verify accurate processing of new delinquency data and Write off amount	Valid new delinquency count and Write off amount	Delinquency and Write off data processed successfully	Positive					
+						TC_006	Reject invalid new delinquency count and Write off amounts	Negative/Invalid delinquency count, Write off amounts	Error messages for invalid data entries	Negative					
+						TC_007	Validate handling of DPD-related inputs	Valid Current max DPD, Overall Max DPD, number of DPDs	DPD data accepted and correctly processed	Positive					
+						TC_008	Reject non-numeric and invalid DPD-related inputs	Invalid/negative values for DPD data	Error messages for invalid DPD-related input	Negative					
+						TC_009	Process valid data for Write Offs, Settle Offs, and LSS/SMA status	Valid number of Write Offs, Settle Offs, LSS/SMA status	Write Offs, Settle Offs, and LSS/SMA status processed	Positive					
+						TC_010	Reject invalid data for Write Offs, Settle Offs, and incorrect LSS/SMA status	Invalid inputs for number of Write Offs, Settle Offs, LSS/SMA status	Error messages for invalid data or statuses	Negative					
+						TC_011	Accept valid past enquiries count and structured Response from Bureau	Valid past enquiries count, structured Response from Bureau	Enquiries count and Bureau response processed	Positive					
+						TC_012	Reject invalid past enquiries count and malformed Bureau responses	Invalid past enquiries count, malformed Bureau responses	Error messages for invalid enquiries and responses	Negative					
+						TC_013	Confirm successful processing of Thick and Thin Responses	Valid Thick and Thin Response data	Thick and Thin Responses processed correctly	Positive					
+						TC_014	Reject incomplete or incorrect Thin and Thick Responses	Incomplete/Incorrect Thick and Thin Response data	Error messages for invalid Thick and Thin Responses	Negative					
+						TC_015	Validate overall BRE-1 execution with all valid inputs	All valid inputs as per the field list	BRE-1 executed successfully with expected outcomes	Positive					
+						TC_016	Validate BRE-1 error handling with some invalid inputs	Mixed valid and invalid inputs	BRE-1 execution with appropriate error handling	Negative					
+						TC_017	Test end-to-end data flow from FOS to BRE-1	Valid complete data set from FOS	Successful end-to-end data flow and BRE-1 execution	Positive					
+						TC_018	Verify backend detailed Bureau report availability and download functionality	Trigger to download Bureau report post BRE-1 response	Detailed Bureau report is generated and downloadable	Positive					
+						Validations: System should pull the input parameters									
+						TC_019	Verify system accurately pulls and provides all required fields from a Bureau response to BRE-1	Full and valid Bureau response data	All specified fields in the Bureau response are successfully pulled and fed into BRE-1 request	Positive					
+						TC_020	Validate system functionality and error handling with incomplete responses	Complete Bureau response and Bureau response with missing fields	Responses with all fields are processed and missing fields are flagged for each incomplete response	Negative					
+						Acceptance Criteria: Scenario1: Bureau Results/Report stored at database to be triggered to BRE system									
+						TC_021	Validate data retrieval from QDE.	Check if data is retrieved from QDE	Data successfully retrieved from QDE.	Positive					
+						TC_022	Check data formatting for BRE-1.	Check data formatting	Data correctly formatted for BRE-1.	Positive					
+						TC_023	Verify data push to BRE-1.	Check data push 	Data successfully pushed to BRE-1.	Positive					
+						TC_024	Ensure data validation on BRE-1.	Valid data from QDE	Data valid on BRE-1.	Positive					
+						TC_025	Execute BRE-1 for scheme approvals.	Valid data from QDE	Scheme approvals successful.	Positive					
+						TC_026	Handle BRE-1 approval failure.	Invalid data from QDE	Approval failure handled.	Negative					
+						TC_027	Handle invalid data on BRE-1.	Invalid data format for BRE-1	Invalid data on BRE-1 handled.	Negative					
+						TC_028	Handle data validation errors.	Invalid data due to validation rules	Data validation errors handled.	Negative					
+						TC_029	Evaluate BRE system's (CRIF) response time for executing BRE-1	Trigger BRE-1 with valid input from FOS	BRE-1 execution completed within acceptable response time	Positive					
+						TC_030	Confirm the completeness of Quick Data Entry and Scorecard feed	Quick Data Entry and Scorecard data	Data completeness verified before triggering BRE-1	Positive					
+						TC_031	Examine the error logging mechanism for failed BRE-1 executions	Failed BRE-1 execution due to data issues	Proper error logging and notification for troubleshooting	Negative					

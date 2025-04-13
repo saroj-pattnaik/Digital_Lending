@@ -1,0 +1,26 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P / E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Failed	"Defect-ID (JIRA)
+(if Fail)"
+UDBTEY-135	As a Business executive I should be able to capture Co-Applicant's Aadhaar during manual KYC procedure, so that Manual KYC can be conducted	High	Ready For Review	"This user story focuses on enabling Business executives to capture a Co-Applicant's Aadhaar card during manual KYC procedures, facilitating manual KYC when required. It also introduces a unique requirement to mask the first 8 digits of the Aadhaar Number for privacy and security.
+Pre-conditions to Test:
+
+The system must be operational and accessible to the Business executive.
+The Co-Applicant must be present, or their Aadhaar card information must be available.
+The Business executive should have the necessary access permissions to perform this action."	"Product-to-Product Integration Requirements:
+Document Storage Integration (DMS)
+
+End-to-End Integration Requirements
+1.Integration with Aadhaar Database
+2.Integration with KYC Workflow
+3.Integration with OSV Check 
+4.Integration with Quality Data Entry (QDE)
+5.Integration with Dedupe Process"	TC-01	Business executive selects Aadhaar as POI type.	Aadhaar card capture action	Checkbox for POI=POA auto-ticked	Positive			
+						TC-02	Business executive manually types the Aadhaar Number.	Aadhaar Number input	Aadhaar Number is saved	Positive			
+						TC-03	Business executive ticks the OSV checkbox.	OSV checkbox ticked	OSV checkbox is marked as ticked	Positive			
+						TC-04	System checks if it's the first time after CKYC failure.	Flag indicating first time (yes)	Proceeds to QDE and Dedupe stage	Positive			
+						TC-05	System checks if it's the first time after CKYC failure.	Flag indicating first time (no)	Other actions are performed as needed	Positive			
+						TC-06	Business executive selects Aadhaar as POI type.	Aadhaar card capture action	Checkbox for POI=POA auto-ticked	Positive			
+						TC-07	Business executive manually types the Aadhaar Number.	Aadhaar Number input	Aadhaar Number is saved	Positive			
+						TC-08	Business executive does not tick the OSV checkbox.	OSV checkbox not ticked	OSV checkbox remains unmarked	Negative			
+						TC-09	Business executive does not manually type Aadhaar Number.	No Aadhaar Number input	"Exception message: ""Aadhaar Number required"""	Exception			
+						TC-10	System checks if it's the first time after CKYC failure.	Flag indicating first time (yes)	Proceeds to QDE and Dedupe stage	Positive			
+						TC-11	System checks if it's the first time after CKYC failure.	Flag indicating first time (no)	Other actions are performed as needed	Positive			

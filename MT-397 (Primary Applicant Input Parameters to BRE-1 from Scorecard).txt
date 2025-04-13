@@ -1,0 +1,35 @@
+Test Step ID	Test Step Description	Test Input	Expected Output	Test Category	Actual Result	Pass/Failed	Defect-ID (JIRA)	Comments
+Test Cases related to Scope								
+TC001	Verify mapping of scorecard data for primary applicant (PV)	Scorecard API response for primary applicant (PV)	Scorecard data correctly mapped to corresponding BRE fields for PV	Positive				
+TC002	Verify mapping of scorecard data for co-applicant (PV)	Scorecard API response for co-applicant (PV)	Scorecard data correctly mapped to corresponding BRE fields for PV	Positive				
+TC003	Verify mapping of scorecard data for primary applicant (FES)	Scorecard API response for primary applicant (FES)	Scorecard data correctly mapped to corresponding BRE fields for FES	Positive				
+TC004	Verify mapping of scorecard data for co-applicant (FES)	Scorecard API response for co-applicant (FES)	Scorecard data correctly mapped to corresponding BRE fields for FES	Positive				
+TC005	Verify mapping of scorecard data for primary applicant (SOT)	Scorecard API response for primary applicant (SOT)	Scorecard data correctly mapped to corresponding BRE fields for SOT	Positive				
+TC006	Verify mapping of scorecard data for co-applicant (SOT)	Scorecard API response for co-applicant (SOT)	Scorecard data correctly mapped to corresponding BRE fields for SOT	Positive				
+TC007	Verify mapping of scorecard data for primary applicant (POCL)	Scorecard API response for primary applicant (POCL)	Scorecard data correctly mapped to corresponding BRE fields for POCL	Positive				
+TC008	Verify mapping of scorecard data for co-applicant (POCL)	Scorecard API response for co-applicant (POCL)	Scorecard data correctly mapped to corresponding BRE fields for POCL	Positive				
+TC009	Verify automated triggering of Scorecard API by FOS	Initiate process to trigger Scorecard API from FOS	Scorecard API is triggered automatically by FOS without manual intervention	Positive				
+TC010	Verify automated data transfer from Scorecard to FOS	Scorecard API response for repayer (applicant/co-applicant)	Scorecard data is automatically transferred to FOS	Positive				
+TC011	Verify automated data transfer from FOS to BRE	Scorecard data received by FOS	Scorecard data is automatically transferred from FOS to BRE	Positive				
+TC012	Verify mapping of additional scorecard elements (MT-69/MT-70) to BRE	Additional scorecard elements from API response (as per MT-69/MT-70)	Additional scorecard elements correctly mapped to corresponding fields in BRE	Positive				
+TC013	Verify logging of Scorecard API responses	Scorecard API response for repayer (applicant/co-applicant)	Scorecard API responses are logged correctly for auditing purposes	Positive				
+TC014	Verify logging of data transfer events to BRE	Data transfer events from FOS to BRE	Data transfer events are logged correctly for auditing purposes	Positive				
+TC015	Verify data integrity during transfer from Scorecard to BRE	Scorecard API response data	Data integrity is maintained during transfer from Scorecard to FOS and then to BRE	Positive				
+TC016	Verify successful mapping of scorecard data elements across all contract types	Scorecard API response data for PV, FES, SOT, POCL	Scorecard data elements are correctly mapped to BRE fields for all contract types	Positive				
+Test Cases related to Acceptance Criteria								
+TC017	Verify mapping of scorecard data for primary applicant (PV)	Scorecard API response for primary applicant (PV)	Scorecard data correctly mapped to corresponding BRE fields for PV	Positive				
+TC018	Verify mapping of scorecard data for co-applicant (PV)	Scorecard API response for co-applicant (PV)	Scorecard data correctly mapped to corresponding BRE fields for PV	Positive				
+TC019	Verify mapping of scorecard data for primary applicant (FES)	Scorecard API response for primary applicant (FES)	Scorecard data correctly mapped to corresponding BRE fields for FES	Positive				
+TC020	Verify mapping of scorecard data for co-applicant (FES)	Scorecard API response for co-applicant (FES)	Scorecard data correctly mapped to corresponding BRE fields for FES	Positive				
+TC021	Verify mapping of scorecard data for primary applicant (SOT)	Scorecard API response for primary applicant (SOT)	Scorecard data correctly mapped to corresponding BRE fields for SOT	Positive				
+TC022	Verify mapping of scorecard data for co-applicant (SOT)	Scorecard API response for co-applicant (SOT)	Scorecard data correctly mapped to corresponding BRE fields for SOT	Positive				
+TC023	Verify mapping of scorecard data for primary applicant (POCL)	Scorecard API response for primary applicant (POCL)	Scorecard data correctly mapped to corresponding BRE fields for POCL	Positive				
+TC024	Verify mapping of scorecard data for co-applicant (POCL)	Scorecard API response for co-applicant (POCL)	Scorecard data correctly mapped to corresponding BRE fields for POCL	Positive				
+TC025	Verify automated triggering of Scorecard API by FOS	Initiate process to trigger Scorecard API from FOS	Scorecard API is triggered automatically by FOS without manual intervention	Positive				
+TC026	Verify automated data transfer from Scorecard to FOS	Scorecard API response for repayer (applicant/co-applicant)	Scorecard data is automatically transferred to FOS	Positive				
+TC027	Verify automated data transfer from FOS to BRE	Scorecard data received by FOS	Scorecard data is automatically transferred from FOS to BRE	Positive				
+TC028	Verify mapping of additional scorecard elements (MT-69/MT-70) to BRE	Additional scorecard elements from API response (as per MT-69/MT-70)	Additional scorecard elements correctly mapped to corresponding fields in BRE	Positive				
+TC029	Verify logging of Scorecard API responses	Scorecard API response for repayer (applicant/co-applicant)	Scorecard API responses are logged correctly for auditing purposes	Positive				
+TC030	Verify logging of data transfer events to BRE	Data transfer events from FOS to BRE	Data transfer events are logged correctly for auditing purposes	Positive				
+TC031	Verify data integrity during transfer from Scorecard to BRE	Scorecard API response data	Data integrity is maintained during transfer from Scorecard to FOS and then to BRE	Positive				
+TC032	Verify successful mapping of scorecard data elements across all contract types	Scorecard API response data for PV, FES, SOT, POCL	Scorecard data elements are correctly mapped to BRE fields for all contract types	Positive				

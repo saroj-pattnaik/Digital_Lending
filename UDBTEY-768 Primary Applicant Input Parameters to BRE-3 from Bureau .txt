@@ -1,0 +1,26 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P / E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Fail	"Defect-ID (JIRA)
+(if Fail)"	"Automation
+(Status)"
+UDBTEY-769	Primary Applicant Input Parameters to BRE-3 from Scorecard	High	Ready for review	"The integration of the BRE system with Scorecard is necessary to facilitate data exchange. The system must validate and fetch the Scorecard response, then feed it as input to the BRE system for execution. The acceptance criteria include triggering Scorecard, fetching the Scorecard response, and successfully executing BRE-3 with the input parameters. Testing pre-conditions include the availability and integration of the BRE system with Scorecard.
+
+Testing Pre-conditions:
+
+The BRE system (CRIF) should be integrated with the Scorecard system.
+The Scorecard response should be available and accessible for the system to fetch and use as input parameters for BRE-3."	"Product-to-Product Integration Requirements:
+
+The BRE system (CRIF) should trigger the Scorecard system to generate a response.
+The Scorecard system should provide the response to the BRE system in the defined data format.
+The integration between the BRE system and the Scorecard system should enable seamless communication and data exchange.
+End-to-End Integration Requirements:
+
+The BRE system (CRIF) should initiate the process of triggering the Scorecard system.
+The Scorecard system should generate the response based on the input parameters.
+The response from the Scorecard system should be fetched and provided as input parameters to the BRE-3 request.
+The BRE-3 request should be executed using the input parameters from the Scorecard response.
+The result/output from the BRE-3 execution should be validated and verified.
+The end result should be the successful consumption of the Scorecard response by the BRE system for scheme approvals.
+Please note that these integration requirements are based on the given user story analysis and can be further expanded or customized based on the specific system capabilities and implementation details."	TC001	Trigger Scorecard from BRE system (CRIF)	Request to trigger Scorecard from BRE system (CRIF)	Scorecard is successfully triggered	Positive Test Cases				
+						TC002	Handle error when Scorecard response is not available	Scorecard response not available	Error is displayed indicating that the Scorecard response is not available	Negative Test Cases				
+						TC003	Handle error when feeding Scorecard response as input parameters for BRE system (CRIF)	Scorecard response as input parameters for BRE system (CRIF)	Error is displayed indicating that the feeding of Scorecard response as input parameters failed	Negative Test Cases				
+						TC004	Execute BRE-3 with the input parameters from Scorecard response	Input parameters from Scorecard response	BRE-3 is executed successfully with the provided input parameters	Positive Test Cases				
+						TC005	Validate and verify the output/result of BRE-3 execution	Output/Result from BRE-3 execution	The output/result of BRE-3 execution is validated and found to be as expected	Positive Test				

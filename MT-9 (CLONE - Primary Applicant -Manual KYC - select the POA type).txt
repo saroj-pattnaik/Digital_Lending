@@ -1,0 +1,14 @@
+Test Step ID	Test Steps 	Test DATA	Expected Output	Detailed Test Category	Actual Result	Pass/Failed	Defect-ID (JIRA)	Comments
+Scope								
+TC-01	Verify POA type dropdown exists in FE App	Navigate to KYC screen	Dropdown for POA types is visible	Positive				
+TC-02	Select each POA type from dropdown	Choose Aadhaar, DL, Passport, Voter ID, NREGA, NPR	Each POA type is selectable	Positive				
+Validation Requirements								
+TC-03	Validate POA types match the list from the field list excel	Check dropdown options	Dropdown includes Aadhaar, DL, Passport, Voter ID, NREGA, NPR	Positive				
+Scenario 1: Business executive selects the POA type, and the details were captured previously								
+TC-04	Select POA type (e.g., Aadhaar)	Choose Aadhaar from dropdown	Aadhaar details auto-populated from LOS	Positive				
+TC-05	Verify auto-populated details	Check displayed details	Previously captured details are accurate	Positive				
+Scenario 2: Business executive selects the POA type, but the details weren't captured previously								
+TC-06	Select POA type (e.g., Passport)	Choose Passport from dropdown	Input fields for Passport details are available	Positive				
+TC-07	Manually enter POA details	Enter Passport details	Details are entered correctly	Positive				
+TC-08	Select invalid POA type	"Choose ""ID Card"""	"Dropdown does not include ""ID Card"""	Negative				
+TC-09	Verify missing POA types	Check for missing options	All expected POA types are present	Negative				

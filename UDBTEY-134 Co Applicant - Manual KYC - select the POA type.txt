@@ -1,0 +1,48 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P / E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Failed	"Defect-ID (JIRA)
+(if Fail)"
+UDBTEY-134	As a Business executive I should be able to select POA(proof of address) type so that Manual KYC can be conducted on it	High	Ready For Review	"In this user story, Business executives using the digital lending application aim to conduct manual Know Your Customer (KYC) processes. The focus is on the selection of Proof of Address (POA) types. The application should allow Business executives to choose from a list of available POA types, which includes Aadhaar (Preferred), Driver's License, Passport, Voter ID, NREGA, and NPR (National Population Register). The system is expected to integrate with the Loan Origination System (LOS) to automatically retrieve previously captured POA details if available, streamlining the KYC process. Validation is essential to ensure that the selected POA types align with the predefined list.
+
+Pre-Conditions for Testing:
+
+The digital lending application is fully accessible and operational.
+Business executives have valid login credentials and appropriate access permissions.
+The user is on the KYC screen or a relevant section where POA selection is required.
+A predefined list of POA types (Aadhaar, Driver's License, Passport, Voter ID, NREGA, NPR) is available for selection.
+Integration with the Loan Origination System (LOS) is properly configured and functional.
+For Scenario 1 of the acceptance criteria, relevant POA details have been previously captured for the selected POA type.
+For Scenario 2 of the acceptance criteria, no relevant POA details have been previously captured, and the system is ready to prompt the user for data input.
+Business executives are familiar with the application's KYC process and the available POA types.
+The application allows users to navigate to the POA selection screen and proceed with manual KYC checks."	"Product-to-Product Integration Requirements:
+1.Integration with Loan Origination System (LOS)
+
+End-to-End Integration Requirements:
+
+1.User Interface (UI) Development
+2.POA Type Dropdown
+3.Auto-Population of Previously Captured Data (Scenario 1)
+4.Prompt for Data Capture (Scenario 2)
+5.Data Validation and Accuracy
+6.Integration Testing with LOS
+7.UI Testing"	TC01	Business executive selects a POA with previous data	"Select ""Aadhaar"" from the dropdown"	Relevant POA details are auto-populated correctly. Proceed to Manual KYC.	Positive			
+						TC02	Business executive selects a POA with previous data	"Select ""Driver's License"" from the dropdown"	Relevant POA details are auto-populated correctly. Proceed to Manual KYC.	Positive			
+						TC03	Business executive selects a POA with no previous data	"Select ""Passport"" from the dropdown"	System prompts for data capture for Passport details.	Positive			
+						TC04	Business executive selects a POA with no previous data	"Select ""NPR"" from the dropdown"	System prompts for data capture for NPR (National Population Register) details.	Positive			
+						TC05	Data correction for auto-populated details (Scenario 1)	"Select ""Aadhaar"" from the dropdown"	Auto-populated Aadhaar details are displayed. Business executive corrects the details. Proceed to Manual KYC.	Positive			
+						TC06	Data correction for auto-populated details (Scenario 1)	"Select ""Driver's License"" from the dropdown"	Auto-populated Driver's License details are displayed. Business executive corrects the details. Proceed to Manual KYC.	Positive			
+						TC07	Data correction for auto-populated details (Scenario 1)	"Select ""Aadhaar"" from the dropdown"	Auto-populated Aadhaar details are displayed. Business executive finds a discrepancy and corrects the details. Proceed to Manual KYC.	Positive			
+						TC08	Data correction for auto-populated details (Scenario 1)	"Select ""Passport"" from the dropdown"	Auto-populated Passport details are displayed. Business executive finds a discrepancy and corrects the details. Proceed to Manual KYC.	Positive			
+						TC09	Data correction for auto-populated details (Scenario 1)	"Select ""Passport"" from the dropdown"	Auto-populated Passport details are displayed. Business executive corrects the details. Proceed to Manual KYC.	Positive			
+						TC10	Business executive selects a POA with previous data	"Select ""Aadhaar"" from the dropdown"	Auto-populated Aadhaar details are displayed. Proceed to Manual KYC.	Positive			
+						TC11	Business executive selects a POA with previous data	"Select ""Driver's License"" from the dropdown"	Auto-populated Driver's License details are displayed. Proceed to Manual KYC.	Positive			
+						TC12	Business executive selects a POA with no previous data	"Select ""NREGA"" from the dropdown"	System prompts for data capture for NREGA details.	Positive			
+						TC13	Business executive selects a POA with no previous data	"Select ""Voter ID"" from the dropdown"	System prompts for data capture for Voter ID details.	Positive			
+						TC14	Business executive selects a POA with no previous data	"Select ""NPR"" from the dropdown"	System prompts for data capture for NPR (National Population Register) details.	Positive			
+						TC15	Data correction for auto-populated details (Scenario 1)	"Select ""Passport"" from the dropdown"	Auto-populated Passport details are displayed. Business executive finds a discrepancy and corrects the details. Proceed to Manual KYC.	Positive			
+						TC16	Data correction for auto-populated details (Scenario 1)	"Select ""NREGA"" from the dropdown"	Auto-populated NREGA details are displayed. Business executive finds a discrepancy and corrects the details. Proceed to Manual KYC.	Positive			
+						TC17	Data correction for auto-populated details (Scenario 1)	"Select ""Voter ID"" from the dropdown"	Auto-populated Voter ID details are displayed. Business executive finds a discrepancy and corrects the details. Proceed to Manual KYC.	Positive			
+						TC18	Data correction for auto-populated details (Scenario 1)	"Select ""NPR"" from the dropdown"	Auto-populated NPR details are displayed. Business executive finds a discrepancy and corrects the details. Proceed to Manual KYC.	Positive			
+						TC19	Invalid data correction for auto-populated details (Scenario 1)	"Select ""Aadhaar"" from the dropdown"	Auto-populated Aadhaar details are displayed. Business executive enters invalid data. System prompts for valid data entry.	Positive			
+						TC20	Invalid data correction for auto-populated details (Scenario 1)	"Select ""Driver's License"" from the dropdown"	Auto-populated Driver's License details are displayed. Business executive enters invalid data. System prompts for valid data entry.	Positive			
+						TC21	Integration failure with LOS for auto-populated data (Scenario 1)	"Select ""Aadhaar"" from the dropdown"	Auto-population fails due to LOS integration issues. System prompts for manual data entry.	Exception			
+						TC22	Integration failure with LOS for auto-populated data (Scenario 1)	"Select ""Driver's License"" from the dropdown"	Auto-population fails due to LOS integration issues. System prompts for manual data entry.	Exception			
+						TC23	Invalid selection of POA type (dropdown options)	"Select ""Invalid Option"" from the dropdown"	System should not recognize the invalid option and should not proceed.	Negative			

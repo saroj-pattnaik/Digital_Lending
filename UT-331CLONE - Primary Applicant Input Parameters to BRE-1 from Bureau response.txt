@@ -1,0 +1,43 @@
+Story #	Story Description	Scope	Integrations	Validations	Acceptance Criteria	Test Step ID	Test Step Description	Test Input	Expected Output	Test Category	Actual Result	Pass/Failed	"Defect-ID (JIRA)
+(if Fail)"	"Automation
+(Status)"	MMFSL Remarks
+UT-331	"As a user(System), applicable data fields from Quick Data Entry(QDE) stage needs to be pushed as an input parameters for BRE-1 so that BRE can consume the feed for scheme approvals
+Note: This is a system driven Step"	"1.BRE system(CRIF) should consume following feed from FOS for executing BRE-1:
+a. KYC Details
+b. Loan Info & Summary
+c. Demographic
+d. Customer Profile
+e. Asset & Loan details
+f. Scorecard
+g. Group exposure API
+h. Posidex response
+i. Bureau response
+*Note: Field level input parameters must be defined in the field list/integration sheet"	Integration of BRE system(CRIF) with FOS	1.System should pull the input parameters from QDE stage and provide a feed to the BRE-1 request	"Scenario1: QDE (Quick data Entry) available to BRE1 input
+System to fetch required details of customer from QDE (Quick data entry) and can be fed as input to BRE system(CRIF) in defined data format so that BRE-1 can be executed
+Note: Please refer BRE 1 request and response for field level details"	Scope: BRE system(CRIF) should consume following feed from FOS for executing BRE-1									
+						TC_001	Verify successful consumption of all required fields	Complete & correct data for all fields 	All data fields are processed, and the BRE-1 scheme approval process begins with no errors.	Positive					
+						TC_002	Verify handling of incomplete KYC details	Missing data in KYC fields	Error indicating missing KYC details, and the BRE-1 process does not initiate.	Negative					
+						TC_003	Verify handling of invalid Loan Info & Summary	Incorrect format/ data in Loan Info & Summary	Error message specifying invalid loan information format; BRE-1 process stoppage.	Negative					
+						TC_004	Verify handling of Demographic info mismatch	Incorrect Demographic details	Error indicating demographic data mismatch; request is rejected by BRE-1.	Negative					
+						TC_005	Confirm accurate consumption of Customer Profile	Correct Customer Profile data	Customer Profile is correctly associated with the BRE-1 request and processed without issue.	Positive					
+						TC_006	Check for correct Asset & Loan details input	Correct Asset & Loan details	Asset and loan details are verified and accepted by BRE-1 as part of the approval process.	Positive					
+						TC_007	Check for Scorecard data integrity	Correct Scorecard data	Scorecard data is intact and contributes correctly to the BRE-1 decision-making process.	Positive					
+						TC_008	Test Group exposure API data accuracy	Correct Group exposure API data	Group exposure data is accurately reflected in the BRE-1 assessment.	Positive					
+						TC_009	Verify Posidex response handling	Correct Posidex response	Posidex response is validated, ensuring unique customer identification within BRE-1 process.	Positive					
+						TC_010	Assess Bureau response acceptance	Correct Bureau response data	The bureau response is integrated into the BRE-1 process, influencing the risk assessment.	Positive					
+						TC_011	Verify rejection on missing Asset & Loan details	Missing Asset & Loan details	Rejection message for incomplete asset and loan information; BRE-1 does not process the case.	Negative					
+						TC_012	Test handling of incorrect Scorecard data	Incorrect Scorecard data	Error stating the discrepancy in the scorecard data, leading to a BRE-1 process termination.	Negative					
+						TC_013	Check BRE-1 rejects duplicate Posidex response	Duplicate Posidex response	Duplicate Posidex response is detected; the BRE-1 process rejects the case to prevent fraud.	Negative					
+						TC_014	Verify BRE-1 rejects a bad Bureau response format	Incorrectly formatted Bureau response	Error message about invalid bureau response format; case not processed by BRE-1.	Negative					
+						Validations: System should pull the input parameters from QDE stage and provide a feed to the BRE-1 request									
+						TC_015	Validate correct data fetching and format conversion	Complete and correctly formatted QDE data	System pulls all input parameters from QDE, converts them to the required BRE-1 format, and feeds them successfully.	Positive					
+						TC_016	Test system behavior with incomplete and incorrectly formatted QDE data	Incomplete and incorrectly formatted QDE data	System detects missing and incorrectly formatted inputs, stops the feeding process, and provides detailed error messages.	Negative					
+						TC_017	Verify system handling of additional non-required QDE fields and high load	Complete QDE data with extra fields during peak system load	System ignores extra fields, extracts only the required fields, feeds them to BRE-1, and performs well under high load.	Positive					
+						TC_018	Assess system response to delayed and corrupted QDE data	Delayed availability and corrupted QDE data	System attempts to retry fetching delayed data, rejects corrupted data, and does not feed it to BRE-1, providing clear notifications in both scenarios.	Negative					
+						Acceptance Criteria: Scenario1: QDE (Quick data Entry) available to BRE1 input									
+						TC_019	Verify all QDE fields are fetched by the system	Valid QDE data with all fields 	BRE-1 receives a complete data set matching the field list/integration sheet and processes it.	Positive					
+						TC_020	Ensure BRE-1 accepts input in the defined format	QDE data in the specified format	BRE-1 system processes the data accurately, with no errors reported due to format issues.	Positive					
+						TC_021	Verify BRE-1 execution with complete and accurate data	All required accurate details for BRE-1	BRE-1 completes execution and returns appropriate approval or rejection based on the provided details.	Positive					
+						TC_022	Test BRE-1 behavior with incorrect data type/format	QDE data with one or more incorrect fields	BRE-1 identifies incorrect data fields, rejects the request, and returns specific error messages.	Negative					
+						TC_023	Validate BRE-1 error handling for invalid customer profiles	QDE data with invalid customer profile details	BRE-1 detects the invalid customer profile, rejects it, and provides a clear rejection reason.	Negative					
+						TC_024	Check the accuracy of BRE-1 rule execution with scorecard data	QDE data including precise scorecard values	BRE-1 rule executions based on scorecard data are accurate and reflect the correct outcomes.	Positive					

@@ -1,0 +1,47 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P / E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Failed	"Defect-ID (JIRA)
+(if Fail)"
+UDBTEY-138	As a Business executive I should be able to capture Co Applicant's Passport during manual KYC procedure, so that the data aggregator check can be run on it	High	Ready For Review	"This user story focuses on the capability for a Business executive to capture the Passport of a Co-Applicant during the manual KYC procedure. The primary goal is to enable the data aggregator check on the Passport document. This involves using Optical Character Recognition (OCR) technology to extract key information, such as the Passport Number and Expiry Date, and facilitating the verification process. The story also highlights the importance of accurate data entry and validation, as well as integration with OCR services and document storage systems.
+Pre-conditions for Testing:
+
+System Setup: Ensure that the system is properly configured with the necessary components, including OCR integration with IDFY and a Document Management System (DMS) for storing captured documents.
+
+User Interface: Verify that the user interface (FE App) includes the required elements, such as fields for capturing Passport details and checkboxes for confirming OSV.
+
+Document Availability: Make sure that test Passport documents are readily available for testing purposes, covering scenarios of accurate and inaccurate OCR data extraction.
+
+API Configuration: Confirm that the FinTech API is correctly configured to retrieve data once the manual KYC procedure is initiated.
+
+POI Type Selection: Ensure that the system allows the selection of Passport as the POI (Proof of Identity) type.
+
+POI=POA Checkbox: Verify that the system handles the auto-ticking of the POI=POA checkbox when Passport is selected.
+
+OSV Checkbox: Ensure that the OSV checkbox is functional and can be selected by the Business executive.
+
+Data Correction: Confirm that the system permits manual correction of data if the OCR process does not accurately populate the details.
+
+Testing Environment: Set up a testing environment where these components are available and interact seamlessly.
+
+Passport Documents: Prepare a variety of Passport documents for testing, some with accurate OCR data and others with inaccuracies.
+
+These pre-conditions are essential to ensure that testing of the user story is comprehensive and covers various scenarios and potential challenges."	"Product-to-Product Integration Requirements:
+1.OCR Service Integration (IDFY): 
+2.Document Storage Integration (DMS): 
+3.FE App Integration
+4.FinTech API Integration
+End-to-End Integration Requirements: 
+1.OCR Data Flow
+2.Data Storage
+3.Validation and Correction
+4.API Invocation
+5.OSV Confirmation
+6.Data Accuracy
+7.POI=POA Checkbox Handling
+8.Exception Handling
+9.Timer Configuration
+10.System Configuration"	TC-01	Capture Passport with high OCR accuracy	High OCR Accuracy	Passport details auto-populated; OSV checkbox checked; FinTech API initiated; Co-Applicant's data fetched	Positive			
+						TC-02	Capture Passport with low OCR accuracy	Low OCR Accuracy	Passport details not auto-populated; OSV checkbox unchecked; Manual correction required; FinTech API initiated; Co-Applicant's data fetched	Negative			
+						TC-03	Passport was previously captured and OSV checkbox checked	High OCR Accuracy	Passport details auto-populated; OSV checkbox checked; FinTech API initiated; Co-Applicant's data fetched	Positive			
+						TC-04	Passport was previously captured but OSV checkbox unchecked	High OCR Accuracy	Passport details auto-populated; OSV checkbox unchecked; Manual correction required; FinTech API initiated; Co-Applicant's data fetched	Positive			
+						TC-05	Passport was previously captured and OSV checkbox checked but CKYC failed	High OCR Accuracy	Passport details auto-populated; OSV checkbox checked; FinTech API initiated; Co-Applicant's data fetched	Positive			
+						TC-06	Capture Passport with no OCR output	No OCR Output	Passport details not auto-populated; OSV checkbox unchecked; Manual correction required; FinTech API initiated; Co-Applicant's data fetched	Negative			
+						TC-07	Capture Passport with no OSV checkbox checked	High OCR Accuracy	Passport details auto-populated; OSV checkbox unchecked; Manual correction required; FinTech API initiated; Co-Applicant's data fetched 	Negative			

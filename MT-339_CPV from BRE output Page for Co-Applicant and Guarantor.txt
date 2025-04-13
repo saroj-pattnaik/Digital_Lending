@@ -1,0 +1,35 @@
+Unnamed: 0	Unnamed: 1	Unnamed: 2	Unnamed: 3	Unnamed: 4	Unnamed: 5	Unnamed: 6	Unnamed: 7	Unnamed: 8	Unnamed: 9	Unnamed: 10	Unnamed: 11	Unnamed: 12	Unnamed: 13	Unnamed: 14
+Story #	Test Case ID	Test Description	Test Data	Test Steps	Expected Output	Detailed Test Category	Attachments(Issue)	Pass/Faile	"Defect-ID (JIRA)
+(if Fail)"	Pass/Fail	Comments	Defect-ID(JIRA)	Device	Attachments(Issue)
+MT-339	TC01	Verify that the CPV Accordion is displayed based on the BRE waiver flag.	"BRE waiver flag for CPV is ""NO"" for at least one persona and address."	"Navigate to the BRE offer screen.
+Check the BRE outcome for the CPV waiver flag.
+Verify the CPV Accordion is displayed."	CPV Accordion should be displayed for the applicable persona and address types.									
+	TC02	"Verify that the ""Verify"" button is displayed and functional."	"CPV waiver flag is ""NO"" for the persona and address."	"Navigate to the BRE offer screen.
+Click on the ""Verify"" button.
+Verify the user is navigated to the CPV chip filter screen."	"User should be navigated to the CPV chip filter screen upon clicking ""Verify""."									
+	TC03	Verify the CPV Address Verification screen displays correctly based on the BRE outcome.	"CPV waiver flag is ""NO"" for the selected persona and address."	"Navigate to the CPV chip filter screen.
+Verify the correct personas and addresses are displayed."	Only the personas and addresses that require CPV should be displayed.									
+	TC04	"Verify the ""In Progress"" status flag is displayed correctly.
+"	"CPV task has been initiated but not completed.
+"	"Click ""Conduct Now"" for a CPV task.
+Verify the ""In Progress"" status flag is displayed."	"""In Progress"" status flag should be displayed next to the selected address."									
+	TC05	Verify the functionality for conducting optional CPV.	"CPV waiver flag is ""True"", but the user wants to conduct CPV."	"Navigate to the BRE outcome screen.
+Select ""Yes"" for conducting CPV.
+Verify the user is navigated to the CPV address verification screen."	User should be navigated to the CPV address verification screen and should be able to conduct the CPV.									
+	TC06	Verify navigation to the CPV address page upon initiating CPV.	CPV task is initiated.	"Click ""Conduct Now"" for a CPV task.
+Verify the user is navigated to the selected persona's address page."	User should be navigated to the correct address page for the selected persona.									
+	TC07	"Verify the status flag changes to ""Completed"" after completing the CPV task."	CPV task has been completed.	"Complete the CPV task for a selected address.
+Verify the status flag changes to ""Completed""."	"Status flag should change to ""Completed"" upon finishing the CPV task."									
+	TC08	"Verify the ""Verify"" button is enabled for an in-progress CPV task when the app is reopened."	CPV task is in progress.	"Close and reopen the app.
+Navigate to the BRE outcome page.
+Verify the ""Verify"" button is enabled."	"""Verify"" button should be enabled for the in-progress CPV task."									
+	TC09	"Verify the system allows proceeding with generating the repayment schedule but not with DDE/UW stage if CPV is in progress.
+"	Allow generating repayment schedule with in-progress CPV	"Navigate to generate the repayment schedule.
+Verify the user can proceed with generating the repayment schedule.
+Verify the user cannot proceed to the DDE/UW stage."	User should be able to generate the repayment schedule but should not proceed to the DDE/UW stage.									
+	TC10	Verify the functionality for conducting CPV based on UW request.	UW requests CPV via comments.	"Navigate to the kebab menu.
+Manually trigger CPV based on UW request."	User should be able to conduct CPV based on UW request via the kebab menu.									
+	TC11	Verify the functionality for re-conducting CPV.	CPV task has been completed.	"Select the address from the kebab menu.
+Click ""Conduct Now"" to re-conduct CPV."	User should be able to edit and re-conduct the completed CPV task.									
+	TC12	Verify filtering applications by CPV status in the application listing screen.	Various CPV tasks in different statuses.	"Navigate to the application listing screen.
+Use the FI filter to select applications based on CPV status."	Applications should be filtered correctly based on CPV status (In Progress, Not Initiated, Completed).									

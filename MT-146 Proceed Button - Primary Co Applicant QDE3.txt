@@ -1,0 +1,46 @@
+Unnamed: 0	Unnamed: 1	Unnamed: 2	Unnamed: 3	Unnamed: 4	Unnamed: 5	Unnamed: 6	Unnamed: 7	Unnamed: 8
+#Story	Test Case ID	Test Description	Test Data	Test Steps	Expected Output	Test Category	Actual Result	Pass/Failed
+MT- 146	Scope 1 :							
+	TC01	Verify visibility and enablement of 'Proceed' button	Precondition met	1. Fulfill all preconditions. 2. Observe the 'Proceed' button.	'Proceed' button is visible and enabled.	Positive		
+	TC02	Verify functionality of 'Proceed' button	Valid data	1. Click on the 'Proceed' button. 2. Observe the result.	User is navigated to the next step.	Positive		
+	TC03	Verify 'Proceed' button with not satisfied preconditions	Invalid data	1. Do not fulfill preconditions. 2. Attempt to click 'Proceed' button.	Proceed' button is disabled.	Negative		
+	TC04	Verify 'Proceed' button response time	Valid data	1. Click 'Proceed' button. 2. Measure response time.	Response time is within acceptable limits.	Positive		
+	Validation 1 :							
+	TC05	Verify form submission with all mandatory fields filled	Valid data for all mandatory fields	1. Fill in all mandatory fields with valid data. 2. Submit the form.	Form is submitted successfully.	Positive		
+	TC06	Verify form submission with one mandatory field empty	One mandatory field left empty	1. Fill in all but one mandatory field. 2. Attempt to submit the form.	Form submission is blocked with an error message.	Negative		
+	TC07	Verify error message clarity and guidance	Invalid data	1. Enter invalid data in mandatory fields. 2. Attempt to submit the form.	Clear and specific error messages guide the user.	Negative		
+	TC08	Verify form submission is disabled until validation pass	Valid data	1. Fill in all mandatory fields except one. 2. Observe the submit button.	Submit button is disabled or not clickable.	Negative		
+	Validation 2 :							
+	TC09	Verify 'Proceed' button is inactive with empty fields	All mandatory fields empty	1. Load the form for the persona. 2. Verify 'Proceed' button state.	'Proceed' button is inactive.	Negative		
+	TC10	Verify 'Proceed' button activation with all fields filled	Valid data for all mandatory fields	1. Fill in all mandatory fields up to QDE 3. 2. Verify 'Proceed' button state.	'Proceed' button is active.	Positive		
+	TC11	Verify 'Proceed' button with one field empty	One mandatory field left empty	1. Fill in all but one mandatory field up to QDE 3. 2. Verify 'Proceed' button state.	'Proceed' button is inactive.	Negative		
+	TC12	Verify 'Proceed' button with invalid data in a field	Invalid data in one field	1. Enter invalid data in one mandatory field up to QDE 3. 2. Verify 'Proceed' button state.	'Proceed' button is inactive with validation error.	Negative		
+	Validation 3 :							
+	TC13	Verify progression in offline mode with empty mandatory fields	Mandatory fields not filled	1. Switch the application to offline mode. 2. Leave mandatory fields empty. 3. Attempt to proceed to the next screen.	User is able to proceed to the next screen.	Positive		
+	TC14	Verify blockage in online mode with empty mandatory fields	Mandatory fields not filled	1. Ensure the application is in online mode. 2. Leave mandatory fields empty. 3. Attempt to proceed to the next screen.	User is prevented from proceeding; error message shown.	Negative		
+	TC15	Verify local data storage in offline mode	Data entered in mandatory fields	1. Switch to offline mode. 2. Enter data into mandatory fields. 3. Proceed to the next screen. 4. Check local storage.	Data is stored locally.	Positive		
+	TC16	Verify data validation upon returning to online mode	Data entered in offline mode	1. Enter data in offline mode. 2. Return to online mode. 3. Check for data validation.	Data entered in offline mode is validated.	Positive		
+	Validation 4 :							
+	TC17	Verify no popup when all co-applicants' QDE 3 are complete	All co-applicants' QDE 3 complete	1. Complete QDE 3 for all co-applicants. 2. Click 'Proceed' button.	No popup is shown; proceeds to the next screen.	Positive		
+	TC18	Verify popup when a co-applicant's QDE 3 is incomplete	One co-applicant's QDE 3 incomplete	1. Leave QDE 3 incomplete for one co-applicant. 2. Click 'Proceed' button.	Popup is shown indicating incomplete status.	Negative		
+	TC19	Verify content of popup message	One co-applicant's QDE 3 incomplete	1. Leave QDE 3 incomplete for one co-applicant. 2. Click 'Proceed' button. 3. Read popup message.	Popup message is clear and provides guidance.	Positive		
+	TC20	Verify functionality after closing popup	One co-applicant's QDE 3 incomplete	1. Trigger the popup by clicking 'Proceed'. 2. Close the popup. 3. Take corrective action. 4. Click 'Proceed' again.	User can take action and proceed if corrected.	Positive		
+	Acceptance criteria 1:							
+	TC21	Verify routing to BRE with no co-applicants	No co-applicants	1. Log in as Business executive. 2. Click 'Proceed' button as primary applicant with no co-applicants.	User is routed to BRE process without errors.	Positive		
+	TC22	Verify 'Proceed' button with errors in primary applicant's info	Errors in primary applicant's info	1. Log in as Business executive. 2. Introduce errors in primary applicant's information. 3. Click 'Proceed' button.	Routing to BRE is prevented; error message is displayed.	Negative		
+	TC23	Verify feedback if routing to BRE fails	Routing failure	1. Log in as Business executive. 2. Simulate a routing failure to BRE. 3. Click 'Proceed' button.	User receives feedback about the failure.	Negative		
+	TC24	Verify transition indication to BRE process	No co-applicants	1. Log in as Business executive. 2. Click 'Proceed' button as primary applicant with no co-applicants.	User interface clearly indicates transition to BRE.	Positive		
+	TC25	Verify 'Proceed' button with incomplete primary applicant's info	Incomplete primary applicant's info	1. Log in as Business executive. 2. Leave primary applicant's information incomplete. 3. Click 'Proceed' button.	Routing to BRE is prevented; error message is displayed.	Negative		
+	TC26	Verify user experience during BRE transition	No co-applicants	1. Log in as Business executive. 2. Click 'Proceed' button as primary applicant with no co-applicants. 3. Observe user experience during transition.	Transition to BRE is smooth with clear user communication.	Positive		
+	TC27	Verify 'Proceed' button after correcting errors	Corrected primary applicant's info	1. Log in as Business executive. 2. Correct errors in primary applicant's information. 3. Click 'Proceed' button.	User is routed to BRE process without errors.	Positive		
+	Acceptance criteria 2:							
+	TC28	Verify popup when primary applicant's QDE 3 is incomplete	Primary applicant QDE 3 incomplete	1. Log in as Business executive. 2. Click 'Proceed' button with primary applicant's QDE 3 incomplete.	Popup displayed with message to verify details.	Negative		
+	TC29	Verify popup when co-applicant's QDE 3 is incomplete	Co-applicant QDE 3 incomplete	1. Log in as Business executive. 2. Click 'Proceed' button with co-applicant's QDE 3 incomplete.	Popup displayed with message to verify details.	Negative		
+	TC30	Verify navigation to incomplete section from popup	Incomplete QDE 3 section	1. Trigger popup by clicking 'Proceed'. 2. Click 'Proceed' on the popup.	BE navigated to the last incomplete section.	Positive		
+	TC31	Verify no popup with all QDE 3 sections complete	All QDE 3 sections complete	1. Log in as Business executive. 2. Click 'Proceed' button with all QDE 3 sections complete.	No popup displayed; proceeds to the next screen.	Positive		
+	TC32	Verify system behavior with technical issues during check	Technical issues present	1. Log in as Business executive with technical issues. 2. Click 'Proceed' button.	Appropriate error handling and user notification.	Exception		
+	TC33	Verify popup functionality in offline mode	Offline mode, incomplete QDE 3	1. Switch to offline mode. 2. Click 'Proceed' button with incomplete QDE 3.	Popup functionality works as in online mode.	Exception		
+	TC34	Verify popup clarity and information	Incomplete QDE 3 section	1. Trigger popup by clicking 'Proceed'. 2. Read and assess popup message clarity.	Popup message is clear and informative.	Positive		
+	TC35	Verify popup when both primary and co-applicant QDE 3 incomplete	Both QDE 3 sections incomplete	1. Log in as Business executive. 2. Click 'Proceed' button with both QDE 3 sections incomplete.	Popup displayed with message to verify details.	Negative		
+	TC36	Verify correct section highlighted for completion after popup	Incomplete QDE 3 section	1. Trigger popup by clicking 'Proceed'. 2. Click 'Proceed' on the popup. 3. Observe highlighted section.	The correct incomplete section is highlighted for review.	Positive		
+	TC37	Verify popup dismissal and subsequent actions	Incomplete QDE 3 section	1. Trigger popup by clicking 'Proceed'. 2. Dismiss the popup without clicking 'Proceed'. 3. Attempt other actions.	Popup dismissed; BE can perform other actions.	Positive		

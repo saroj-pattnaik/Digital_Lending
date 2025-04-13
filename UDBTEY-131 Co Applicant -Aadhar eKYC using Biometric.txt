@@ -1,0 +1,42 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P / E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Faile	"Defect-ID (JIRA)
+(if Fail)"
+UDBTEY-131	As a user (System), system should be able to auto-initiate Aadhar eKYC (if Aadhar number is captured in the Customer Consent screen) of the Co Applicant so that the Co applicant's KYC can be completed successfully	High	Ready for review	"This user story focuses on enhancing a lending system's functionality to auto-initiate Aadhar eKYC for Co-Applicants. When the Aadhar number is captured during the Customer Consent process, the system should automatically initiate eKYC for the Co-Applicant. The eKYC process involves biometric authentication and data retrieval from UIDAI. The retrieved data is displayed in the application for review and confirmation by the Business executive and the Co-Applicant. The system should also handle failures gracefully, allowing multiple attempts and a fallback to CKYC if necessary.
+
+**Pre-conditions to Test:**
+1. Ensure the lending system is operational and accessible.
+2. Adequate test data is available, including sample Co-Applicant Aadhaar numbers and Virtual IDs.
+3. The system UI includes an eKYC screen.
+4. Biometric devices are set up for fingerprint capture.
+5. Integration with UIDAI via FinTech API is functional.
+6. The eKYC timer is configured and set to a specific duration.
+7. A valid Co-Applicant's consent for eKYC verification has been obtained.
+8. The system is in a state where Co-Applicant eKYC initiation is required.
+9. Ensure the availability of Co-Applicant's fingerprint data for testing purposes if needed."	"Product-to-Product Integrations:
+
+Integration between User Interface (UI) and Customer Consent Data:
+
+Requirement: The UI should capture and store the Aadhar number or Virtual ID from the customer consent screen.
+Details: The UI should be able to communicate and retrieve the relevant Co-Applicant data entered during the customer consent stage.
+                                                                                                                   Integration between UI and Biometric Device:
+
+Requirement: The UI should be able to interface with the biometric device to capture the Co-Applicant's fingerprint.
+Details: The UI should initiate the biometric capture process and receive the fingerprint data from the device.                                                                                                   End-to-End Integrations:
+
+End-to-End Integration between UI, Customer Consent Data, and UIDAI:
+
+Requirement: Ensure a seamless flow of data from the customer consent screen to UIDAI for eKYC verification.
+Details: The UI should transmit Aadhar number/VID to UIDAI for verification and retrieve the eKYC response. This process should be tracked and tested end-to-end.
+End-to-End Integration between UI, Biometric Device, and UIDAI:
+
+Requirement: The biometric data should be securely transmitted to UIDAI for biometric authentication.
+Details: The UI should capture and transmit the Co-Applicant's fingerprint data to UIDAI, ensuring secure and accurate verification."	TC001	Verify successful auto-population of Co-Applicant's data.	Co-Applicant's Aadhaar number	Auto-population of Co-Applicant's data	Positive			
+						TC002	Verify eKYC response when Co-Applicant agrees with details.	FinTech API response with agreed details	Proceed to QDE	Positive			
+						TC003	Verify eKYC response when Co-Applicant disagrees with details.	FinTech API response with disagreed details	Proceed with Manual KYC	Positive			
+						TC004	Verify manual KYC initiation after three eKYC failures.	Three consecutive FinTech API failures	Allow Manual KYC initiation	Positive			
+						TC005	Retry eKYC after a single API response failure.	FinTech API response failure	Retry eKYC process	Positive			
+						TC006	Retry eKYC after three API response failures.	Three consecutive FinTech API failures	Retry eKYC process	Positive			
+						TC007	Test for Co-Applicant's data not auto-populated.	Invalid or non-existent Co-Applicant input	Retry eKYC process	Negative			
+						TC008	Test for zero response from FinTech API.	Zero response from FinTech API	Retry eKYC process	Negative			
+						TC009	Test for unsuccessful manual KYC initiation.	Four consecutive FinTech API failures	Allow Manual KYC initiation	Exception			
+						TC010	Test for manual KYC initiation after three eKYC failures.	Three consecutive FinTech API failures	Allow Manual KYC initiation	Exception			
+						TC011	Test for timer expiration during the eKYC process.	Start eKYC with timer set to expire	Retry eKYC process or auto-initiate CKYC	Exception			

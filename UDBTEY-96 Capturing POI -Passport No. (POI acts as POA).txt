@@ -1,0 +1,50 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P / E2E Integration Requirements	"Activity Diagram 
+(Control Flow)"	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Faile	"Defect-ID (JIRA)
+(if Fail)"	"Automation
+(Status)"
+UDBTEY-96	As a Business executive I should be able to select POI(proof of identity) type as Passport, and capture the Guarantor's Passport No. and Expiry Date via various methods so that KYC check can be run			"""As a Business executive, I want to select Passport as the proof of identity (POI) type for Guarantors and capture their Passport Number and Expiry Date using various methods, including OCR, in the Front-End App. This will facilitate the KYC check process.""
+
+Pre-Conditions for Testing:
+
+The Front-End (FE) App is accessible and functional.
+Integration with the FinTech OCR API is set up and operational.
+The system's POI dropdown menu includes options for Aadhaar, Driver's License, Passport, Voter ID, and NREGA.
+The Field List Excel for validation and configuration is available.
+Guarantor's Passport document is ready for scanning or manual entry.
+The system is properly configured to resize images as required.
+The system interface includes a checkbox for ""POI = POA.""
+Business executive has access to the user interface for capturing and editing Passport details.
+PAN verification process is available for subsequent steps in the workflow."	"Front-End (FE) App to FinTech OCR API Integration:
+
+The FE App should be able to communicate with the FinTech OCR API for document scanning and OCR processing.
+Ensure secure and authenticated access between the FE App and the FinTech OCR API.
+Validate that the OCR API can handle requests for Passport document scanning.
+FE App to Loan Origination System (LOS-SFDC) Integration (if applicable):
+
+If the LOS-SFDC is part of the ecosystem, ensure the FE App can pass captured Passport data to LOS-SFDC for further processing and storage.
+Verify that Passport data is correctly mapped to relevant fields in LOS-SFDC.
+End-to-End Integration Requirements:
+
+Complete Workflow Integration:
+
+Validate the end-to-end workflow from the point of initiating Passport capture to the PAN verification stage.
+Ensure that all integrated components, including the FE App, OCR API, and any back-end systems, work seamlessly together.
+Data Flow and Mapping:
+
+Verify that Passport Number and Expiry Date captured through OCR or manual entry are correctly passed to the subsequent stages of the lending process.
+Confirm that the data is accurately mapped to the appropriate fields in downstream systems (e.g., LOS-SFDC)."										
+							TC-01	Select Passport as POI.	Select Passport as POI.	Front-End App displays Passport as the selected POI.	Positive				
+							TC-02	Capture Passport via OCR.	Passport document for OCR processing.	Front-End App initiates OCR processing.	Positive				
+							TC-03	Run OCR on Passport.	OCR-ready Passport document.	OCR API processes the document and returns results.	Positive				
+							TC-04	Receive OCR results.	Valid OCR results from OCR API.	Front-End App receives and displays OCR results.	Positive				
+							TC-05	Check OCR accuracy (Inaccurate Case).	Inaccurate OCR results.	Front-End App detects inaccuracy and displays results.	Negative				
+							TC-06	Edit Passport details (Inaccurate Case).	Inaccurate OCR results.	Front-End App allows editing of Passport details.	Positive				
+							TC-07	Auto-tick POI = POA checkbox if inaccurate (Inaccurate Case).	Inaccurate OCR results.	Front-End App auto-ticks the checkbox.	Positive				
+							TC-08	Continue after checkbox auto-tick (Inaccurate Case).	Inaccurate OCR results.	Front-End App continues to the next step.	Positive				
+							TC-09	Check OCR accuracy (Accurate Case).	Accurate OCR results.	Front-End App detects accuracy and displays results.	Positive				
+							TC-10	Auto-tick POI = POA checkbox if accurate (Accurate Case).	Accurate OCR results.	Front-End App auto-ticks the checkbox.	Positive				
+							TC-11	Continue after checkbox auto-tick (Accurate Case).	Accurate OCR results.	Front-End App continues to the next step.	Positive				
+							TC-12	Manually enter Passport details.	Valid Passport Number and Expiry Date.	Front-End App allows manual entry.	Positive				
+							TC-13	Auto-tick POI = POA checkbox (Manual Entry).	Valid Passport Number and Expiry Date.	Front-End App auto-ticks the checkbox.	Positive				
+							TC-14	Continue after checkbox auto-tick (Manual Entry).	Valid Passport Number and Expiry Date.	Front-End App continues to the next step.	Positive				
+							TC-15	Proceed to PAN verification.	-	Front-End App proceeds to PAN verification step.	Positi				

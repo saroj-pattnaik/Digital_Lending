@@ -1,0 +1,68 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P / E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Fail	"Defect-ID (JIRA)
+(if Fail)"	"Automation
+(Status)"
+UDBTEY-151	Guarantor - Manual KYC - Capturing details of the Aadhaar Card	High	Ready for review	"As a Business Executive in the lending domain, I require the capability to capture a Guarantor's Aadhaar card during manual Know Your Customer (KYC) procedures. This feature allows for manual KYC processes to be conducted when necessary. The system should facilitate the capture and storage of Aadhaar card details, including manual entry of the Aadhaar Number. Additionally, a checkbox for confirming One-Span Verification (OSV) is provided in the user interface.
+
+  Pre-Conditions for Testing  :
+
+1.   Access to Lending Application  : Testers should have access to the lending application with appropriate permissions to perform KYC-related tasks.
+
+2.   Test Data  : Prepare sample Aadhaar card images with varying Aadhaar Numbers, including valid and invalid formats, to simulate real-world scenarios.
+
+3.   Test Environment  : Ensure that the testing environment replicates the production environment to guarantee accurate testing results.
+
+4.   User Interface  : Verify that the user interface of the application includes the necessary fields, checkboxes, and buttons as described in the user story.
+
+5.   Aadhaar Masking  : Ensure that the system masks the first 8 digits of the Aadhaar Number both in the input field and in the captured image, as specified in the story.
+
+6.   Data Storage  : Confirm that the system is integrated with the Document Management System (DMS) for storing and managing the captured Aadhaar card images.
+
+7.   CKYC Failure  : Simulate a scenario where the Business Executive selects Aadhaar as the POI type for the first time after a Centralized KYC (CKYC) failure to validate the acceptance criteria scenario"	"  Product-to-Product Integration Requirements (Pre-Requisites for Testing)  :
+
+For the successful testing of the User Story related to capturing a Guarantor's Aadhaar during manual KYC, the following product-to-product integrations are required:
+
+1.   Front-End Application Integration with OCR Service (Optional)  :
+   - If OCR (Optical Character Recognition) service is used to extract Aadhaar Number, the Front-End application must be integrated with the OCR service.
+   - Define API endpoints or mechanisms for communication between the Front-End application and the OCR service.
+   - Ensure secure transmission of Aadhaar card images and extracted text data.
+
+2.   Front-End Application Integration with Document Management System (DMS)  :
+   - The Front-End application should integrate with the Document Management System (DMS) to store and manage captured Aadhaar card images.
+   - Define API endpoints or mechanisms for document upload, retrieval, and management.
+   - Implement access controls and document metadata for efficient retrieval.
+
+  End-to-End Integration Requirements (Pre-Requisites for Testing)  :
+
+For end-to-end testing of the User Story, which includes manual entry of the Aadhaar Number, document storage, and further processing, the following requirements should be met:
+
+1.   Full System Integration  :
+   - Ensure that all system components, including the Front-End application, OCR service (if used), Document Management System (DMS), Quality Data Entry (QDE), and Dedupe stages, are seamlessly integrated and communicate effectively.
+   - Verify that data flows correctly between these components.
+
+2.   Document Flow  :
+   - Define the flow of Aadhaar card documents from capture through OCR processing (if used) to secure storage in the DMS.
+   - Ensure that documents are stored with appropriate metadata for easy retrieval.
+
+3.   User Interface Integration  :
+   - Validate that the user interface of the Front-End application correctly reflects the integration features, including the Aadhaar Number input field and the OSV checkbox.
+   - Confirm that user interactions trigger the necessary integration actions.
+
+4.   API Endpoint Validation  :
+   - Test the API endpoints and data transfer between the Front-End application, OCR service (if used), and the Document Management System.
+   - Ensure that data is accurately transmitted to the DMS and other components and that results are returned as expected.
+
+5.   Exception Handling and Logging  :
+   - Verify that the system handles exceptions gracefully, such as OCR failures (if used) or document storage issues.
+   - Implement error messages and logging mechanisms for troubleshooting and auditing purposes.
+
+6.   Performance Testing  :
+   - Assess the performance of the end-to-end process under varying loads to ensure responsiveness and scalability.
+   - Measure processing times and document retrieval times to meet acceptable performance criteria."	TC-001	Verify whenFirst-time after CKYC failure	Business Executive accesses the Lending App.	Ensure that Lending App displays POI=POA checkbox, Aadhaar Number input field, and OSV checkbox.	Positive				
+						TC-002	Verify when Entry of Aadhaar Number	Business Executive enters a valid Aadhaar Number.	Ensure that Aadhaar Number is entered successfully. System moves to QDE and Dedupe stage.	Positive				
+						TC-003	Verify when Entry of Aadhaar Number (Auto-move)	Business Executive manually enters a valid Aadhaar Number.	Ensure that System automatically moves to QDE and Dedupe stage.	Positive				
+						TC-004	Verify when Entry of Aadhaar Number (Auto-tick OSV)	Business Executive enters a valid Aadhaar Number.	Ensure that OSV checkbox is auto-ticked. System moves to QDE and Dedupe stage.	Positive				
+						TC-005	Verify when Entry of Invalid Aadhaar Number	Business Executive enters an invalid Aadhaar Number.	Ensure that Systemshould  displays an error message and there after Business Executive re-enters a valid Aadhaar Number following to that System moves to QDE and Dedupe stage.	Negative				
+						TC-006	Verify when OCR Used	OCR is used to extract Aadhaar Number from the Aadhaar card image.	Ensure that Extracted Aadhaar Number is displayed in the input field and then System moves to QDE and Dedupe stage.	Exception				
+						TC-007	Verify when Document Storage after capturing Aadhar card data	Captured Aadhaar card is stored in the Document Management System.	Esnure that Document is successfully stored with metadata.	Positive				
+						TC-008	Verify Entry Without Aadhaar Number	Business Executive does not enter an Aadhaar Number.	Ensure that System displays an error message and there after upon Business Executive enters a valid Aadhaar Number the System should moves to QDE and Dedupe stage.	Negative				
+						TC-009	Verify Exception Handling (OCR Failure)	OCR fails to extract Aadhaar Number.	Ensure that System indicates OCR failure, there after when Business Executive manually enters a valid Aadhaar Number the System moves to QDE and Dedupe stage.	Exception				

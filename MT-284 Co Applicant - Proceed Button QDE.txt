@@ -1,0 +1,22 @@
+Unnamed: 0	Unnamed: 1	Unnamed: 2	Unnamed: 3	Unnamed: 4	Unnamed: 5	Unnamed: 6	Unnamed: 7	Unnamed: 8
+Story #	Test Case ID	Test Description	Test Data	Test Steps	Expected Output	Detailed Test Category	Attachments(Issue)	Pass/Failed
+MT-284	Scope : User must be able to click on the button - 'Proceed'							
+	TC01	"Verify visibility and accessibility of ""Proceed"" button"		"1. Navigate to the page with the ""Proceed"" button 2. Observe the button"	"""Proceed"" button is visible and can be clicked"	Positive		
+	TC02	"Verify responsiveness of ""Proceed"" button to user clicks"		"1. Click on the ""Proceed"" button"	Appropriate system response to the click action	Positive		
+	TC03	"Verify system behavior after clicking ""Proceed"""	All mandatory fields filled	"1. Ensure all mandatory fields are filled 2. Click on the ""Proceed"" button"	System processes the action and navigates to the next stage	Positive		
+	TC04	"Verify ""Proceed"" button is disabled when mandatory fields are incomplete"	Mandatory fields incomplete	"1. Leave mandatory fields incomplete 2. Attempt to click on the ""Proceed"" button"	"""Proceed"" button is disabled and cannot be clicked"	Negative		
+	TC05	"Verify system behavior with multiple clicks on ""Proceed"""	All mandatory fields filled	"1. Click on the ""Proceed"" button multiple times"	System processes only the first click and ignores subsequent clicks	Negative		
+	TC06	"Verify system behavior when clicking ""Proceed"" with incomplete information"	Mandatory fields incomplete	"1. Click on the ""Proceed"" button with incomplete information"	System does not proceed and prompts user to complete all fields	Negative		
+	Validation							
+	TC07	Verify validation of all mandatory fields	Incomplete mandatory fields	1. Fill out the form leaving some mandatory fields incomplete 2. Attempt to submit the form	System prevents submission and prompts user to fill all mandatory fields	Negative		
+	TC08	"Verify ""Proceed"" button activation with all fields filled"	Complete mandatory fields	"1. Fill out all mandatory fields correctly 2. Observe the ""Proceed"" button"	"""Proceed"" button is activated and clickable"	Positive		
+	TC09	"Verify ""Proceed"" button inactivation with incomplete fields"	Incomplete mandatory fields	"1. Leave some mandatory fields incomplete 2. Observe the ""Proceed"" button"	"""Proceed"" button is inactive and not clickable"	Positive		
+	TC10	Verify system feedback for incorrect field data	Incorrectly filled mandatory fields	1. Fill out mandatory fields with incorrect data 2. Attempt to submit the form	System provides feedback on errors and prevents submission	Negative		
+	TC11	Verify system behavior with all fields correctly filled	Correctly filled mandatory fields	"1. Fill out all mandatory fields correctly 2. Click on ""Proceed"" button"	System allows form submission and proceeds to the next stage	Positive		
+	TC12	Verify conditional field validation	Conditional mandatory fields based on other inputs	1. Fill out the form with conditions that trigger additional mandatory fields 2. Attempt to submit the form	System prompts user to fill newly triggered mandatory fields	Negative		
+	TC13	"Verify ""Proceed"" button remains inactive with invalid data"	Invalid mandatory field data	"1. Enter invalid data in mandatory fields 2. Observe the ""Proceed"" button"	"""Proceed"" button remains inactive until data is corrected"	Negative		
+	Acceptance creteria : 							
+	TC14	"Verify successful navigation on clicking ""Proceed"""	All mandatory fields correctly filled	"1. Ensure all mandatory fields are filled out correctly 2. Click on the ""Proceed"" button"	System navigates to the next stage for further checks	Positive		
+	TC15	"Verify no navigation when ""Proceed"" is clicked with errors"	Errors present in form data	"1. Introduce errors in form data 2. Click on the ""Proceed"" button"	No navigation occurs; system displays errors	Negative		
+	TC16	"Verify subsequent checks are triggered after clicking ""Proceed"""	All mandatory fields correctly filled	"1. Fill out all mandatory fields correctly 2. Click on the ""Proceed"" button 3. Observe the system's actions"	System performs internal negative list check, dedupe check, etc.	Positive		
+	TC17	"Verify ""Proceed"" button click with incomplete mandatory fields"	Incomplete mandatory fields	"1. Leave some mandatory fields incomplete 2. Click on the ""Proceed"" button"	System prevents navigation and prompts for mandatory field completion	Negative		

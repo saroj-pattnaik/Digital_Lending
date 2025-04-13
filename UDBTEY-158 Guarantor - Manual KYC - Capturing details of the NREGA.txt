@@ -1,0 +1,55 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P/E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Faile	"Defect-ID (JIRA)
+(if Fail)"
+UDBTEY-158	As a Business executive I should be able to capture Guarantor's NREGA during manual KYC procedure, so that the data aggregator check can be run on it	Low	Ready for review	"""As a Business executive, I need the system to capture and process Guarantor's NREGA documents during manual KYC. The system should use OCR to auto-populate details, verify accuracy, and enable OSV. This ensures efficient data aggregation and verification for lending.""
+
+Pre-Conditions to Test:
+
+1. The user is logged into the system as a Business executive.
+2. The NREGA document to be captured is available and accessible.
+3. The OCR service (IDFY) is integrated and operational.
+4. The system has access to the FinTech API for data retrieval.
+5. The POI and POA checkboxes are visible and functional on the screen.
+6. The system is in a state where manual KYC is initiated.
+7. The FE App screen is accessible and responsive.
+8. Previous NREGA document data (if any) is stored for Scenario 3 testing.
+9. Correct and incorrect NREGA documents are available for testing accuracy."	"Product-to-Product Integrations Requirements:
+
+1. OCR Integration:
+   - Ensure that the OCR integration with IDFY is established and functional.
+   - Validate that the system can send NREGA documents to IDFY for OCR processing.
+   - Confirm that the system can receive and interpret OCR results from IDFY accurately.
+
+2. Document Storage (DMS):
+   - Verify that the Document Management System (DMS) integration is in place.
+   - Ensure that the system can store and retrieve NREGA documents securely from the DMS.
+   - Validate that the DMS can handle various document formats and sizes.
+
+3. FinTech API Integration:
+   - Confirm that the system can communicate with the FinTech API for data retrieval.
+   - Ensure that the API endpoints required for fetching Guarantor's data are accessible.
+   - Validate that the API response format aligns with the system's requirements.
+
+End-to-End Integrations Requirements:
+
+1. User Authentication and Access Control:
+   - Verify that Business executives can log in to the system with appropriate permissions.
+   - Ensure that access to the KYC module is granted to authorized users only.
+
+2. Data Availability:
+   - Ensure that sample NREGA documents, both accurately and inaccurately filled, are available for testing.
+   - Confirm the availability of other required customer data for testing, such as KYC details and Guarantor information.
+
+3. System State and Scenario Setup:
+   - Set up the system in a state where manual KYC initiation is possible.
+   - Ensure that the FE App screen is accessible and responsive for the Business executive to interact with.
+
+4. Previous NREGA Data (Scenario 3):
+   - For Scenario 3 testing, ensure that previously captured NREGA data is available for retrieval.
+   - Verify that the system can correctly identify and fetch previously stored NREGA data."	TC01	Positive: OCR is accurate	Valid NREGA document	Details auto-populated; OSV checkbox checked	Positive			
+						TC02	Positive: OCR is not accurate	Inaccurate NREGA document	Business executive corrects data; OSV checkbox checked	Positive			
+						TC03	Positive: OSV checkbox is checked	Valid NREGA document with OSV checkbox pre-checked	Details auto-populated; FinTech API initiated	Positive			
+						TC04	Negative: Business executive captures no document	No document	"Error message: ""Document not provided"""	Negative			
+						TC05	Negative: Invalid document format	Invalid document format	"Error message: ""Invalid document format"""	Negative			
+						TC06	Negative: OCR fails to populate details	Valid NREGA document	"Error message: ""OCR failed to populate details"""	Negative			
+						TC07	Exception: Business executive cancels operation	Valid NREGA document	Operation canceled; no changes made	Exception			
+						TC08	Exception: NREGA was previously captured as POI	Select POI type as NREGA; Valid NREGA document	Details displayed; OSV checkbox checked; FinTech API initiated	Exception			

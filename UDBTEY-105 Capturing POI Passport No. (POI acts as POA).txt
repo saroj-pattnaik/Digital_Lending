@@ -1,0 +1,44 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P / E2E Integration Requirements	"Activity Diagram 
+(Control Flow)"	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Faile	"Defect-ID (JIRA)
+(if Fail)"	"Automation
+(Status)"
+UDBTEY-105	Capturing POI Passport No. (POI acts as POA)			"As a Business executive, I need the ability to select Passport as the Proof of Identity (POI) type for a Co-applicant and capture their Passport Number and Expiry Date using either OCR or manual entry. This feature enables KYC checks in the lending application.
+
+Pre-Conditions for Testing:
+
+The lending application is accessible and operational.
+The Business executive is logged into the Front-End (FE) App.
+The Co-applicant has selected Passport as their chosen POI type.
+The system has been configured to integrate with the finalized FinTech OCR API.
+Necessary access permissions and validations have been set up for the Passport-related fields.
+A valid Passport document or data is available for testing OCR functionality."	"Integration with FinTech OCR API:
+
+The lending application must seamlessly integrate with the chosen FinTech OCR API for document scanning and data extraction.
+Ensure that the API endpoints, authentication, and data format are compatible with the lending application.
+Establish a secure and reliable connection to transmit data between the lending application and the FinTech OCR API.
+Data Mapping and Transformation:
+
+Define how data extracted from the OCR process will be mapped and transformed to fit the data structure of the lending application.
+Ensure proper handling of data fields, including Passport Number and Expiry Date, to avoid data corruption or loss during integration.
+Error Handling and Logging:
+
+Implement robust error handling mechanisms to capture and log any integration errors or failures.
+Create a notification system to alert administrators or support teams in case of integration issues.
+Testing Environment Setup:
+
+Establish a dedicated testing environment that mirrors the production environment to conduct integration testing.
+Ensure that the testing environment includes a sandbox or mock version of the FinTech OCR API for testing purposes."		TC01	Log in to the FE App.	Valid credentials	Successful login.	Positive				
+							TC02	Select POI type as Passport.	Passport selected	POI=POA checkbox is auto-ticked.	Positive				
+							TC03	Select POI type as another option (e.g., Aadhaar).	Aadhaar selected	Aadhaar is selected as the POI type.	Positive				
+							TC04	Choose to capture Passport via OCR.	OCR selected	System prompts for capturing a photo of the Passport.	Positive				
+							TC05	Capture a valid Passport photo for OCR.	Valid Passport photo	OCR runs successfully, and Passport Number and Expiry Date are populated.	Positive				
+							TC06	Capture an invalid Passport photo for OCR.	Invalid Passport photo	OCR fails, and an error message is displayed.	Negative				
+							TC07	Manually enter a valid Passport Number and Expiry Date.	Valid Passport Number and Expiry Date	Passport Number and Expiry Date are entered, and POI=POA is auto-ticked.	Positive				
+							TC08	Manually enter an invalid Passport Number.	Invalid Passport Number	Error message for invalid Passport Number.	Negative				
+							TC09	Manually enter an invalid Expiry Date.	Invalid Expiry Date	Error message for invalid Expiry Date.	Negative				
+							TC10	Proceed to capture PAN Number after successful POI.	Valid PAN Number	PAN Number captured	Positive				
+							TC11	Proceed to collect PAN Number after unsuccessful POI.	Valid PAN Number	PAN Number captured	Exception				
+							TC12	Proceed to collect PAN Number after OCR failure.	Valid PAN Number	PAN Number captured	Exception				
+							TC13	Proceed to collect PAN Number after manual entry.	Valid PAN Number	PAN Number captured	Positive				
+							TC14	System fails to log in due to invalid credentials.	Invalid credentials	Error message for invalid login.	Negative				
+							TC15	Select an unsupported POI type (e.g., Social Security).	Social Security selected	Error message for unsupported POI type.	Negative				

@@ -1,0 +1,63 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P/E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Faile	"Defect-ID (JIRA)
+(if Fail)"
+UDBTEY-147	As a Business executive I should be able to click the photo of the manual consent form signed by the Primary applicant in the FOS app so that the Primary applicant consent can be captured successfully.	Low	Ready for review	"This user story focuses on enabling the lending system to automatically initiate Aadhar eKYC for Guarantors when their Aadhar number is captured in the Customer Consent screen. The goal is to ensure a successful completion of the Guarantor's KYC process. It outlines the scope, validation, integrations, and acceptance criteria for this feature.
+
+Pre-Conditions to Test:
+1. The lending application must be in a functional state.
+2. The Business executive must have access to the FinTech API page.
+3. Aadhaar number or Virtual ID must be captured in the Customer Consent screen.
+4. A biometric device must be available for fingerprint capture.
+5. The UIDAI integration via FinTech API must be properly configured.
+6. The Aadhaar vault integration must be set up.
+7. The eKYC timer should be configurable.
+8. The system should be capable of handling eKYC retries and CKYC initiation.
+9. The eKYC timer must be set to a predefined value (e.g., 60 seconds) as mentioned in the user story.
+"	"Product-to-Product Integrations Requirements:
+1. FinTech API Integration:
+   - The lending application must have a seamless integration with the FinTech API to initiate eKYC processes.
+   - Ensure that the API endpoints and methods for initiating eKYC and receiving responses are properly integrated.
+
+2. UIDAI Integration:
+   - The system should be integrated with UIDAI for Aadhaar verification and eKYC data retrieval.
+   - Validate that the system can make API requests to UIDAI and handle responses accurately.
+
+3. Aadhaar Vault Integration:
+   - If an Aadhaar vault system is used for securely storing Aadhaar data, ensure it is properly integrated into the lending application.
+   - Verify that the application can securely access and retrieve Aadhaar information from the vault when required.
+
+End-to-End Integrations Requirements:
+
+1. Biometric Device Integration:
+   - The lending application must be able to interface with a biometric device for fingerprint capture.
+   - Validate that the biometric device is connected and operational during testing.
+
+2. Database Integration:
+   - Verify that the lending application can store and retrieve eKYC response data in the database.
+   - Ensure data integrity and consistency in the database.
+
+3. User Interface (UI) Integration:
+   - Check that the eKYC screen is seamlessly integrated into the user interface (UI) of the lending application.
+   - Validate that eKYC-related data is displayed correctly on the UI.
+
+4. Configuration Management:
+   - Ensure that the eKYC timer is configurable and can be set to the predefined value as mentioned in the user story.
+   - Validate that configuration changes take effect as expected.
+
+5. Error Handling and Logging:
+   - Verify that the lending application is integrated with a logging system to capture errors and exceptions.
+   - Ensure that appropriate error messages and logs are generated in case of integration failures.
+
+6. CKYC Integration:
+   - If cKYC initiation is part of the requirements, ensure that the lending application can seamlessly switch to cKYC when needed.
+   - Validate that the transition from eKYC to cKYC is smooth and well-documented"	TC01	Verify successful eKYC initiation with valid data	- Business executive on FinTech API page<br>- Valid Aadhaar number/VID<br>- Successful UIDAI API response	eKYC response data displayed, proceed to QDE	Positive			
+						TC02	Confirm eKYC data with Guarantor	- Business executive reviews eKYC data<br>- Guarantor agrees with details	Proceed to QDE	Positive			
+						TC03	Confirm eKYC data with Guarantor	- Business executive reviews eKYC data<br>- Guarantor disagrees with details	Proceed with Manual KYC	Positive			
+						TC04	Retry eKYC after failed API response (1st attempt)	- Business executive on FinTech API page<br>- Valid Aadhaar number/VID<br>- Failed UIDAI API response (1st attempt)	Retry eKYC process	Negative			
+						TC05	Retry eKYC after failed API response (2nd attempt)	- Business executive on FinTech API page<br>- Valid Aadhaar number/VID<br>- Failed UIDAI API response (2nd attempt)	Retry eKYC process	Negative			
+						TC06	Retry eKYC after failed API response (3rd attempt)	- Business executive on FinTech API page<br>- Valid Aadhaar number/VID<br>- Failed UIDAI API response (3rd attempt)	Retry eKYC process	Negative			
+						TC07	Initiate cKYC after three failed eKYC attempts	- Business executive on FinTech API page<br>- Valid Aadhaar number/VID<br>- Failed UIDAI API response (4th attempt)	Initiate cKYC for Guarantor	Negative			
+						TC08	Retry eKYC after timer expiration	- Business executive on FinTech API page<br>- Valid Aadhaar number/VID<br>- Timer expires	Retry eKYC process	Exception			
+						TC09	Proceed with cKYC after timer expiration	- Business executive on FinTech API page<br>- Valid Aadhaar number/VID<br>- Timer expires	Initiate cKYC for Guarantor	Exception			
+						TC10	Retry eKYC after biometric capture failure	- Business executive on FinTech API page<br>- Valid Aadhaar number/VID<br>- Biometric capture failure	Retry eKYC process	Negative			
+						TC11	Retry eKYC after UIDAI API failure	- Business executive on FinTech API page<br>- Valid Aadhaar number/VID<br>- UIDAI API failure	Retry eKYC process	Negative			
+						TC12	Retry eKYC after incorrect Aadhaar number/VID	- Business executive on FinTech API page<br>- Invalid Aadhaar number/VID	Retry eKYC process	Negative			

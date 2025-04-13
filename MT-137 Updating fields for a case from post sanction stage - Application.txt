@@ -1,0 +1,30 @@
+Unnamed: 0	Unnamed: 1	Unnamed: 2	Unnamed: 3	Unnamed: 4	Unnamed: 5	Unnamed: 6	Unnamed: 7	Unnamed: 8	Unnamed: 9	Unnamed: 10	Unnamed: 11	Unnamed: 12	Unnamed: 13	Unnamed: 14
+Story #	Test Case ID	Test Description	Test Data	Test Steps	Expected Output	Detailed Test Category	Attachments(Issue)	Pass/Faile	"Defect-ID (JIRA)
+(if Fail)"	Pass/Fail	Comments	Defect-ID(JIRA)	Device	Attachments(Issue)
+MT-137	Scope Scenario 1:													
+	TC001	Verify case moves to CPC on proceeding	Valid data for Cash flow details	1. Update Cash flow details 2. Click on proceed	Case moves to CPC	Positive								
+	TC002	Verify case moves to CPC on proceeding	Valid data for Cash flow details	1. Update Cash flow details 2. Click on proceed	Case  not moves to CPC	Negative								
+	Validation  Scenario 2:													
+	TC003	Verify Remarks field is mandatory	Missing Remarks	1. Leave Remarks field empty 2. Click on proceed	Error message indicating Remarks field is mandatory	Positive								
+	TC004	Verify Remarks field is mandatory	Missing Remarks	1. Leave Remarks field empty 2. Click on proceed	Case moves to CPC	Negative								
+	TC005	Validate all fields against screen wireframe	Valid data according to wireframe	1. Enter data as per wireframe 2. Click on proceed	Case moves to CPC, all fields match wireframe	Positive								
+	TC006	Validate all fields against screen wireframe	Valid data according to wireframe	1. Enter data as per wireframe 2. Click on proceed	Case  not moves to CPC, all fields match wireframe	Negative								
+	TC007	Ensure consent section is editable if consent mode is manual	Consent mode: Manual	1. Set consent mode to manual 2. Check if consent section is editable	Consent section is editable	Positive								
+	TC008	Ensure consent section is editable if consent mode is manual	Consent mode: Manual	1. Set consent mode to manual 2. Check if consent section is editable	Consent section is  non editable	Negative								
+	TC009	Ensure KYC section is editable if KYC mode is manual	KYC mode: Manual	1. Set KYC mode to manual 2. Check if KYC section is editable	KYC section is editable	Positive								
+	TC010	Ensure KYC section is editable if KYC mode is manual	KYC mode: Manual	1. Set KYC mode to manual 2. Check if KYC section is editable	KYC section is not editable	Negative								
+	Acceptance Criteria Scenario 3: User updating any fields under Cash flow details category													
+	TC011	Verify case moves to CPC when all mandatory fields in Cash flow details are filled and valid	All mandatory fields filled with valid data	1. Log in as BE 2. Ensure all mandatory fields in Cash flow details are filled with valid data 3. Click on proceed	Case moves to CPC for review	Positive								
+	TC012	Verify case moves to CPC when all mandatory fields in Cash flow details are filled and valid	All mandatory fields filled with valid data	1. Log in as BE 2. Ensure all mandatory fields in Cash flow details are filled with valid data 3. Click on proceed	Case moves to CPC for review	Negative								
+	Acceptance Criteria Scenario 4: User updating any fields under PSL details category:													
+	TC013	Verify case moves to CPC when all mandatory fields in PSL details are filled and valid	All mandatory fields filled with valid data	1. Log in as BE 2. Ensure all mandatory fields in PSL details are filled with valid data 3. Click on proceed	Case moves to CPC for review	Positive								
+	TC014	Verify case moves to CPC when all mandatory fields in PSL details are filled and valid	All mandatory fields filled with valid data	1. Log in as BE 2. Ensure all mandatory fields in PSL details are filled with valid data 3. Click on proceed	Case  not moves to CPC	Negative								
+	Acceptance Criteria Scenario 5: User updating any fields under Reference Details category:													
+	TC015	Verify case moves to CPC when all mandatory fields in Reference details are filled and valid	All mandatory fields filled with valid data	1. Log in as BE 2. Ensure all mandatory fields in Reference details are filled with valid data 3. Click on proceed	Case moves to CPC for review	Positive								
+	TC016	Verify case moves to CPC when all mandatory fields in Reference details are filled and valid	All mandatory fields filled with valid data	1. Log in as BE 2. Ensure all mandatory fields in Reference details are filled with valid data 3. Click on proceed	Case  not moves to CPC	Negative								
+	Acceptance Criteria Scenario 6: User updating any fields under Banking Details category													
+	TC017	Verify case moves to CPC after updating Banking Details and re-running penny drop with valid data	Valid Banking Details	1. Log in as BE 2. Update any field in Banking Details 3. Click on re-run penny drop 4. Regenerate documents 5. Re-initiate repayment setup 6. Click on proceed	Case moves to CPC for review	Positive								
+	TC018	Verify case moves to CPC after updating Banking Details and re-running penny drop with valid data	Valid Banking Details	1. Log in as BE 2. Update any field in Banking Details 3. Click on re-run penny drop 4. Regenerate documents 5. Re-initiate repayment setup 6. Click on proceed	Case  not moves to CPC	Negative								
+	Acceptance Criteria Scenario 7: UW sends the case back as per part of CPC trail after FE submits the case for DO issuanc													
+	TC019	Verify FE can view UW comments and select correct disbursement type, then submit to CPC	UW comments and valid disbursement type	1. Log in as FE 2. Open the case sent back by UW 3. View comments by UW 4. Select correct disbursement type 5. Submit the case to CPC	Case moves to CPC for review with correct disbursement type	Positive								
+	TC020	Verify FE can view UW comments and select correct disbursement type, then submit to CPC	UW comments and valid disbursement type	1. Log in as FE 2. Open the case sent back by UW 3. View comments by UW 4. Select correct disbursement type 5. Submit the case to CPC	Case  not moves to CPC	Negative								

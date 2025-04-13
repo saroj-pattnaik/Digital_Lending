@@ -1,0 +1,57 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P/E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Faile	"Defect-ID (JIRA)
+(if Fail)"
+UDBTEY-84	As a Business executive I should be able to mandatorily capture PAN details so that PAN verification can be conducted	High	Ready for review	"""As a Business executive, I need to capture and verify PAN details for the primary applicant in the lending application. This involves uploading scanned PAN documents, conducting OCR for data extraction, and performing PAN validation using two algorithms. Depending on the validation results, different outcomes are triggered, such as successful verification, name mismatch, or invalid PAN details. Additionally, when the primary applicant does not have a PAN, a Form 60 option is provided for later generation during the post-sanction phase.""
+
+Pre-conditions to Test:
+1. Ensure that the lending application is in a working state and accessible.
+2. Business executive should have logged into the system with appropriate permissions.
+3. The NSDL integration via API is functional and properly configured.
+4. Scanning/uploading of PAN documents is supported and accessible.
+5. The OCR functionality is available and accurately extracts data from uploaded PAN documents.
+6. The STRING ALGORITHM and PRONUNCIATION ALGORITHM for name matching are integrated and functioning as intended.
+7. PAN validation logic and thresholds (80%, 60%) are properly configured and operational.
+8. Pop-up notifications for different verification outcomes (e.g., ""PAN Verification Successful,"" ""Name Mismatch,"" ""Invalid PAN Details,"" ""Technical Error"") are implemented.
+9. Declaration checkboxes and buttons (""Proceed,"" ""Edit PAN"") are correctly displayed and functional as per the described scenarios.
+10. Form 60 option is available for primary applicants who do not have a PAN.
+11. The system is ready to handle and display PAN validation details, including PAN holder's name, DOB, and relevant messages.
+12. Specific error codes for ""Invalid PAN Details"" scenarios are defined and functional.
+13. The CPC is prepared to handle cases with name mismatches and invalid PAN details before document signing in the post-sanction stage.
+14. Existing logic for PAN Name match is incorporated as described in the user story.
+15. The FE App is configured to display PAN verification results accurately."	"Product-to-Product Integrations Requirements:
+1.	Integration with NSDL: to fetch Primary Applicant's PAN details and verify the PAN's validity.
+2.	OCR Integration: OCR (Optical Character Recognition) is required to extract data from uploaded PAN documents.
+3.	String Algorithm Integration: for name matching during PAN verification.
+-	It should be able to evaluate the percentage match between two strings.
+-	The algorithm should consider string length and differences to calculate the match percentage.
+4.	Pronunciation Algorithm Integration: for name matching during PAN verification.
+-	It should evaluate the percentage match between two strings based on phonetics.
+-	The algorithm should consider the first letter and phonetic similarity for the match percentage.
+
+End-to-End Integration Requirements:
+1.	FE App Integration: The user interacts with the system through the FE App.
+-	The FE App should provide the user interface for PAN document upload.
+-	It should display PAN verification results and PAN holder's name and DOB.
+-	Buttons for proceeding, editing PAN, or declaring should be functional based on PAN verification outcomes.
+2.	CPC Integration: Certain PAN verification scenarios are checked at the CPC before document signing in the post-sanction stage.
+-	The system should communicate with the CPC for specific scenarios as described in the User Story.
+-	The CPC should be able to review and validate PAN verification outcomes.
+3.	PAN FCU/RCU Vendor Integration: In cases of technical errors during PAN verification, the system should trigger PAN FCU/RCU (Follow-up/Recheck) through a vendor.
+-	Integration with the PAN FCU/RCU vendor should be established.
+-	The system should provide triggers and data required for follow-up or recheck.
+-	Results from the vendor should be received and handled by the system.
+5.	Form 60 Generation Integration: The system should be capable of generating Form 60 when the primary applicant does not have a PAN.
+-	The system should have the capability to prepopulate primary applicant details into Form 60.
+-	Form 60 generation should be available as an option for users when required."	TC1	Business Executive uploads valid PAN document and OCR is accurate.	Valid PAN document	PAN verification (NSDL) successful with PAN holder's name and DOB. Business Executive can proceed.	Positive			
+						TC2	Business Executive uploads invalid PAN document, and OCR is accurate.	Invalid PAN document	"PAN verification shows ""Invalid PAN Details."" Message: ""Please give a valid PAN."""	Negative			
+						TC3	Business Executive uploads valid PAN document, OCR is accurate, and PAN verification is successful.	Valid PAN document with matching name according to STRING ALGORITHM and PRONUNCIATION ALGORITHM.	PAN verification successful with PAN holder's name and DOB. Business Executive can proceed.	Positive			
+						TC4	Business Executive uploads valid PAN document, OCR is accurate, and PAN verification shows name mismatch.	Valid PAN document with non-matching name according to STRING ALGORITHM and PRONUNCIATION ALGORITHM.	"PAN verification shows ""Name Mismatch."" Message: ""Edit PAN Number or Declare."""	Negative			
+						TC5	Business Executive uploads valid PAN document, OCR is accurate, and PAN verification shows name match & DOB mismatch	Valid PAN document with name matching as per algorithms but DOB not matching	"PAN verification shows ""DOB Mismatch."" Message: ""Edit PAN Number or Declare."""	Negative			
+						TC6	BE is able to proceed after decleration.  	tick the decleration checkbox 	BE is able to move ahead in the journey. 	Positive			
+						TC7	Technical error during PAN verification.	Valid PAN document	"Error message: ""Technical Error: Unable to fetch PAN Details. Try Again."""	Exception			
+						TC8	FE us able to trigger RCU/FCU	Technical error in PAN validation	Conformation Message for RCU/FCU initiation	Positive			
+						TC9	Business Executive doesn't upload PAN document, and no PAN is available.	No PAN document	Checkbox for Form 60 is enabled.	Negative			
+						TC10	Business Executive uploads valid PAN document, OCR is accurate, and PAN verification is successful, and name matching 	Valid PAN document matching name according to STRING ALGORITHM and PRONUNCIATION ALGORITHM.	PAN verification successful with PAN holder's name and DOB. Business Executive can proceed.	Positive			
+						TC11	Business Executive uploads valid PAN document, OCR is accurate, and PAN verification shows name mismatch 	Valid PAN document with non-matching name according to STRING ALGORITHM and PRONUNCIATION ALGORITHM.	"PAN verification shows ""Name Mismatch."" Message: ""Edit PAN Number or Declare."""	Negative			
+						TC12	Business Executive uploads valid PAN document, OCR is accurate, and PAN verification shows name mismatch.	Valid PAN document	"PAN verification shows ""Invalid PAN Details."" Message: ""Please give a valid PAN."""	Negative			
+						TC13	For ABM profile, all the data to remain in read only mode. 	ABM tries to edit/input PAN. 	Verify button is disabled	Negative			
+						TC14	For ABM profile, verify button to remain disabled. 	Press verify button	Button is disabled	Negative			

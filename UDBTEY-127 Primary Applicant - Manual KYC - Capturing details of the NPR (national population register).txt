@@ -1,0 +1,54 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P/E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Faile	"Defect-ID (JIRA)
+(if Fail)"
+UDBTEY-127	As a Business executive I should be able to capture Primary Applicant's NPR (national population register) during manual KYC procedure, so that Manual KYC can be conducted	Low	Ready for review	"In this user story, a Business executive needs the capability to capture the National Population Register (NPR) details of the Primary Applicant during manual KYC procedures in a lending system. Additionally, the system should allow the upload and storage of Proof of Address (POA) documents. To confirm the completion of OSV, a checkbox will be provided on the screen. This functionality will facilitate accurate KYC processes and move the system to Quality Data Entry (QDE) and Dedupe stages when necessary.""
+
+Pre-Conditions for Testing:
+
+1. The lending system must be operational and accessible to Business executives.
+2. The Business executive must have an active user account and proper permissions to access the KYC module.
+3. The system should have a configured integration with a DMS for document storage.
+4. The system should have a designated field for capturing NPR details.
+5. The system should support the creation and storage of customer records.
+6. The CKYC (Central KYC) process should be integrated into the system, and there should be a mechanism for detecting CKYC failures.
+7. Proper data validation rules for NPR details should be defined and configured.
+8. The OSV checkbox should be visible and functional on the KYC screen.
+9. The system should be capable of transitioning to the Quality Data Entry (QDE) and Dedupe stages based on the completion of the NPR capture and OSV confirmation."	"Product-to-Product Integration Requirements:
+
+1. DMS (Document Management System) Integration:
+   - The lending system should have a seamless integration with the designated DMS to enable the storage and retrieval of customer documents, including NPR data and Proof of Address (POA) documents.
+   - The integration should support secure data transfer and storage.
+
+2. CKYC (Central KYC) Integration:
+   - The system must be integrated with CKYC services to detect CKYC failures and trigger the specific scenario mentioned in the acceptance criteria.
+   - CKYC data should be accessible and utilized within the manual KYC process.
+
+3. Data Validation Service:
+   - Integration with a data validation service is required to ensure the accuracy of the NPR (national population register) data being captured.
+   - The service should validate the NPR data according to predefined rules and standards.
+
+End-to-End Integration Requirements:
+
+1. Workflow Integration:
+   - The lending system should support a seamless workflow integration, ensuring that after capturing NPR details and confirming OSV, the system progresses to the Quality Data Entry (QDE) and Dedupe stages automatically.
+   - There should be a clear linkage between the KYC process stages to facilitate this transition.
+
+2. User Role and Permission Integration:
+   - The system should have integrated user role and permission management to grant Business executives the necessary access rights to perform the NPR capture and OSV confirmation.
+   - Permissions should be configured in a way that allows Business executives to access only the relevant KYC features.
+
+3. Error Handling Integration:
+   - Integration with error handling mechanisms should be in place to manage exceptions during the NPR capture, OSV confirmation, and the transition to subsequent stages.
+   - Errors and exceptions should be logged, and appropriate notifications should be generated for system administrators or support teams.
+
+4. Data Storage Integration:
+   - The captured NPR data and related information should be seamlessly stored within the lending system's database.
+   - Data storage should be secure, compliant with data protection regulations, and accessible for retrieval and audit purposes.
+
+5. Notification and Alert Integration:
+   - The system should integrate with notification and alert mechanisms to inform relevant stakeholders (e.g., Business executives, administrators) about successful NPR capture, OSV confirmation, and progression to subsequent stages.
+   - Notifications should be configurable and timely."	TC01	Business executive selects NPR as POA type	Select NPR as POA type	NPR selected as POA type	Positive			
+						TC02	Business executive captures NPR	Capture valid NPR	NPR data is captured	Positive			
+						TC03	Business executive ticks OSV checkbox	Tick the OSV checkbox	OSV checkbox is marked	Positive			
+						TC04	Move to QDE and Dedupe stage	Complete all previous steps	System transitions to QDE and Dedupe stage	Positive			
+						TC05	Business executive captures invalid NPR	Capture invalid NPR	Error message, invalid NPR	Negative			
+						TC06	: Business executive does not tick OSV checkbox	Leave OSV checkbox unchecked	Error message, OSV not confirmed	Negative			

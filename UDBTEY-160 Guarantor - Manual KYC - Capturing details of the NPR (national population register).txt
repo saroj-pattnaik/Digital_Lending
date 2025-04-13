@@ -1,0 +1,74 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P / E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Fail	"Defect-ID (JIRA)
+(if Fail)"	"Automation
+(Status)"
+UDBTEY-160	Guarantor - Manual KYC - Capturing details of the NPR (national population register)	High	Ready for review	"As a Business executive, I want to be able to capture the NPR (national population register) of a Guarantor during the manual KYC (Know Your Customer) procedure. This will allow me to conduct manual KYC when necessary.
+
+  Preconditions for Testing  :
+
+1.   System Environment  : The testing environment should be set up with the necessary configurations and integrations, including the Digilocker document storage integration.
+
+2.   User Role  : The tester should have the role of a Business executive in the lending system.
+
+3.   KYC Process  : Ensure that the KYC process is in a state where the capture of NPR information is required (e.g., after a CKYC failure).
+
+4.   Mock Data  : Prepare mock NPR data or test NPR documents to simulate capturing and validation during testing.
+
+5.   Testing Data  : Ensure that test data for the Guarantor, such as name and other personal details, is available for use during the test.
+
+6.   User Interface  : The user interface should have the required elements, including the option to select NPR as the POA (Proof of Address) type and an OSV confirmation checkbox.
+
+7.   Validation Rules  : The system should be configured with validation rules to check the accuracy and validity of the captured NPR data.
+
+8.   Document Storage  : Verify that the integration with Digilocker is functioning correctly and that captured NPR documents can be stored and retrieved for testing.
+
+9.   Testing Environment  : Ensure that the testing environment is isolated from the production environment to prevent any impact on real customer data.
+
+10.   Test Plan  : Develop a comprehensive test plan that covers positive, negative, and edge cases to thoroughly validate the NPR capture functionality."	"Product-to-Product Integration Requirements  :
+
+For testing the user story related to capturing Guarantor's NPR for Manual KYC, the following product-to-product integration requirements should be met:
+
+1.   Integration with Digilocker  :
+   - The lending system must be integrated with Digilocker, a document storage service.
+   - The integration should allow documents, including captured NPR documents, to be securely stored in Digilocker.
+
+2.   Data Transfer and Retrieval  :
+   - The lending system should facilitate the transfer of captured NPR documents to Digilocker.
+   - The integration must support the retrieval of stored documents from Digilocker when needed for verification or audit purposes.
+
+3.   Security and Authentication  :
+   - Strong security protocols and authentication mechanisms should be in place to ensure that only authorized users can access and retrieve documents from Digilocker.
+
+  End-to-End Integration Requirements  :
+
+In addition to the product-to-product integrations, the following end-to-end integration requirements should be met:
+
+1.   KYC Workflow Integration  :
+   - The NPR capture functionality should seamlessly integrate into the broader KYC workflow within the lending system.
+   - It should coordinate with other KYC-related steps and systems to ensure a smooth end-to-end KYC process.
+
+2.   Validation and Verification Integration  :
+   - The captured NPR data should be integrated with validation and verification processes to ensure its accuracy and legitimacy.
+   - Integration with OSV (Online Social Verification) processes should be in place to confirm the completion of OSV.
+
+3.   User Interface Integration  :
+   - The user interface should be integrated with the NPR capture functionality, providing users with a seamless experience for selecting NPR as the POA (Proof of Address) type and confirming OSV.
+
+4.   Error Handling and Logging Integration  :
+   - Integration with error handling mechanisms and logging services should be in place to capture and report any issues or failures during the NPR capture process.
+   - These logs should be accessible for monitoring and troubleshooting.
+
+5.   Compliance and Audit Integration  :
+   - Integration with compliance and audit systems should ensure that all captured NPR data and related activities are tracked and auditable as per regulatory requirements.
+
+6.   Testing Environment Integration  :
+   - The testing environment should be integrated with a mock or test data generation system to simulate different scenarios for testing, including successful NPR captures and failures."	TC01	Test OCR NPR (OCR capabilities available)	Scan NPR card with OCR capabilities	Ensure that Captured NPR data	Positive				
+						TC02	Test Manual NPR Entry	Manually enter NPR data	Ensure that Entered NPR data should displayed	Positive				
+						TC03	Test Validation Successful (Valid NPR)	Valid NPR data	Ensure that Validation process should be passed	Positive				
+						TC04	Test Validation Failed (Invalid NPR)	Invalid NPR data	Ensure that Validation fails	Negative				
+						TC05	Test OSV Confirmation (Checkbox Confirmed)	OSV confirmation checkbox checked	Ensure that system should be Proceed to QDE and Dedupe	Positive				
+						TC06	Test OSV Confirmation (Checkbox Not Confirmed)	OSV confirmation checkbox not checked	Ensure that system should end the process and throws the relavant error message	Negative				
+						TC07	Test OCR NPR (OCR capabilities not available)	Scan NPR card without OCR capabilities	Ensure that flow should be shifted to Manual NPR Entry	Positive				
+						TC08	Test OSV NPR (OCR and OSV both not available)	OCR and OSV both not available	Ensure that flow should be shifted to Manual NPR Entry	Positive				
+						TC09	Test OSV NPR (Validation Fails)	Valid NPR data but validation fails	Ensure that process should end due to validation failure	Negative				
+						TC10	Test OSV NPR (Validation Successful, Checkbox Not Confirmed)	Valid NPR data but checkbox not confirmed	Ensure that system should end due to missing OSV confirmation and relavant error message should be displayed	Negative				
+						TC11	Test OSV NPR (Validation Successful, Checkbox Confirmed)	Valid NPR data with checkbox confirmed	Ensure that system should Proceed data to QDE and Dedupe	Positive				

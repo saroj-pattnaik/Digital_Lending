@@ -1,0 +1,42 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P/E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Faile	"Defect-ID (JIRA)
+(if Fail)"
+UDBTEY-103	As a user (System), system should be able to capture Primary Applicant's Co-applicant KYC details using their Aadhar number/PAN number/Voter ID/Driver's License/Passport number, so that the primary applicant's KYC can be completed successfully.	High	Ready for review	"As a Business executive, I need the ability to select Passport (Voter ID) as the Proof of Identity (POI) type and capture the Primary Applicant's Voter ID number using various methods, ensuring that the KYC (Know Your Customer) check can be effectively conducted. This feature should be integrated into the Front-End (FE) App, providing options to either capture a photo of the Voter ID for Optical Character Recognition (OCR) or manually enter the Voter ID number. The system should also automatically set the POI type as Proof of Address (POA) when Voter ID is selected as the POI.
+
+Pre-Conditions to Test:
+1. The user has logged in to the Front-End (FE) App.
+2. The system is operational and integrated with the necessary FinTech API for OCR.
+3. The user is on the screen where POI selection and Voter ID capture take place.
+4. The Voter ID document (physical or digital) is available for capturing the photo."	"Product-to-Product Integration Requirements:
+
+1. Integration with Front-End (FE) App:
+   - The FE App must be integrated with the system to facilitate user interactions and input for selecting Passport as the Proof of Identity (POI) type and capturing the Voter ID.
+
+2. Integration with FinTech API for OCR:
+   - The system must be integrated with a FinTech API that provides Optical Character Recognition (OCR) capabilities. This integration is crucial for capturing and processing Voter ID information accurately.
+
+End-to-End Integration Requirements:
+
+1. **User Authentication and Access:**
+   - Ensure that users have appropriate authentication and access rights to use the FE App and access the KYC-related functionality.
+
+2. Data Aggregator Integration (if applicable):
+   - If the system is configured to capture additional fields via OCR from a data aggregator, ensure that the integration with the data aggregator is in place and functioning correctly.
+
+3. Availability of Voter ID Document:
+   - For test cases involving capturing a photo of the Voter ID document, make sure that a sample Voter ID document (either physical or digital) is available for testing.
+
+4. OCR Service Availability (if external):
+   - If the OCR service used is external, validate that it is available and responsive during testing to ensure successful OCR processing."	TC-01	"Select ""Voter ID"" as POI type"	"Dropdown selection: ""Voter ID"""	"POI type is set to ""Voter ID"""	Positive			
+						TC-02	Unable to select POI as Voter ID	"Dropdown selection: ""Voter ID"""	"POI type is not set to ""Voter ID"""	Negative			
+						TC-03	Upload a clear photo of Voter ID	Image of Voter ID document	OCR successfully extracts data	Positive			
+						TC-04	Upload a blurry photo of Voter ID	Blurry image of Voter ID document	OCR fails to extract data (negative scenario)	Negative			
+						TC-05	Manually enter a valid Voter ID Number	Voter ID Number (Alpha Numeric format/8 Character lenght)	Field accepted, POI=POA checkbox auto-ticked	Positive			
+						TC-06	Manually enter an invalid Voter ID Number 	Voter ID Number (invalid format - Numeric only/less than 9 character lenght)	Field validation error, POI=POA checkbox not ticked	Negative			
+						TC-07	"Verify that POA is auto-selected as ""Voter ID"""	"Select ""Voter ID"" as POI"	"POA is automatically set to ""Voter ID"""	Positive			
+						TC-08	Verify handling of OCR inaccuracy	Upload an inaccurate OCR result	FE can manually edit the fields, POI=POA checkbox to be ticked by FE	Exception			
+						TC-09	Verify successful OCR data extraction and auto-ticking POI=POA checkbox.	Voter ID with OCR-extractable data	Data extracted and POI=POA checkbox auto-ticked	Positive			
+						TC-10	Unsuccesfull OCR extraction	FE does OCR on Voter ID card but Unsuccesful data extraction/partial data extraction	FE can manually edit the fields, POI=POA checkbox to be ticked by FE	Positive			
+						TC-11	Auto inititation of Fintech API	FE clicks proceed	Fintech API auto initiated and primary applicant data is auto fetched	Positive			
+						TC-12	Auto inititation of Fintech API fails	FE clicks proceed	Fintech API auto is not initiated and blank response is recieved/Error is recieved	Negative			
+						TC-13	Proceed to take PAN number	Selected POI: PAN Card	PAN number is successfully taken	Positive			
+						TC-14	OCR Image size recalibration	FE captures PAN OCR and submits	Size is recalibarated according to system requirement	Positive			

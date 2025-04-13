@@ -1,0 +1,28 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P / E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Failed	"Defect-ID (JIRA)
+(if Fail)"
+UDBTEY-136	As a Business executive I should be able to capture Co-Applicant's Drivers's license during manual KYC procedure, so that the data aggregator check can be run on it	High	Ready For Review	"As a Business executive, I want to capture a Co-Applicant's Driver's License during the manual KYC procedure so that I can run data aggregator checks on it.
+Pre-conditions to Test:
+
+The system should be configured to enable the capture and storage of customer's Proof of Identity (POI) documents.
+The user interface (UI) must include a checkbox for confirming the Online Self-Verification (OSV) process.
+Optical Character Recognition (OCR) functionality should be integrated and operational for extracting information from Driver's License documents.
+Integration with an OCR service provider (IDFY) and a Document Management System (DMS) must be established.
+Test data, including Co-Applicant's Driver's License documents, should be available for uploading and OCR testing.
+The FinTech API responsible for fetching Co-Applicant's data should be functional and properly configured."	"Product-to-Product Integration Requirements:
+1.Integration with OCR Service (IDFY): 
+2.Document Storage Integration (DMS): 
+
+End-to-End Integration Requirements:
+1.Integration with FinTech API: 
+2.Data Aggregator Check Integration: 
+3.Validation and Display Integration: 
+4.OSV Checkbox Integration:"	TC-01	Upload a valid Driver's License document	Valid scanned Driver's License document	OCR successfully extracts DL Number and Expiry Date	Positive			
+						TC-02	Upload an invalid document	Invalid document (e.g., an image of a non-DL document)	Display OCR Error message	Negative			
+						TC-03	OCR fails to extract data	Valid scanned Driver's License document	Display OCR Error message	Negative			
+						TC-04	Correct data extracted by OCR	Valid scanned Driver's License document with corrections	Data corrected and displayed on the FE App	Positive			
+						TC-05	Auto-initiate FinTech API with correct data	Valid scanned Driver's License document with corrections	FinTech API successfully initiated and Co-Applicant's data fetched	Positive			
+						TC-06	Auto-initiate FinTech API with incorrect data	Valid scanned Driver's License document with incorrect corrections	FinTech API initiated, but error displayed	Exception			
+						TC-07	Manually correct data and initiate FinTech API	Valid scanned Driver's License document with corrections	FinTech API successfully initiated and Co-Applicant's data fetched	Positive			
+						TC-08	Manually correct data and fail to initiate FinTech API	Valid scanned Driver's License document with incorrect corrections	FinTech API initiation fails, error displayed	Exception			
+						TC-09	Cancel KYC during document upload	"Click on ""Cancel KYC"" button"	KYC process cancelled	Positive			
+						TC-10	Cancel KYC during data correction	"Click on ""Cancel KYC"" button"	KYC process cancelled	Positive			

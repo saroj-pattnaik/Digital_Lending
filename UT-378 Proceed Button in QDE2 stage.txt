@@ -1,0 +1,21 @@
+Story #	Story Description	Scope	Integrations	Validations	Acceptance Criteria	Test Step ID	Test Step Description	Test Input	Expected Output	Test Category	Actual Result	Pass/Failed	"Defect-ID (JIRA)
+(if Fail)"	"Automation
+(Status)"	MMFSL Remarks
+UT-378	As a Business executive, I should be able to click on Proceed button from the QDE 2 Page so that system can move to the next stage.	1. User must be able to click on the button - 'Proceed'	1. FE APP integrated with LOS(SFDC) to reflect the details up to this point in the LOS	"1. All the required mandatory fields should be validated before submitting (As per field list document)
+
+2. Proceed Button should be enabled:
+a. Once all the mandatory fields are entered as per the field list
+b. Once all the documents related to that particular screen/stage are field as per document checklist
+c. Once all the mandatory APIs integrated into that particular screen are called successfully.
+d. Reports are generated (If any) for that screen."	"Scenario 1: The user clicks on the Proceed button and no error is thrown:
+Given that the Business executive clicks on the proceed Button and there is no error thrown, then the screen should automatically be navigated to BRE -2"	TC01	All conditions met, 'Proceed' button is clicked	Click on 'Proceed' with all fields validated	Navigation to BRE-2 page	Positive					
+						TC02	Mandatory fields incomplete, 'Proceed' clicked	Click on 'Proceed' with some fields missing	Error message; No navigation	Negative					
+						TC03	Mandatory documents not uploaded, 'Proceed' clicked	Click on 'Proceed' without all documents uploaded	Error message; No navigation	Negative					
+						TC04	Mandatory APIs not called, 'Proceed' clicked	Click on 'Proceed' with APIs uninvoked	Error message; No navigation	Negative					
+						TC05	Mandatory APIs return error, 'Proceed' clicked	Click on 'Proceed' with API errors	Error message; No navigation	Negative					
+						TC06	Reports not generated, 'Proceed' clicked	Click on 'Proceed' with no reports generated	Error message; No navigation	Negative					
+						TC07	Abrupt system failure after 'Proceed' clicked	Click on 'Proceed' then simulate system crash	System recovery; Error message shown	Edge					
+						TC08	Page navigates to BRE-2 with slow network	Click on 'Proceed' with slow network	Delayed navigation to BRE-2 page	Edge					
+						TC09	All conditions met with rapid 'Proceed' clicking	Rapidly click 'Proceed' multiple times	Single navigation to BRE-2 page only	Edge					
+						TC10	Conditions met, navigate with keyboard shortcut	Press designated shortcut for 'Proceed'	Navigation to BRE-2 page	Positive					
+						TC11	Proceed' button clickable but server unresponsive	Click on 'Proceed' with server down	Error message; No navigation	Negative					

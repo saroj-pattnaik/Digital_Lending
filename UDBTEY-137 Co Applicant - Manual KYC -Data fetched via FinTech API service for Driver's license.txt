@@ -1,0 +1,48 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P/E2E Integration Requirements	Activity Diagram	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Faile	Defect-ID (JIRA)
+						(Control Flow)								(if Fail)
+UDBTEY-137	Co Applicant - Manual KYC -Data fetched via FinTech API service for Driver's license			"This user story focuses on enabling the system to retrieve and validate co-applicant details from a data aggregator's response to streamline the Manual KYC process. It entails input fields based on a driver's license, data display requirements, storage in the database, and integration with data aggregators. The acceptance criteria cover scenarios with and without data aggregator responses.
+
+Pre-conditions to Test:
+1.The system is configured and integrated with the necessary FinTech API for data aggregation.
+2.The user has initiated the KYC process for a co-applicant using a driver's license as a reference.
+3.Appropriate input parameters, including the driver's license number and expiration date, are provided.
+4.The data aggregator service is operational and responsive for testing.
+5.Test data for both scenarios (with and without data aggregator response) is available and prepared for validation.
+6.Quality assurance personnel have access to the system interface for testing purposes.
+7.A test environment is set up to isolate testing from the production environment.
+8.The database is ready to store the retrieved co-applicant data.
+9.The system interface includes the required input fields, data display areas, and a checkbox for OSV documents.
+10.Business executives and users have been trained and are familiar with the testing process for this user story."	"
+Data Aggregator Integration:
+
+The system must integrate with the Data Aggregator's API.
+The integration should support secure communication, such as HTTPS.
+Ensure that authentication and authorization mechanisms are in place for accessing the Data Aggregator's services.
+FinTech API Integration:
+
+The system should integrate with the FinTech API to fetch customer details.
+Verify that the API endpoints for retrieving customer data are accessible and functional.
+Implement error handling to gracefully manage API communication issues.
+Database Integration:
+
+Establish integration with the database where customer data will be stored.
+Define data structures and ensure compatibility with the data retrieved from the Data Aggregator.
+Validate that data is correctly stored and retrieved from the database during the process."		TC01	Start KYC process	User initiates the KYC process	The KYC process is successfully initiated.	Positive			
+							TC02	Enter Driver's License Info	Valid Driver's License Number and Expiry Date	User enters valid Driver's License information successfully.	Positive			
+							TC03	Fetch Data from Data Aggregator	Valid Driver's License Number and Expiry Date	The system successfully fetches data from the Data Aggregator.	Positive			
+							TC04	Data Available?	Data is available from the Data Aggregator	The system recognizes data availability and proceeds accordingly.	Positive			
+							TC05	Display Data	Data from Data Aggregator (Sample Data)	The system displays the retrieved data on the screen.	Positive			
+							TC06	Verify Data	Data matches customer discussion	The system verifies the data, and verification is successful.	Positive			
+							TC07	Store Data in Database	Verified data	The system stores the verified data in the database.	Positive			
+							TC08	Proceed to QDE	"User clicks on ""Proceed"""	The KYC process proceeds to Quality Data Entry (QDE) successfully.	Positive			
+							TC09	No Data from Aggregator	Data is not available from the Data Aggregator	The system recognizes data unavailability and proceeds accordingly.	Positive			
+							TC10	Select POI/POA Type	User selects Proof of Identity (POI) or Proof of Address (POA) type	The user successfully selects the POI/POA type.	Positive			
+							TC11	Start KYC process with Invalid License Info	Invalid Driver's License Number and Expiry Date	The system detects invalid input and displays an error message.	Negative			
+							TC12	Fetch Data with Invalid License Info	Invalid Driver's License Number and Expiry Date	The system detects invalid input and displays an error message.	Negative			
+							TC13	Data Available? with No Data	Data is not available from the Data Aggregator	The system recognizes data unavailability and proceeds accordingly.	Negative			
+							TC14	Verify Data with Mismatched Data	Data does not match customer discussion	The system detects data mismatch and displays an error message.	Negative			
+							TC15	Store Data in Database with Missing Data	Incomplete data (missing fields)	The system detects missing data fields and displays an error message.	Negative			
+							TC16	Proceed to QDE with Incomplete Data	"User clicks on ""Proceed"" with incomplete data"	The system detects incomplete data and displays an error message.	Negative			
+							TC17	Initiate KYC with No Input	No Driver's License information entered	The system detects missing input and displays an error message.	Negative			
+							TC18	Fetch Data with No Input	No Driver's License information entered	The system detects missing input and displays an error message.	Negative			
+							TC19	Data Available? with Data Aggregator Error Response	Data aggregator returns an error response	The system detects an error response from the Data Aggregator and displays an error message.	Exception			

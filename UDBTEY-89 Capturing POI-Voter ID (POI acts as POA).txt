@@ -1,0 +1,25 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P / E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Failed	"Defect-ID (JIRA)
+(if Fail)"
+UDBTEY-89	As a Business executive I should be able to select POI(proof of identity) type as Passport, and capture the Co Applicant's Voter ID no. via various methods so that KYC check can be run	High	Ready For Review	" As a Business executive, I should be able to select ""Passport"" as the Proof of Identity (POI) type and capture the Co-Applicant's Voter ID number using various methods to conduct a KYC check.
+
+Pre-conditions to Test:
+
+The user is logged into the FE App.
+The Co-Applicant has chosen ""Voter ID"" as the POI type.
+The Co-Applicant has provided a Voter ID document."	"Product-to-Product Integrations Requirements (Pre-Requisite for Testing):
+Integration with FinTech API for OCR
+
+End-to-End Integrations Requirements (Pre-Requisite for Testing):
+1.Integration with FinTech API for OCR
+2.Integration with SFDC (Salesforce.com)
+3.Integration with Vendor (FinTech API) for OCR"	TC1	Co-applicant selects Voter ID as POI	Voter ID selected as POI during manual KYC procedure	Voter ID selected as POI	Positive			
+						TC2	Voter ID is uploaded with accurate OCR results	Voter ID image uploaded, OCR performs accurately, and details are auto-populated	POI = POA checkbox is ticked, Proceed to PAN verification	Positive			
+						TC3	Voter ID is uploaded with inaccurate OCR results	Voter ID image uploaded, OCR results are inaccurate	POI = POA checkbox is ticked, Business executive manually corrects fields, Proceed to PAN verification	Negative			
+						TC4	Voter ID is entered manually	Voter ID details manually entered during manual KYC procedure	POI = POA checkbox is ticked, Proceed to PAN verification	Positive			
+						TC5	Co-applicant selects another POI type	A different POI type (e.g., Passport) is selected by the Co-applicant	POI = POA checkbox is ticked, Proceed to PAN verification	Positive			
+						TC6	Voter ID is entered manually with OCR results accuracy	Voter ID details manually entered, OCR results are accurate	POI = POA checkbox is ticked, Proceed to PAN verification	Positive			
+						TC7	Voter ID is entered manually with OCR results inaccuracy	Voter ID details manually entered, OCR results are inaccurate	POI = POA checkbox is ticked, Proceed to PAN verification	Negative			
+						TC8	Co-applicant proceeds to PAN verification	Co-applicant completes Voter ID capture and proceeds to PAN verification	Proceed to PAN verification	Positive			
+						TC9	Voter ID is not selected as POI	Co-applicant selects a different POI type (e.g., Passport)	POI = POA checkbox is ticked, Proceed to PAN verification	Positive			
+						TC10	Voter ID is entered manually without selecting POI	Voter ID details manually entered without selecting Voter ID as POI	POI = POA checkbox is ticked, Proceed to PAN verification	Negative			
+						TC11	Voter ID is selected as POI, and OCR fails	Voter ID selected as POI, but OCR fails to recognize the details	POI = POA checkbox is ticked, Business executive manually corrects fields, Proceed to PAN verification	Exception			

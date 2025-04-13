@@ -1,0 +1,68 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P/E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Faile	"Defect-ID (JIRA)
+(if Fail)"
+UDBTEY-141	As a user (System), should be able to fetch and verify Co Applicants details from the Data aggregator response, so that the Manual KYC can be completed successfully	High	Ready for review	"As a system user, I want to be able to retrieve and verify co-applicant details from the response of a data aggregator. This functionality is essential to successfully complete manual Know Your Customer (KYC) procedures in our lending application. The system should fetch and display specific details based on Voter ID input parameters, store the obtained data in the database, and provide an option to select Officially Valid Document (OSV) documents.
+
+Pre-Conditions to Test:
+
+The system must be configured and connected to the data aggregator's API for customer data retrieval.
+Input parameters for Voter ID, including Voter ID No. and Expiry Date, must be provided.
+There should be a response available from the data aggregator for testing purposes.
+The database should be accessible and capable of storing the fetched data.
+The application interface should include the necessary input fields and a checkbox for OSV documents.
+Test scenarios should be prepared to simulate both scenarios mentioned in the acceptance criteria:
+Scenario 1: Data aggregator has accurate customer information.
+Scenario 2: No response from the data aggregator.
+Acceptance criteria should be defined for each scenario to determine the successful execution of the user story.
+Relevant user roles (e.g., Business Executive, Quality Data Entry) should be established and accessible for testing purposes.
+The testing environment should mirror the production environment to ensure realistic testing conditions.
+Necessary test data and test cases for the scenarios should be prepared in advance."	"Product-to-Product Integration Requirements:
+
+1. Data Aggregator Integration:
+   - The lending application must be integrated with the Data Aggregator's API.
+   - The integration should support secure data transmission using appropriate authentication and encryption mechanisms.
+   - The lending application should be able to send requests to the Data Aggregator and receive responses containing customer details.
+
+2. Database Integration:
+   - The lending application must have a database integration to store customer data obtained from the Data Aggregator.
+   - The integration should ensure data consistency, security, and appropriate indexing for efficient retrieval.
+
+3.User Interface Integration:
+   - The user interface of the lending application should be integrated with the data retrieval and display components.
+   - Input fields for Voter ID and Expiry Date should be available and functional on the user interface.
+   - The application should display customer details received from the Data Aggregator in the designated UI components.
+
+4. OSV Document Integration:
+   - The user interface should include a checkbox or input field to select OSV documents.
+   - The application should capture and store OSV document selections made by the user.
+
+End-to-End Integration Requirements:
+
+1. Business Process Flow Integration:
+   - The user story should be part of the larger lending process flow, including customer onboarding and KYC.
+   - End-to-end integration ensures that the user story fits seamlessly into the overall lending process.
+
+2. QDE Integration:
+   - The user story mentions a transition to QDE upon successful data retrieval and verification.
+   - Ensure that the QDE module is integrated correctly, and data is passed to it as required.
+
+3. Error Handling and Exception Integration:
+   - The lending application should be integrated with error handling and exception management systems.
+   - Exception scenarios, such as no response from the Data Aggregator or system errors, should trigger appropriate error handling processes.
+
+4. User Role Integration:
+   - The roles mentioned in the user story (e.g., Business Executive) should be integrated into the application.
+   - Access control and permissions for these roles should be configured correctly.
+
+5. Testing Environment Integration:
+   - The testing environment should replicate the production environment closely to ensure realistic testing conditions.
+   - Data aggregator endpoints and responses used for testing should be set up and integrated with the test environment.
+
+6. Reporting and Logging Integration:
+   - The lending application should integrate with logging and reporting mechanisms.
+   - All relevant actions and events, including data retrieval, should be logged for auditing and debugging purposes."	TC1	Fetch data with accurate information	Voter ID: 123456, Expiry Date: 2025-12-31	Data from aggregator displayed; Proceed to QDE.	Positive			
+						TC2	Data aggregator response is empty	Voter ID: 111111, Expiry Date: 2023-12-31	Redirect to select POI/POA type for manual KYC.	Negative			
+						TC3	Invalid Voter ID and Expiry Date	Voter ID: Invalid, Expiry Date: 2023-12-31	Error message; no data displayed.	Negative			
+						TC4	Invalid Voter ID and Expiry Date	Voter ID: 444444, Expiry Date: Invalid	Error message; no data displayed.	Negative			
+						TC5	System error during data retrieval	Voter ID: 555555, Expiry Date: 2023-06-30	System error message; no data displayed.	Exception			
+						TC6	Data aggregator API connection failure	Voter ID: 666666, Expiry Date: 2024-02-28	Connection error message; no data displayed.	Exception			
+						TC7	Data accuracy check fails	Voter ID: 777777, Expiry Date: 2025-04-30	Data from aggregator displayed; Error message on QDE.	Exception			

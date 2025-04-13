@@ -1,0 +1,79 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P / E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Fail	"Defect-ID (JIRA)
+(if Fail)"	"Automation
+(Status)"
+UDBTEY-156	Guarantor - Manual KYC - Capturing details of the Voter ID	High	Ready for review	"As a Business executive using a lending application, I should have the capability to capture a Guarantor's Voter ID during the manual KYC procedure. This data is essential for conducting a data aggregator check. The system should allow for the efficient capture of Voter ID details using OCR technology and provide the option to confirm the Guarantor's identity with a checkbox. Additionally, the system should integrate with OCR service IDFY for text extraction and a Document Management System (DMS) for document storage.
+
+Pre-Conditions for Testing:
+
+Access to the Lending Application: The tester should have access to the lending application with appropriate permissions to perform KYC-related tasks.
+
+OCR Integration: The integration with the OCR service IDFY should be properly configured and functional for text extraction.
+
+Document Management System: The DMS should be set up to store and retrieve documents accurately.
+
+Test Data: Sample Guarantor's Voter ID documents should be available for testing OCR functionality.
+
+Test Environment: The testing environment should replicate the production environment to ensure accurate testing results.
+
+User Interface: The FE App should display the required fields, checkboxes, and buttons as described in the user story.
+
+These pre-conditions ensure that the testing environment is appropriately set up and that the user can execute the user story as intended, including OCR functionality and data storage integration.
+
+
+
+
+"	"Product-to-Product Integration Requirements (Pre-Requisite for Testing):
+
+1. Front-End Application Integration with OCR Service (IDFY):
+   - The Front-End application should be integrated with the OCR service IDFY to enable document text extraction.
+   - Ensure that API endpoints are defined for communication between the Front-End and the OCR service.
+
+2. Front-End Application Integration with Document Management System (DMS):
+   - The Front-End application should integrate with the Document Management System (DMS) to store and retrieve captured documents.
+   - Define the API or mechanisms for document upload, retrieval, and management.
+
+3. OCR Service Configuration:
+   - Configure the OCR service (IDFY) with the necessary settings and access permissions.
+   - Ensure the OCR service can handle the expected volume of document processing.
+
+4. DMS Configuration:
+   - Configure the Document Management System (DMS) to store documents securely and efficiently.
+   - Define access controls and document retention policies.
+
+5. Data Mapping and Validation:
+   - Ensure that data fields in the Front-End application align with the data extracted by the OCR service for accurate data population.
+   - Implement validation checks to verify the accuracy of data extracted by OCR.
+
+End-to-End Integration Requirements (Pre-Requisite for Testing):
+
+1. Full System Integration:
+   - Ensure that all components, including the Front-End application, OCR service, and Document Management System, are integrated and communicating effectively.
+
+2. Document Flow:
+   - Define the flow of documents from capture to storage and retrieval within the lending application.
+   - Verify that documents are stored with proper metadata and can be retrieved when needed.
+
+3. User Interface:
+   - Validate that the User Interface of the Front-End application reflects the integration features, such as checkboxes for confirming identity and OCR status.
+
+4. API Endpoint Validation:
+   - Test the API endpoints and data transfer between the Front-End application and OCR service.
+   - Ensure that data is correctly passed to the OCR service and results are received back.
+
+5. Exception Handling:
+   - Test how the system handles exceptions, such as OCR failures or document storage issues.
+   - Verify that error messages and logging mechanisms are in place.
+
+6. Performance Testing:
+   - Assess the performance of the end-to-end process under various loads to ensure responsiveness and scalability.
+   - Measure OCR processing times and document retrieval times to meet acceptable performance criteria.
+
+These integration requirements are crucial for ensuring that the user story's functionality, involving OCR and document management, works seamlessly within the lending application's ecosystem. Successful integration testing will validate that all components interact as expected and that the entire end-to-end process is reliable and efficient."	TC-001	 Verify when Documents get uploaded, OCR is accurate and OSV is confirmed	Business executive captures Guarantor's Voter ID with uploaded documents.	Ensure that Voter ID details are accurately auto-populated. OSV checkbox is auto-ticked. FinTech API is initiated to fetch Guarantor's data.	Positive				
+						TC-002	Verify when  Documents get uploaded, OCR is not accurate, OSV not confirmed	Business executive captures Guarantor's Voter ID with uploaded documents. OCR inaccurately auto-populates details.	Ensure that OCR accuracy is Ensure and data is corrected manually. OSV checkbox is not auto-ticked. FinTech API is initiated to fetch Guarantor's data.	Positive				
+						TC-003	Verify when  Documents get uploaded, OCR is accurate, OSV not confirmed	Business executive captures Guarantor's Voter ID with uploaded documents.	Ensure that Voter ID details are accurately auto-populated. OSV checkbox is not auto-ticked. FinTech API is initiated to fetch Guarantor's data.	Positive				
+						TC-004	 Verify when Documents not uploaded	Business executive proceeds without capturing Voter ID.	Ensure that Business executive proceeds without Voter ID capture.	Negative				
+						TC-005	Verify when OCR fails to fetch data	Business executive captures Guarantor's Voter ID with uploaded documents, but OCR fails.	Ensure that OCR failure is indicated, and data is corrected manually. OSV checkbox is not auto-ticked. FinTech API is initiated to fetch Guarantor's data.	Exception				
+						TC-006	Verfiy when Voter ID was previously captured, OSV confirmed	Business executive selects Voter ID as POI type, and details are displayed. OSV checkbox was previously ticked.	Ensure that OSV checkbox is confirmed and FinTech API is initiated to fetch Guarantor's data.	Positive				
+						TC-007	Verify when Voter ID was previously captured, OSV not confirmed	Business executive selects Voter ID as POI type, and details are displayed. OSV checkbox was not previously ticked.	Ensure that OSV checkbox is confirmed and  FinTech API is initiated to fetch Guarantor's data.	Exception				
+						TC-008	Verify when Voter ID was previously captured and  OCR fails to fetch data	Business executive selects Voter ID as POI type, but OCR fails to fetch data.	Ensure that OCR failure is indicated, and data is corrected manually. OSV checkbox is not auto-ticked. FinTech API is initiated to fetch Guarantor's data.	Exception				
+						TC-009	Verify when Document uploaded with invalid format (which is not specified by business)	Business executive selects the Document with invalid/inaccepted format (eg:xlsx,xls etc.,)	Ensure that error message is displayed after uploading the document saying invalid Document type	Negative				

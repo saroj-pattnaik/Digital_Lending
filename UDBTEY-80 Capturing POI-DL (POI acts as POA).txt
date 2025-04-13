@@ -1,0 +1,16 @@
+Story #	Story Description	Test Priority	Test Status	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Failed	"Defect-ID (JIRA)
+(if Fail)"
+UDBTEY-80	As a Business executive I should be able to select POI(proof of identity) type as Driver's License, and capture the Primary Applicant's Driver's License No. and Expiry Date via various methods so that KYC check can be run.	High	Ready For Review	TC-01	"Select ""Driver's License"" as POI type"	"Dropdown selection: ""Driver's License"""	"POI type is set to ""Driver's License"""	Positive			
+				TC-02	Unable to select POI as Driver license	"Dropdown selection: ""Driver's License"""	"POI type is not set to ""Driver's License"""	Negative			
+				TC-02	Select other POI types from the dropdown	"Dropdown selection: ""Aadhaar,"" ""Passport,"" etc."	POI type changes accordingly	Positive			
+				TC-03	Upload a clear photo of Driver's License	Image of Driver's License document	OCR successfully extracts data	Positive			
+				TC-04	Upload a blurry photo of Driver's License	Blurry image of Driver's License document	OCR fails to extract data (negative scenario)	Negative			
+				TC-05	Manually enter a valid Driver's License Number	Driver's License Number (valid format)	Field accepted, POI=POA checkbox auto-ticked	Positive			
+				TC-06	Manually enter an invalid Driver's License Number 	Driver's License Number (invalid format - Numeric only)	Field validation error, POI=POA checkbox not ticked	Negative			
+				TC-07	Manually enter a valid Expiry Date	Expiry Date (future date )	Field accepted, POI=POA checkbox auto-ticked	Positive			
+				TC-08	Manually enter an expired Expiry Date	Expiry Date (past date, month> 12 , Date > 31 etc )	Field validation error, POI=POA checkbox auto-ticked	Negative			
+				TC-09	"Verify that POA is auto-selected as ""Driver's License"""	"Select ""Driver's License"" as POI"	"POA is automatically set to ""Driver's License"""	Positive			
+				TC-10	Verify handling of OCR inaccuracy	Upload an inaccurate OCR result	Business executive can manually edit the fields, POI=POA checkbox auto-ticked	Exception			
+				TC-11	Verify configurability to capture additional OCR fields	System configured for additional OCR fields	System captures and stores additional fields via OCR	Positive			
+				TC-12	Verify that Business executives can proceed to capture PAN	After capturing Driver's License information	Business executive can proceed to capture PAN	Positive			
+				TC-13	Size of captured image saved on DMS is below X MB	Check file on DMS	Size of image is below X MB	Positive			

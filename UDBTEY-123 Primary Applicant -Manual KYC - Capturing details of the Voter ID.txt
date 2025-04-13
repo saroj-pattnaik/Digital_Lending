@@ -1,0 +1,46 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P / E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Faile	"Defect-ID (JIRA)
+(if Fail)"
+UDBTEY-123	As a Business executive I should be able to capture Primary Applicant's Voter ID during manual KYC procedure, so that the data aggregator check can be run on it	High	Ready for review	"
+In this user story, a Business Executive requires the capability to capture the Voter ID of the Primary Applicant during manual KYC procedures. The system should employ OCR technology to extract data accurately, and this information is essential for a data aggregator check. Additionally, the system should enable the Business Executive to confirm Optical Scan Verification (OSV) and proceed with data retrieval via the FinTech API.
+
+**Pre-conditions to Test:**
+1. Ensure the lending system is operational and accessible.
+2. Adequate test data is available, including sample Voter IDs and POI/POA documents.
+3. The system UI includes a section for capturing Voter ID and checkboxes for confirming OSV and POI=POA.
+4. Integration with OCR service (IDFY) and Document Management System (DMS) is set up and functional.
+5. Proper OCR templates are available for data extraction from Voter IDs.
+6. The system is in a state where Primary Applicant KYC needs to be completed.
+7. Verify the availability of Primary Applicant information for testing purposes, including photos and details."	"ProducttoProduct Integrations:
+1. Integration between User Interface (UI) and OCR Service (IDFY):
+    Requirement: The UI should integrate with the OCR service (IDFY) to perform OCR on uploaded Voter ID documents.
+    Details: The UI should be able to send scanned Voter ID documents to the OCR service, receive text data, and display it for verification.
+
+2. Integration between UI and Document Management System (DMS):
+    Requirement: The UI should interface with the Document Management System (DMS) to store the captured Voter ID documents securely.
+    Details: The UI should upload documents to the DMS, retrieve documents as needed, and ensure data security and compliance.
+
+EndtoEnd Integrations:
+1. EndtoEnd Integration between UI, OCR Service (IDFY), and Data Validation:
+    Requirement: Validate the endtoend flow from document capture to OCR processing and data validation.
+    Details: Ensure that the UI can successfully send Voter ID documents to the OCR service, receive and validate OCR results, 
+    and flag inaccuracies for correction.
+
+2. EndtoEnd Integration between UI, Data Validation, and OSV Checkbox:
+    Requirement: Confirm that accurate data validation triggers the autoticking of the OSV checkbox.
+    Details: When OCR data is validated as accurate, the UI should automatically tick the OSV checkbox to indicate that data 
+    aggregation checks will be performed.
+"	TC-01	"Select ""Voter ID"" as POI type"	"Dropdown selection: ""Voter ID"""	"POI type is set to ""Voter ID"""	Positive			
+						TC-02	Unable to select POI as Voter ID	"Dropdown selection: ""Voter ID"""	"POI type is not set to ""Voter ID"""	Negative			
+						TC-03	Upload a clear photo of Voter ID	Image of Voter ID document	OCR successfully extracts data	Positive			
+						TC-04	Upload a blurry photo of Voter ID	Blurry image of Voter ID document	OCR fails to extract data (negative scenario)	Negative			
+						TC-05	Manually enter a valid Voter ID Number	Voter ID Number (Alpha Numeric format/8 Character lenght)	Field accepted, POI=POA checkbox auto-ticked	Positive			
+						TC-06	Manually enter an invalid Voter ID Number 	Voter ID Number (invalid format - Numeric only/less than 9 character lenght)	Field validation error, POI=POA checkbox not ticked	Negative			
+						TC-07	"Verify that POA is auto-selected as ""Voter ID"""	"Select ""Voter ID"" as POI"	"POA is automatically set to ""Voter ID"""	Positive			
+						TC-08	Verify handling of OCR inaccuracy	Upload an inaccurate OCR result	FE can manually edit the fields, POI=POA checkbox to be ticked by FE	Exception			
+						TC-09	Verify successful OCR data extraction and auto-ticking POI=POA checkbox.	Voter ID with OCR-extractable data	Data extracted and POI=POA checkbox auto-ticked	Positive			
+						TC-10	Unsuccesfull OCR extraction	FE does OCR on Voter ID card but Unsuccesful data extraction/partial data extraction	FE can manually edit the fields, POI=POA checkbox to be ticked by FE	Positive			
+						TC-11	Auto inititation of Fintech API	FE clicks proceed	Fintech API auto initiated and primary applicant data is auto fetched	Positive			
+						TC-12	Auto inititation of Fintech API fails	FE clicks proceed	Fintech API auto is not initiated and blank response is recieved/Error is recieved	Negative			
+						TC-13	If Voter ID is selected as POI and CKYC fails	FE selects Voter ID as POI but CKYC fails	System to auto populate Voter ID photo and details on FE app	Positive			
+						TC-14	If Voter ID is selected as POI and CKYC fails	FE selects Voter ID as POI but CKYC fails	System does not auto populate Voter ID photo and details on FE app	Negative			
+						TC-15	If Voter ID is selected as POI and CKYC fails, OSV button is enabled after DL details are auto populated	System auto popluates Voter ID details	OSV button is enabled	Positive			

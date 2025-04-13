@@ -1,0 +1,43 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P/E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Faile	"Defect-ID (JIRA)
+(if Fail)"
+UDBTEY-155	As a user (System), should be able to fetch and verify Guarantors details from the Data aggregator response, so that the Manual KYC can be completed successfully	Low	Ready for review	"The user story describes the need for a system to fetch and verify Guarantor details from a Data aggregator response in order to successfully complete the Manual KYC process. It includes the scope of required input fields, integration with Data aggregators via a FinTech API, and acceptance criteria for two scenarios: one where accurate data is retrieved and another where there's no response or inaccurate data.
+
+Pre-Conditions to Test:
+
+1. The system is properly configured and integrated with Data aggregators via the FinTech API.
+2. The user initiating the process has appropriate permissions and access to the Manual KYC functionality.
+3. Valid input parameters, such as Passport No. and Expiry date, are provided.
+4. Data aggregators are available and responsive during the test.
+5. The system interface displays the relevant input fields, checkboxes, and output fields as per the user story's scope.
+6. Error handling procedures are in place and configured as needed.
+"	"Product-to-Product Integration Requirements:
+
+1. API Access: Ensure that the necessary API credentials and access rights are obtained and configured for the integration with the data aggregator.
+
+2. Error Handling: Implement robust error handling mechanisms to manage various potential issues, including connectivity problems, timeouts, and API errors.
+
+3. Data Mapping: Establish clear data mapping and transformation requirements to ensure that data retrieved from the data aggregator aligns with the system's data model.
+
+End-to-End Integration Requirements:
+
+1. User Interface Integration: Ensure that the user interface elements required to display and verify customer details are integrated seamlessly within the lending application's interface.
+
+2. Database Integration: Establish a connection between the system and the database to store the fetched customer details accurately.
+
+3. Input Parameter Configuration: Configure the system to accept and validate passport-related input parameters, including Passport Number and Expiry Date.
+
+4. Checkbox Implementation: Create a functional checkbox in the user interface for selecting Other Specified Value (OSV) documents.
+
+5.Workflow Integration: Integrate the manual KYC workflow, allowing users to proceed to Quality Data Entry (QDE) based on the accuracy of the displayed customer details.
+
+6. Data Validation: Implement data validation checks to ensure that the data retrieved from the data aggregator aligns with the expected format and content."	TC01	Verify data fetching from Data Aggregator	Valid API configuration, valid input parameters	Data from Data Aggregator is fetched successfully	Positive			
+						TC02	Verify handling of invalid input parameters	Invalid API configuration, missing input parameters	Error message is displayed, integration fails	Negative			
+						TC03	Verify handling of no response from Data Aggregator	Valid API configuration, valid input parameters	Error message is displayed, integration fails	Negative			
+						TC04	Verify data mapping and transformation	Valid data from Data Aggregator	Data is correctly mapped and transformed	Positive			
+						TC05	Verify data validation	Valid data from Data Aggregator	Data is validated successfully	Positive			
+						TC06	Verify handling of invalid data	Invalid data from Data Aggregator	Error message is displayed, integration fails	Negative			
+						TC07	Verify displaying data on the UI	Valid data from Data Aggregator	Data is displayed on the UI as expected	Positive			
+						TC08	Verify allowing Manual KYC proceed	Valid data from Data Aggregator	Manual KYC can proceed as expected	Positive			
+						TC09	Verify handling of no response from Data Aggregator during Manual KYC	No response from Data Aggregator	User is prompted to select POI/POA type for Manual KYC	Exception			
+						TC10	Verify handling of inaccurate response from Data Aggregator during Manual KYC	Inaccurate data from Data Aggregator	Error message is displayed, integration fails	Negative			
+						TC11	Verify error handling for API communication issues	API communication failure	Error message is displayed, integration fails	Exception			

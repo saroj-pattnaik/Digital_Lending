@@ -1,0 +1,39 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P / E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Faile	"Defect-ID (JIRA)
+(if Fail)"
+UDBTEY-116	As a Business executive I should be able to select POI(proof of identity) type so that Manual KYC can be conducted on it	High	Ready For Review	"In this user story, Business executives using the digital lending application are provided with the capability to select a Proof of Identity (POI) type for the purpose of conducting Manual KYC checks. The user can choose from a predefined list of POI types, including Aadhaar, Driver's License, Passport, Voter ID, and NREGA. The system should also integrate with the Loan Origination System (LOS) to auto-populate POI details if they were previously captured. This feature streamlines the KYC process and ensures that the necessary POI information is readily available when conducting manual KYC checks.
+Pre-Conditions for Testing:
+
+The digital lending application is accessible and operational.
+Business executives have valid login credentials and access to the application.
+The user is on the KYC screen or a relevant section where POI selection is required.
+The predefined list of POI types (Aadhaar, Driver's License, Passport, Voter ID, NREGA) is available for selection.
+Integration with the Loan Origination System (LOS) is set up and functional.
+For Scenario 1 of the acceptance criteria, relevant POI details have been previously captured for the selected POI type.
+For Scenario 2 of the acceptance criteria, no relevant POI details have been previously captured, and the system is in a state to prompt the user for data entry.
+Test data for LOS integration is available, including cases where POI details were previously captured and where they were not.
+Business executives are familiar with the application's KYC process and the available POI types.
+The application allows users to navigate to the POI selection screen and proceed with manual KYC checks."	"Product-to-Product Integration Requirements:
+Integration with Loan Origination System (LOS):
+The digital lending application must establish a seamless integration with the Loan Origination System (LOS) to retrieve previously captured POI details.
+The integration should support the transfer of relevant POI data, ensuring accuracy and security.
+The LOS should provide an API or data exchange mechanism for fetching the required information.
+
+End-to-End Integration Requirements:
+1.User Interface (UI) Development:
+2.POI Type Dropdown:
+3.Auto-Population of Previously Captured Data (Scenario 1):
+4.Prompt for Data Capture (Scenario 2):
+5.Data Validation and Accuracy:
+6.Integration Testing with LOS:
+7.UI Testing:
+8.Data Entry Testing (Scenario 2):"	TC-01	"Business executive selects ""Aadhaar"" with data captured previously"	"Select ""Aadhaar"" from the POI dropdown, Data previously captured for Aadhaar"	The system auto-populates Aadhaar details from LOS. Proceed to Manual KYC.	Positive			
+						TC-02	"Business executive selects ""Driver's License"" with data captured previously"	"Select ""Driver's License"" from the POI dropdown, Data previously captured for Driver's License"	The system auto-populates Driver's License details from LOS. Proceed to Manual KYC.	Positive			
+						TC-03	"Business executive selects ""Passport"" with data captured previously"	"Select ""Passport"" from the POI dropdown, Data previously captured for Passport"	The system auto-populates Passport details from LOS. Proceed to Manual KYC.	Positive			
+						TC-04	"Business executive selects ""Voter ID"" with data captured previously"	"Select ""Voter ID"" from the POI dropdown, Data previously captured for Voter ID"	The system auto-populates Voter ID details from LOS. Proceed to Manual KYC.	Positive			
+						TC-05	"Business executive selects ""NREGA"" with data captured previously"	"Select ""NREGA"" from the POI dropdown, Data previously captured for NREGA"	The system auto-populates NREGA details from LOS. Proceed to Manual KYC.	Positive			
+						TC-06	Business executive selects any POI with no data captured previously	"Select any POI type (e.g., ""Driver's License""), No data previously captured"	The system prompts the executive to manually enter POI details.	Positive			
+						TC-07	Business executive manually enters valid POI details	"Select any POI type (e.g., ""Driver's License""), Manually enter valid POI details"	The system proceeds to Manual KYC with the entered details.	Positive			
+						TC-08	Business executive manually enters invalid or incomplete POI details	"Select any POI type (e.g., ""Driver's License""), Manually enter incomplete or invalid details"	The system prompts for valid details or allows re-entry.	Negative			
+						TC-09	Business executive returns without data entry	"Select any POI type (e.g., ""Passport""), then return without entering data"	The system returns to the POI selection screen.	Negative			
+						TC-10	Business executive retries POI selection after failed data entry	"Select any POI type (e.g., ""Voter ID""), Enter incomplete data, then retry POI selection"	The system returns to the POI selection screen for re-selection.	Negative			
+						TC-11	System auto-populates details for a different POI type	"Select ""Aadhaar"" from the POI dropdown, Data previously captured for ""Driver's License"""	The system incorrectly displays Driver's License details.	Exception			

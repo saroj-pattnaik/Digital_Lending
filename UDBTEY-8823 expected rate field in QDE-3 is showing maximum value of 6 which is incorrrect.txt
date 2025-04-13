@@ -1,0 +1,6 @@
+Unnamed: 0	Unnamed: 1	Unnamed: 2	Unnamed: 3	Unnamed: 4	Unnamed: 5	Unnamed: 6	Unnamed: 7	Unnamed: 8	Unnamed: 9	Unnamed: 10	Unnamed: 11	Unnamed: 12	Unnamed: 13
+Story #	Test Case ID	Test Description	Test Data	Test Steps	Expected Output	Detailed Test Category	Pass/ Passe	"Defect-ID (JIRA)
+(if  Pass)"	Pass/ Pass	Comments	Defect-ID(JIRA)	Device	Attachments(Issue)
+UDBTEY-8823	TC01	Verify the BE can select QDE-3 stage		QDE-3 stage	 BE can select QDE-3 stage	Positive							
+	TC02	Verify the BE can able to edit expected rate field	Numbric value	Select expected rate field	BE can able to edit expected rate field	Positive							
+	TC03	Verify the BE can able to add value more than 6	Numbric value	Add expected rate	BE can able to add value more than 6	Positive							

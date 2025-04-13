@@ -1,0 +1,27 @@
+Test Step ID	Test Steps 	Test DATA	Expected Output	Detailed Test Category	Actual Result	Pass/Failed	Defect-ID (JIRA)	Comments
+Test Cases related to Scope								
+TC01	Verify BRE consumes FOS feed for BRE-3 execution	FOS feed for BRE-3	BRE-3 is executed with FOS feed data	Positive				
+TC02	Verify BRE consumes FOS feed for BRE-3a execution	FOS feed for BRE-3a	BRE-3a is executed with FOS feed data	Positive				
+TC03	Verify BRE consumes FOS feed for BRE-3b execution	FOS feed for BRE-3b	BRE-3b is executed with FOS feed data	Positive				
+TC04	Verify response from analyses feeds into BRE	ITR, Banking Details, Salary slip, Form 16 response	Analyses response is fed into BRE	Positive				
+TC05	Verify QDE 1, 2, & 3 data is sent to BRE	QDE 1, 2, & 3 data	Data is sent to BRE for execution	Positive				
+TC06	Verify BRE 3 runs for 'New' contract types & specified verticals	'New' contract type & specified verticals	BRE 3 is executed	Positive				
+TC07	Verify BRE 3a runs when valuation/insurance details are not available	Valuation/insurance details not available	BRE 3a is executed	Positive				
+TC08	Verify BRE 3b runs when valuation/insurance details are available	Valuation/insurance details available	BRE 3b is executed without running BRE 3a	Positive				
+Test Cases related to Validation								
+TC-09	Verify system pulls input parameters from QDE 1 for BRE-3	QDE 1 data available	BRE-3 request includes QDE 1 input parameters	Positive				
+TC-10	Verify system pulls input parameters from QDE 2 for BRE-3	QDE 2 data available	BRE-3 request includes QDE 2 input parameters	Positive				
+TC-11	Verify system pulls input parameters from QDE 3 for BRE-3	QDE 3 data available	BRE-3 request includes QDE 3 input parameters	Positive				
+TC-12	Verify system pulls input parameters from QDE 1 for BRE-3a	QDE 1 data available	BRE-3a request includes QDE 1 input parameters	Positive				
+TC-13	Verify system pulls input parameters from QDE 2 for BRE-3a	QDE 2 data available	BRE-3a request includes QDE 2 input parameters	Positive				
+TC-14	Verify system pulls input parameters from QDE 3 for BRE-3a	QDE 3 data available	BRE-3a request includes QDE 3 input parameters	Positive				
+TC-15	Verify system pulls input parameters from QDE 1 for BRE-3b	QDE 1 data available	BRE-3b request includes QDE 1 input parameters	Positive				
+TC-16	Verify system pulls input parameters from QDE 2 for BRE-3b	QDE 2 data available	BRE-3b request includes QDE 2 input parameters	Positive				
+TC-17	Verify system pulls input parameters from QDE 3 for BRE-3b	QDE 3 data available	BRE-3b request includes QDE 3 input parameters	Positive				
+Scenario1: QDE 1,2,3 (Quick data Entry) data available to BRE-3 or BRE 3a or BRE 3b input								
+TC-18	Verify system fetches QDE 1 data for BRE input	QDE 1 data available	QDE 1 data is fetched and formatted for BRE input	Positive				
+TC-19	Verify system fetches QDE 2 data for BRE input	QDE 2 data available	QDE 2 data is fetched and formatted for BRE input	Positive				
+TC-20	Verify system fetches QDE 3 data for BRE input	QDE 3 data available	QDE 3 data is fetched and formatted for BRE input	Positive				
+TC-21	Verify BRE-3 is executed with QDE data	QDE data formatted for BRE-3	BRE-3 is executed using QDE data	Positive				
+TC-22	Verify BRE 3a is executed with QDE data	QDE data formatted for BRE 3a	BRE 3a is executed using QDE data	Positive				
+TC-23	Verify BRE 3b is executed with QDE data	QDE data formatted for BRE 3b	BRE 3b is executed using QDE data	Positive				

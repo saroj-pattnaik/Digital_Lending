@@ -1,0 +1,47 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P/E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Faile	"Defect-ID (JIRA)
+(if Fail)"
+UDBTEY-212	As a user(System), results from Bureau needs to be taken as an input parameters for BRE-1 so that BRE can consume the feed for scheme approvals	High	Ready for review	"**User Story Description:**
+In this user story, the system needs to utilize Bureau results as input parameters for BRE-1 (Business Rules Engine) to support the approval of lending schemes. The scope includes defining the data fields required from the Bureau, integrating the BRE system (CRIF) with the Loan Origination System (LOS), and specifying validation and acceptance criteria for handling various scenarios.
+
+**Testing Preconditions:**
+1. The Bureau data source is integrated and operational.
+2. The Loan Origination System (LOS) is connected to the BRE system (CRIF).
+3. The BRE-1 request can be triggered, and its execution is dependent on Bureau data.
+4. A database for storing Bureau results and reports is in place.
+5. A mechanism for downloading detailed Bureau reports post-BRE-1 response is available.
+6. Quick Data Entry and Scorecard data required to trigger BRE-1 is accessible.
+7. A scenario involving a Bureau response of -1 (no customer data received) is simulated for testing."	"Product-to-Product Integration Requirements:
+
+1. BRE (CRIF) Integration: Ensure that the BRE system (CRIF) is integrated with the Loan Origination System (LOS) to facilitate data exchange seamlessly.
+
+2. Bureau Data Availability: Verify that the Bureau data source is operational and can provide the necessary information required by the user story.
+
+3.Data Format Compatibility: Confirm that the data formats used by the BRE system (CRIF) and LOS are compatible for smooth data transmission.
+
+4. Data Validation: Validate that the data received from the Bureau is accurate, complete, and formatted correctly to meet the input requirements of the BRE-1 process.
+
+End-to-End Integration Requirements:
+
+1. User Account Setup: Ensure that user accounts and permissions are configured correctly for accessing both the LOS and the BRE system (CRIF).
+
+2. Data Flow Testing: Validate that data flows seamlessly from the Bureau to the LOS and subsequently to the BRE-1 process.
+
+3. Response Handling: Verify that the system can handle responses from the Bureau appropriately, including cases where the response is -1 (no customer data received).
+
+4. Report Availability: Confirm that detailed Bureau reports are generated and available for download post-BRE-1 response.
+
+5. Validation Checks: Validate that the system correctly validates the input parameters from the Bureau response before triggering the BRE-1 request."	Scenario 1: Bureau Results/Report stored at the database to trigger BRE-1							
+						TC-1.1	Request Bureau Data	Valid request to fetch Bureau data	Successful retrieval of Bureau data	Positive			
+						TC-1.2	Validate Bureau Data	Complete and accurate Bureau data	Validation successful	Positive			
+						TC-1.3	Trigger BRE-1	Bureau data for BRE-1 input	BRE-1 execution successful	Positive			
+						TC-1.4	Generate Bureau Report	Successful execution of BRE-1	Bureau report generated and stored in DB	Positive			
+						TC-1.5	Store Bureau Report in Database	Bureau report data	Bureau report stored in the database	Positive			
+						TC-1.6	Download Bureau Report	Download request	Bureau report download link provided	Positive			
+													
+													
+													
+						Scenario 2: Response received from Bureau = -1 (no customer data received)							
+													
+						TC-2.1	Request Bureau Data	Valid request to fetch Bureau data	Bureau response = -1 (no customer data)	Negative			
+						TC-2.2	Bypass BRE-1 and route to DDE	Bureau response = -1 (no customer data)	Case routed to Data Decision Engine (DDE)	Positive			
+						TC-2.3	Fetch Data from Account Aggregator	DDE request	Data from Account Aggregator fetched	Positive			

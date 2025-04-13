@@ -1,0 +1,47 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P/E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Faile	"Defect-ID (JIRA)
+(if Fail)"
+UDBTEY-209	As a user(System), results from Bureau needs to be taken as an input parameters for BRE-1 so that BRE can consume the feed for scheme approvals	High	Ready for review	"The user story focuses on utilizing the Bureau results as input parameters for the BRE-1 system. The system needs to fetch various customer details from the Bureau response, such as Bureau Score, Overdue Amount, Tradelines, and more. The system should integrate with the LOS system to pull the required data and store the detailed Bureau report in the backend for future reference. The integration between the BRE system (CRIF) and the LOS system is necessary for seamless data transfer. 
+
+Testing Pre-conditions:
+1. The Bureau results for the customer should be available in the LOS system.
+2. The LOS system should have the required data fields and APIs to retrieve the Bureau response.
+3. The integration between the BRE system (CRIF) and the LOS system should be set up and functional.
+4. The data format and structure for feeding the input parameters to the BRE-1 system should be defined and agreed upon.
+5. The database should have the necessary storage capability to store the detailed Bureau report.
+6. The Quick Data Entry and Scorecard should provide the necessary feed to trigger the BRE-1 call."	"Product-to-Product Integration Requirements
+
+1. The LOS system should have a well-defined API or integration mechanism to provide the required customer data to the BRE system (CRIF).
+2. The BRE system (CRIF) should have the ability to consume the provided data feed from the LOS system.
+3. The API or integration mechanism between the LOS system and the BRE system (CRIF) should be properly configured and functional.
+4. The data mapping and transformation between the LOS system and the BRE system (CRIF) should be defined and validated.
+
+End-to-End Integration Requirements
+
+1. The LOS system should provide complete and accurate Bureau results, including the required input parameters specified in the user story.
+2. The integration between the LOS system and the BRE system (CRIF) should be able to transfer the Bureau results seamlessly.
+3. The BRE system (CRIF) should have the capability to receive and process the received input parameters from the LOS system.
+4. The integration should ensure that the input parameters are accurately mapped and transferred to the BRE system (CRIF) without any data loss or corruption.
+5. The end-to-end data flow should be validated to confirm that the Bureau results from the LOS system are successfully consumed by the BRE system (CRIF) and used for scheme approvals.
+6. The database should have the necessary storage and retrieval capabilities to store the detailed Bureau report and make it available for download post BRE-1 response.
+7. The data Performa for feeding the input parameters to the BRE system (CRIF) must be defined and tested to ensure it is compatible with the system's input requirements.
+8. The DDE component should be properly configured to handle cases where a response of -1 is received from the Bureau, bypassing the BRE-1 and allowing data retrieval from the Account Aggregator."	Scenario 1: QDE (Quick Data Entry) available to BRE-1 input							
+													
+													
+						Test Step ID	Test Step Description	Test Input	Expected Output	Test Category			
+						1	Validate data retrieval from QDE.		Data successfully retrieved from QDE.	Positive			
+						2	Check data formatting for BRE-1.		Data correctly formatted for BRE-1.	Positive			
+						3	Verify data push to BRE-1.		Data successfully pushed to BRE-1.	Positive			
+						4	Ensure data validation on BRE-1.	Valid data from QDE	Data valid on BRE-1.	Positive			
+						5	Execute BRE-1 for scheme approvals.	Valid data from QDE	Scheme approvals successful.	Positive			
+						6	Handle BRE-1 approval failure.	Invalid data from QDE	Approval failure handled.	Negative			
+						7	Handle invalid data on BRE-1.	Invalid data format for BRE-1	Invalid data on BRE-1 handled.	Negative			
+						8	Handle data validation errors.	Invalid data due to validation rules	Data validation errors handled.	Negative			
+						9	"BRE system(CRIF) should consume following feed from LOS for executing BRE-1:
+a) Demographic details 
+b) POI + POA
+c) Asset Details 
+d) Loan info"		"System should pull the input parameters from QDE stage and provide a feed to the BRE-1 request
+a) Demographic details 
+b) POI + POA
+c) Asset Details 
+d) Loan info"""	Positive			

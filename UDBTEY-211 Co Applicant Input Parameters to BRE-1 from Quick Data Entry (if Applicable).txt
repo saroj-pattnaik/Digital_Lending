@@ -1,0 +1,69 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P/E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Faile	"Defect-ID (JIRA)
+(if Fail)"
+UDBTEY-211	As a user(System), applicable data fields from Quick Data Entry(QDE) stage needs to be pushed as an input parameters for BRE-1 so that BRE can consume the feed for scheme approvals	High	Ready for review	"As a system in the digital auto lending process, I need to retrieve specific customer data from the Quick Data Entry (QDE) stage and format it correctly. This data will then be used as input for BRE-1, a Business Rules Engine, which will evaluate it for scheme approvals.
+
+Testing Preconditions:
+1. The Quick Data Entry (QDE) stage is populated with the required customer data.
+2. The Business Rules Engine (BRE-1) and the Loan Origination System (LOS) are integrated.
+3. Field-level input parameters for data transfer between LOS and BRE-1 are defined and documented.
+4. The system has access and permission to retrieve data from the QDE stage.
+5. The data format expected by BRE-1 for scheme approvals is clearly specified and accessible."	"**Product-to-Product Integration Requirements (Testing Prerequisites):**
+
+1. **LOS to BRE-1 Integration:**
+   - The Loan Origination System (LOS) must be integrated successfully with the Business Rules Engine (BRE-1) (CRIF).
+   - Ensure that the integration endpoints are operational and accessible.
+   - Validate that data can flow seamlessly from LOS to BRE-1.
+
+2. **Data Mapping and Field-Level Parameters:**
+   - Define and document the specific data fields and parameters that need to be transferred from LOS to BRE-1.
+   - Verify that the data mapping between LOS and BRE-1 is accurately configured according to the integration sheet.
+
+3. **Authentication and Authorization:**
+   - Ensure that the necessary authentication mechanisms (e.g., API keys, tokens) are in place and properly configured for secure data transfer.
+   - Validate that the system has the required authorization to access data from LOS and push it to BRE-1.
+
+4. **Data Validation Rules:**
+   - Confirm that data validation rules are established on the LOS side to ensure the accuracy and integrity of the data being sent to BRE-1.
+   - Verify that invalid or incomplete data is appropriately handled or rejected during the integration process.
+
+**End-to-End Integration Requirements (Testing Prerequisites):**
+
+1. **Quick Data Entry (QDE) Availability:**
+   - Ensure that the Quick Data Entry (QDE) stage is populated with relevant customer data.
+   - Confirm that QDE contains all the necessary fields, including demographic details, proof of identity and address (POI + POA), asset details, and loan information.
+
+2. **Data Retrieval from QDE:**
+   - Validate that the system can successfully retrieve data from the QDE stage.
+   - Verify that the data extracted from QDE is complete and accurate.
+
+3. **Data Formatting:**
+   - Ensure that the retrieved customer data is correctly formatted according to the specified data format required by BRE-1.
+   - Confirm that the formatting includes proper data type conversions if necessary.
+
+4. **Integration Validation:**
+   - Conduct end-to-end testing to verify that the data flows seamlessly from QDE to BRE-1 through LOS.
+   - Confirm that there are no data loss or data corruption issues during the integration process.
+
+5. **Input Validation on BRE-1:**
+   - Check that BRE-1 (CRIF) can accept and process the incoming data according to its schema and validation rules.
+   - Verify that BRE-1 can handle the data from QDE as expected and execute scheme approvals."	Scenario 1: QDE (Quick Data Entry) available to BRE-1 input							
+													
+													
+						Test Step ID	Test Step Description	Test Input	Expected Output	Test Category			
+						1	Validate data retrieval from QDE.		Data successfully retrieved from QDE.	Positive			
+						2	Check data formatting for BRE-1.		Data correctly formatted for BRE-1.	Positive			
+						3	Verify data push to BRE-1.		Data successfully pushed to BRE-1.	Positive			
+						4	Ensure data validation on BRE-1.	Valid data from QDE	Data valid on BRE-1.	Positive			
+						5	Execute BRE-1 for scheme approvals.	Valid data from QDE	Scheme approvals successful.	Positive			
+						6	Handle BRE-1 approval failure.	Invalid data from QDE	Approval failure handled.	Negative			
+						7	Handle invalid data on BRE-1.	Invalid data format for BRE-1	Invalid data on BRE-1 handled.	Negative			
+						8	Handle data validation errors.	Invalid data due to validation rules	Data validation errors handled.	Negative			
+						9	"BRE system(CRIF) should consume following feed from LOS for executing BRE-1:
+a) Demographic details 
+b) POI + POA
+c) Asset Details 
+d) Loan info"		"System should pull the input parameters from QDE stage and provide a feed to the BRE-1 request
+a) Demographic details 
+b) POI + POA
+c) Asset Details 
+d) Loan info"""	Positive			

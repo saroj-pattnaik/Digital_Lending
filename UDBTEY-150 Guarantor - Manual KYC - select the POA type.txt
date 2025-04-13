@@ -1,0 +1,57 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P / E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Fail	"Defect-ID (JIRA)
+(if Fail)"	"Automation
+(Status)"
+UDBTEY-150	Guarantor - Manual KYC - select the POA type	High	Ready for review	"As a Business executive using a lending application, I should have the ability to choose the type of proof of address (POA) so that manual KYC (Know Your Customer) can be carried out effectively. The application will offer a dropdown menu with various POA options, including Aadhaar, Driver's License, Passport, Voter ID, NREGA, and NPR. Additionally, the system will integrate with the Loan Origination System (LOS) to automatically populate POA details if they were previously captured.
+
+Pre-Conditions for Testing:
+
+1. The user must have access to the lending application with the appropriate permissions to perform KYC-related tasks.
+2. The Loan Origination System (LOS) should be properly configured and integrated with the application.
+3. The dropdown menu for selecting the POA type should be visible and functional on the Front-End (FE) App.
+4. For scenario 1 (where details were captured previously), relevant POA data must exist in the system for autopopulation.
+5. For scenario 2 (where details need to be captured manually), the relevant POA type should be selected by the Business executive.
+6. The application's database should be in a state where the system can accurately validate whether details were captured previously or not.
+7. The user should be able to navigate to the KYC section of the application."	"Product-to-Product Integration Requirements (Pre-Requisite for Testing):
+
+1. Front-End App Integration with Back-End: The Front-End application where the Business executive selects the POA type must be seamlessly integrated with the Back-End systems, including the Loan Origination System (LOS) and the database, to ensure real-time data synchronization.
+
+2. API Connectivity: There should be well-defined APIs (Application Programming Interfaces) between the Front-End App and LOS to facilitate data exchange. These APIs should be thoroughly tested for compatibility and security.
+
+3. Data Mapping and Compatibility: Ensure that data fields in the Front-End App align with those in the LOS for accurate data transfer and mapping. Field names, data types, and formats should be consistent.
+
+4. Security Protocols: Implement robust security protocols, including encryption, authentication, and authorization mechanisms, to protect sensitive customer data during the integration process.
+
+5. Error Handling: Define error-handling procedures for handling integration failures, including error messages, logging, and alerts, to maintain system integrity and user experience.
+
+6. Data Validation: Implement data validation checks at both ends to ensure the accuracy and consistency of data exchanged between the Front-End App and LOS.
+
+7. Scalability: The integration should be designed to handle increasing loads of user requests and data transactions as the application scales. Scalability testing ensures the system can handle higher volumes without degradation in performance.
+
+End-to-End Integration Requirements (Pre-Requisite for Testing):
+
+1. User Workflow Testing: Test the entire user workflow that includes selecting the POA type, capturing POA details (if required), and any subsequent actions within the lending application.
+
+2. LOS Integration Testing: Verify that data from the Front-End App is correctly integrated with the LOS. This involves checking if the selected POA type and details are accurately reflected in the LOS.
+
+3. Data Consistency Checks: Validate the consistency of data between the Front-End App and other components of the lending application, such as Loan Management System (LMS) and Collections system, if applicable.
+
+4. Automation of Data Population: In the case of autopopulation from the LOS, verify that the system correctly retrieves and displays the previously captured POA details.
+
+5. Manual Data Entry Testing: For scenarios where details need to be captured manually, ensure that the user interface allows for accurate data entry and validation according to the selected POA type.
+
+6. Error Handling and Recovery Testing: Test how the application handles errors or exceptions during the end-to-end process, ensuring graceful degradation and recovery mechanisms are in place.
+
+7. Performance Testing: Assess the performance of the entire end-to-end process under various load conditions to ensure responsiveness and reliability.
+
+8. User Acceptance Testing (UAT): Involve Business SMEs and end-users in UAT to validate that the end-to-end process meets business requirements and user expectations.
+
+These integration requirements are crucial to ensure a smooth and error-free end-to-end experience for Business executives using the lending application. Successful integration testing will help identify and resolve any issues that may arise when connecting various components of the system."	TC-001	  Verification of Select POA type with data	" Business executive selects ""Aadhaar"" as POA type."	Ensure that POA details for Aadhaar should be autopopulated upon selection of Aadhar as POA type.	Positive				
+						TC-002	  Verification Select POA type with no data	"  Business executive selects ""Driver's License"" as POA type."	Ensure that Manual capture screen for Driver's License is displayed as POA type is selected with no data captured previously .	Positive				
+						TC-003	 Verification of Error message upon Integration failure	"  Business executive selects ""Passport"" as POA type, but LOS integration fails."	"Ensure that Error message should indicate the ""integration message"" correctly ."	Negative				
+						TC-004	  Verification of Select POA with invalid type	"  Business executive selects an invalid POA type (e.g., ""InvalidType"").[scenario exists when business provides any other invalid input option selections]"	"Ensure that Error message should indicate ""invalid selection"" message correctly."	Exception				
+						TC-005	  Verification of Capturing POA details manually	"  Business executive selects ""NREGA"" as POA type and manually enters details as per requirements."	Ensure that Entered Details should be successfully displayed and saved in the system.	Positive				
+						TC-006	  Verification of Error message upon Data inconsistency 	  Data inconsistency between Front-End and LOS for autopopulated POA details.	"Ensure that Error message should indicate ""data inconsistency"" correctly."	Exception				
+						TC-007	 Verification of Capturing Invalid data 	  Business executive captures invalid data for the selected POA type (e.g., incorrect Aadhaar number).	"Ensure that Error message should indicate ""data validation failure"" correctly."	Negative				
+						TC-008	 Verification of Error message upon Integration timeout	"  Business executive selects ""Voter ID"" as POA type, and integration with LOS times out."	"Ensure that Error message should indicate ""integration timeout"" correctly."	Exception				
+						TC-009	 Verification of UAT Approval Flow with all the correct data	  Business SME and end-users validate the end-to-end process, find it meets requirements, and approve it.	Ensure that UAT approval should be received as response.	Positive				
+						TC-010	  Verification of capturing Details upon not selecting POA type	  Business executive attempts to proceed without selecting a POA type.	"Ensure that Error message should indicate ""POA type selection is mandatory"" correctly."	Negative				

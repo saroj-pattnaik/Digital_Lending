@@ -1,0 +1,20 @@
+Test Step ID	Test Steps 	Test DATA	Expected Output	Detailed Test Category	Actual Result	Pass/Failed	Defect-ID (JIRA)	Comments
+Scope: Existing BRE Output screen								
+TC-1	Navigate to BRE Output screen	Click Proceed button on LOS/FE App	Navigate to BRE Output screen	Positive				
+TC-2	No navigation to BRE Output screen	Click other buttons	Stay on current screen	Negative				
+Validation Requirements: On the click of Proceed button by user, system to land on BRE output screen.								
+TC-3	Verify system navigates to BRE Output screen on click	Click Proceed button	Navigate to BRE Output screen	Positive				
+TC-4	Ensure Repayment Type change triggers navigation	Change Repayment Type, Click Proceed	Navigate to BRE Output screen	Positive				
+TC-5	Check navigation without Repayment Type change	Click Proceed without change	No navigation to BRE Output screen	Negative				
+Scenario-1 :User should be able to see the revised offer parameters once he lands on the BRE Output screen								
+TC-6	Display revised Instalment parameter	Change Repayment Type, Click Proceed	Correct Instalment displayed	Positive				
+TC-7	Handle Instalment update failure	Change Repayment Type, Click Proceed	Error message displayed	Negative				
+TC-8	Show Non-Equated tag to the offer	Change Repayment Type, Click Proceed	Non-Equated tag displayed	Positive				
+TC-9	Handle Non-Equated tag absence	Change Repayment Type, Click Proceed	Error message or empty field displayed	Negative				
+TC-10	Verify display of revised Rate parameter	Change Repayment Type, Click Proceed	Correct Rate displayed	Positive				
+TC-11	Manage incorrect Rate parameter update	Change Repayment Type, Click Proceed	Error message displayed	Negative				
+TC-12	Trigger 'Rate' Change Request on rate reduction	Change Repayment Type, Click Proceed	'Rate' Change Request logged	Positive				
+TC-13	Avoid 'Rate' Change Request on rate increase	Change Repayment Type, Click Proceed	No 'Rate' Change Request logged	Negative				
+TC-14	Handle MLS pathway selection	Choose MLS option	Navigate through MLS pathway	Positive				
+TC-15	Manage MAS pathway selection	Choose MAS option	Navigate through MAS pathway	Positive				
+TC-16	Default pathway handling	No specific option chosen	Navigate through default pathway	Positive				

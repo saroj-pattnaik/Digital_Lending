@@ -1,0 +1,25 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P / E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Failed	"Defect-ID (JIRA)
+(if Fail)"
+UDBTEY-140	As a Business executive I should be able to capture Co Applicant's Voter ID during manual KYC procedure, so that the data aggregator check can be run on it	High	Ready For Review	As a Business executive, I need the ability to capture the Co Applicant's Voter ID during the manual KYC procedure. This allows me to run data aggregator checks on the Voter ID for KYC verification.	"Product-to-Product Integrations Requirements:
+1.OCR Integration (IDFY)
+2.Document Management System (DMS) Integration
+End-to-End Integrations Requirements:
+1.FinTech API Integration
+2.KYC Verification Integration
+3.Central KYC (CKYC) Integration (in Scenario 3)"	TC-001	Business executive captures Voter ID successfully	Valid Voter ID document	Voter ID details auto-populated accurately	Positive			
+						TC-002	OCR fails to capture Voter ID details	Invalid Voter ID document	Manual correction screen displayed	Negative			
+						TC-003	Voter ID details auto-populated accurately after OCR	Valid Voter ID document	Voter ID details auto-populated accurately	Positive			
+						TC-004	OCR accuracy check fails	Valid Voter ID document with OCR errors	Manual correction screen displayed	Negative			
+						TC-005	Business executive checks OSV checkbox	Checkbox checked	OSV checkbox remains checked	Positive			
+						TC-006	Business executive initiates FinTech API	"Click on ""Proceed"" button after OCR/auto-population"	FinTech API is initiated	Positive			
+						TC-007	Business executive manually corrects data and initiates FinTech API	"Click on ""Proceed"" button after manual correction"	FinTech API is initiated	Positive			
+						TC-008	OCR fails and Business executive corrects data manually	Invalid Voter ID document with manual correction	FinTech API is initiated	Positive			
+						TC-009	Voter ID previously captured, OSV checkbox checked, and Business executive initiates FinTech API	"OSV checkbox checked, Click on ""Proceed"" button"	FinTech API is initiated	Positive			
+						TC-010	Voter ID previously captured, OSV checkbox not checked, and Business executive initiates FinTech API	"OSV checkbox not checked, Click on ""Proceed"" button"	FinTech API is initiated	Positive			
+						TC-011	OCR fails, Business executive corrects data manually, OSV checkbox checked, and initiates FinTech API	"OSV checkbox checked, Click on ""Proceed"" button"	FinTech API is initiated	Positive			
+						TC-012	OCR fails, Business executive corrects data manually, OSV checkbox not checked, and initiates FinTech API	"OSV checkbox not checked, Click on ""Proceed"" button"	FinTech API is initiated	Positive			
+						TC-013	OCR fails repeatedly (3 times), and system initiates CKYC	Invalid Voter ID document for 3 attempts	CKYC is initiated for Co Applicant	Exception			
+						TC-014	Voter ID previously captured, OSV checkbox checked, and Business executive initiates FinTech API	"OSV checkbox checked, Click on ""Proceed"" button"	FinTech API is initiated	Positive			
+						TC-015	Voter ID previously captured, OSV checkbox not checked, and Business executive initiates FinTech API	"OSV checkbox not checked, Click on ""Proceed"" button"	FinTech API is initiated	Positive			
+						TC-016	OCR fails, Business executive corrects data manually, OSV checkbox checked, and initiates FinTech API	"OSV checkbox checked, Click on ""Proceed"" button"	FinTech API is initiated	Positive			
+						TC-017	OCR fails, Business executive corrects data manually, OSV checkbox not checked, and initiates FinTech API	"OSV checkbox not checked, Click on ""Proceed"" button"	FinTech API is initiated	Positive			

@@ -1,0 +1,43 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P/E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Faile	"Defect-ID (JIRA)
+(if Fail)"
+UDBTEY-122	As a user (System), should be able to fetch and verify Primary Applicants details from the Data aggregator response, so that the Manual KYC can be completed successfully	Low	Ready for review	"This user story pertains to the integration of a FinTech system with data aggregators to fetch and verify the primary applicant's details for the purpose of manual Know Your Customer (KYC) processes. 
+
+Pre-Conditions to Test: 
+
+1. Data Aggregator Integration: The integration with data aggregators via the FinTech API should be completed and functional.
+
+2. Input Parameter Finalization: The specific input parameters for passport details, such as Passport Number and Expiry Date, should be discussed and finalized with the vendor.
+
+3. Database Connectivity: The system should have a functional database in place to store the fetched customer details.
+
+4. OSV Document Checkbox: The system should have a checkbox implemented for Other Specified Value (OSV) documents.
+
+5. Manual KYC Workflow: The workflow for conducting manual KYC, including the selection of Proof of Identity/Proof of Address (POI/POA) type, should be integrated and functional."	"Product-to-Product Integration Requirements:
+
+1. API Access: Ensure that the necessary API credentials and access rights are obtained and configured for the integration with the data aggregator.
+
+2. Error Handling: Implement robust error handling mechanisms to manage various potential issues, including connectivity problems, timeouts, and API errors.
+
+3. Data Mapping: Establish clear data mapping and transformation requirements to ensure that data retrieved from the data aggregator aligns with the system's data model.
+
+End-to-End Integration Requirements:
+
+1. User Interface Integration: Ensure that the user interface elements required to display and verify customer details are integrated seamlessly within the lending application's interface.
+
+2. Database Integration: Establish a connection between the system and the database to store the fetched customer details accurately.
+
+3. Input Parameter Configuration: Configure the system to accept and validate passport-related input parameters, including Passport Number and Expiry Date.
+
+4. Checkbox Implementation: Create a functional checkbox in the user interface for selecting Other Specified Value (OSV) documents.
+
+5.Workflow Integration: Integrate the manual KYC workflow, allowing users to proceed to Quality Data Entry (QDE) based on the accuracy of the displayed customer details.
+
+6. Data Validation: Implement data validation checks to ensure that the data retrieved from the data aggregator aligns with the expected format and content."	TC-001	Test data retrieval from Data Aggregator (Positive)	Data is available from Data Aggregator	Data is displayed on the app	Positive			
+						TC-002	Test data retrieval from Data Aggregator (Negative)	Data is not available from Data Aggregator	"Redirect to ""Select POI/POA Type"" screen"	Negative			
+						TC-003	Test data accuracy check (Positive)	Data retrieved is accurate	"Proceed to ""Quality Data Entry (QDE)"""	Positive			
+						TC-004	Test data accuracy check (Negative)	Data retrieved is inaccurate	"Redirect to ""Select POI/POA Type"" screen"	Negative			
+						TC-005	Test manual KYC initiation (Positive)	Data is available and accurate	Manual KYC process starts	Positive			
+						TC-006	Test manual KYC initiation (Negative)	Data is not available or inaccurate	"Redirect to ""End"" screen"	Negative			
+						TC-007	Test successful manual KYC (Positive)	Manual KYC is successfully completed	"Proceed to ""Quality Data Entry (QDE)"""	Positive			
+						TC-008	Test unsuccessful manual KYC (Negative)	Manual KYC cannot be completed	"Redirect to ""End"" screen"	Negative			
+						TC-009	Test exception handling for Data Aggregator failure	Data Aggregator API fails to respond	Exception message or log entry	Exception			

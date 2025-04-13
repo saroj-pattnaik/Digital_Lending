@@ -1,0 +1,38 @@
+Test Step ID	Test Step Description	Test Input	Expected Output	Test Category	Actual Result	Pass/Failed	Defect-ID (JIRA)	Comments
+Test cases related to Acceptance Criteria								
+TC001	Verify mapping of Proof of Identity for primary applicant	Proof of Identity for primary applicant	Proof of Identity correctly mapped to corresponding field in BRE	Positive				
+TC002	Verify mapping of Proof of Address for primary applicant	Proof of Address for primary applicant	Proof of Address correctly mapped to corresponding field in BRE	Positive				
+TC003	Verify mapping of Proof of Identity for co-applicant	Proof of Identity for co-applicant	Proof of Identity correctly mapped to corresponding field in BRE	Positive				
+TC004	Verify mapping of Proof of Address for co-applicant	Proof of Address for co-applicant	Proof of Address correctly mapped to corresponding field in BRE	Positive				
+TC005	Verify mapping of Proof of Identity for guarantor	Proof of Identity for guarantor	Proof of Identity correctly mapped to corresponding field in BRE	Positive				
+TC006	Verify mapping of Proof of Address for guarantor	Proof of Address for guarantor	Proof of Address correctly mapped to corresponding field in BRE	Positive				
+TC007	Verify mapping of personal details for primary applicant	Personal details for primary applicant	Personal details correctly mapped to corresponding field in BRE	Positive				
+TC008	Verify mapping of contact details for primary applicant	Contact details for primary applicant	Contact details correctly mapped to corresponding field in BRE	Positive				
+TC009	Verify mapping of personal details for co-applicant	Personal details for co-applicant	Personal details correctly mapped to corresponding field in BRE	Positive				
+TC010	Verify mapping of contact details for co-applicant	Contact details for co-applicant	Contact details correctly mapped to corresponding field in BRE	Positive				
+TC011	Verify mapping of personal details for guarantor	Personal details for guarantor	Personal details correctly mapped to corresponding field in BRE	Positive				
+TC012	Verify mapping of contact details for guarantor	Contact details for guarantor	Contact details correctly mapped to corresponding field in BRE	Positive				
+TC013	Verify mapping of basic customer profile for primary applicant	Basic customer profile details for primary applicant	Basic customer profile details correctly mapped to corresponding field in BRE	Positive				
+TC014	Verify mapping of basic customer profile for co-applicant	Basic customer profile details for co-applicant	Basic customer profile details correctly mapped to corresponding field in BRE	Positive				
+TC015	Verify mapping of basic customer profile for guarantor	Basic customer profile details for guarantor	Basic customer profile details correctly mapped to corresponding field in BRE	Positive				
+TC016	Verify mapping of asset details for primary applicant	Asset details for primary applicant	Asset details correctly mapped to corresponding field in BRE	Positive				
+TC017	Verify mapping of loan details for primary applicant	Loan details for primary applicant	Loan details correctly mapped to corresponding field in BRE	Positive				
+TC018	Verify mapping of asset details for co-applicant	Asset details for co-applicant	Asset details correctly mapped to corresponding field in BRE	Positive				
+TC019	Verify mapping of loan details for co-applicant	Loan details for co-applicant	Loan details correctly mapped to corresponding field in BRE	Positive				
+TC020	Verify mapping of asset details for guarantor	Asset details for guarantor	Asset details correctly mapped to corresponding field in BRE	Positive				
+TC021	Verify mapping of loan details for guarantor	Loan details for guarantor	Loan details correctly mapped to corresponding field in BRE	Positive				
+TC022	Verify mapping of loan info & summary for primary applicant	Loan info & summary details for primary applicant, including PCL details for Internal BT/Refinance	Loan info & summary correctly mapped to corresponding field in BRE	Positive				
+TC023	Verify mapping of loan info & summary for co-applicant	Loan info & summary details for co-applicant, including PCL details for Internal BT/Refinance	Loan info & summary correctly mapped to corresponding field in BRE	Positive				
+TC024	Verify mapping of loan info & summary for guarantor	Loan info & summary details for guarantor, including PCL details for Internal BT/Refinance	Loan info & summary correctly mapped to corresponding field in BRE	Positive				
+TC025	Verify mapping of payout details for primary applicant	Payout details for primary applicant	Payout details correctly mapped to corresponding field in BRE	Positive				
+TC026	Verify mapping of payout details for co-applicant	Payout details for co-applicant	Payout details correctly mapped to corresponding field in BRE	Positive				
+TC027	Verify mapping of payout details for guarantor	Payout details for guarantor	Payout details correctly mapped to corresponding field in BRE	Positive				
+TC028	Verify mapping of CPV completion flag for primary applicant	CPV completion flag for primary applicant	CPV completion flag correctly mapped to corresponding field in BRE	Positive				
+TC029	Verify mapping of CPV completion flag for co-applicant	CPV completion flag for co-applicant	CPV completion flag correctly mapped to corresponding field in BRE	Positive				
+TC030	Verify mapping of CPV completion flag for guarantor	CPV completion flag for guarantor	CPV completion flag correctly mapped to corresponding field in BRE	Positive				
+TC031	Verify mapping of valuation details for primary applicant	Valuation details (soft/hard) for primary applicant, including Asset certified flag	Valuation details correctly mapped to corresponding field in BRE	Positive				
+TC032	Verify mapping of insurance details for primary applicant	Insurance details for primary applicant	Insurance details correctly mapped to corresponding field in BRE	Positive				
+TC033	Verify mapping of valuation details for co-applicant	Valuation details (soft/hard) for co-applicant, including Asset certified flag	Valuation details correctly mapped to corresponding field in BRE	Positive				
+TC034	Verify mapping of insurance details for co-applicant	Insurance details for co-applicant	Insurance details correctly mapped to corresponding field in BRE	Positive				
+TC035	Verify mapping of valuation details for guarantor	Valuation details (soft/hard) for guarantor, including Asset certified flag	Valuation details correctly mapped to corresponding field in BRE	Positive				
+TC036	Verify mapping of insurance details for guarantor	Insurance details for guarantor	Insurance details correctly mapped to corresponding field in BRE	Positive				

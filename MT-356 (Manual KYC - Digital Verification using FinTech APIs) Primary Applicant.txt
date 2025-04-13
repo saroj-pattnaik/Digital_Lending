@@ -1,0 +1,29 @@
+Test Step ID	Test Steps 	Test DATA	Expected Output	Detailed Test Category	Actual Result	Pass/Failed	Defect-ID (JIRA)	Comments
+Scope: The input fields would be on the basis of the OVD - (Input & output parameters to be discussed and finalised with the vendor)								
+TC-01	Verify fetching and displaying Title/Salutation	Valid OVD Data	Title/Salutation displayed correctly	Positive				
+TC-02	Verify fetching and displaying First Name	Valid OVD Data	First Name displayed correctly	Positive				
+TC-03	Verify fetching and displaying Last Name	Valid OVD Data	Last Name displayed correctly	Positive				
+TC-04	Verify fetching and displaying Middle Name	Valid OVD Data	Middle Name displayed correctly	Positive				
+TC-05	Verify fetching and displaying DOB/DOI	Valid OVD Data	DOB/DOI displayed correctly	Positive				
+TC-06	Verify fetching and displaying Gender	Valid OVD Data	Gender displayed correctly	Positive				
+TC-07	Verify fetching and displaying Nationality	Valid OVD Data	Nationality displayed correctly	Positive				
+TC-08	Verify fetching and displaying Address Line 1	Valid OVD Data	Address Line 1 displayed correctly	Positive				
+TC-09	Verify fetching and displaying Address Line 2	Valid OVD Data	Address Line 2 displayed correctly	Positive				
+TC-10	Verify fetching and displaying Address Line 3	Valid OVD Data	Address Line 3 displayed correctly	Positive				
+TC-11	Verify fetching and displaying PIN Code	Valid OVD Data	PIN Code displayed correctly	Positive				
+TC-12	Verify fetching and displaying City/Village/Location	Valid OVD Data	City/Village/Location displayed correctly	Positive				
+TC-13	Verify fetching and displaying Taluk	Valid OVD Data	Taluk displayed correctly	Positive				
+TC-14	Verify fetching and displaying District	Valid OVD Data	District displayed correctly	Positive				
+TC-15	Verify fetching and displaying State	Valid OVD Data	State displayed correctly	Positive				
+TC-16	Verify storing all fetched data in the Database	Valid OVD Data	Data stored correctly in the database	Positive				
+TC-17	Verify checkbox for OSV documents is available	Valid OVD Data	OSV checkbox available and functional	Positive				
+Scenario 1: Data aggregator has the customer's information, the data gets auto populated on the app and the data is accurate								
+TC-18	Fetch customer details using FinTech API	Valid request parameters	Customer details fetched successfully	Positive				
+TC-19	Verify data displayed on the app	Valid customer details	Data displayed matches fetched details	Positive				
+TC-20	Verify accuracy of displayed data	Confirmed accurate data	Data matches customer-provided information	Positive				
+TC-21	Click on 'Proceed' button	Valid action	System moves to QDE 	Positive				
+TC-22	Click on 'Proceed' button	Valid action	System does not move to QDE 	Negative				
+Scenario 2: No response from Data aggregator								
+TC-23	Send request to Data aggregator API	Valid request parameters	No response received from API	Positive				
+TC-24	Verify system response when API call times out	API Timeout	System re-routes to select POI/POA type for Manual KYC	Positive				
+TC-25	Verify fallback mechanism for initiating Manual KYC	No API Response	System provides options to manually select POI/POA for KYC	Positive				

@@ -1,0 +1,153 @@
+Unnamed: 0	Unnamed: 1	Unnamed: 2	Unnamed: 3	Unnamed: 4	Unnamed: 5	Unnamed: 6	Unnamed: 7	Unnamed: 8	Unnamed: 9	Unnamed: 10	Unnamed: 11	Unnamed: 12	Unnamed: 13	Unnamed: 14
+Story #	Test Case ID	Test Description	Test Data	Test Steps	Expected Output	Detailed Test Category	Attachments(Issue)	Pass/Faile	"Defect-ID (JIRA)
+(if Fail)"	Pass/Fail	Comments	Defect-ID(JIRA)	Device	Attachments(Issue)
+MT-398	Scope Scenario 1:													
+	TC001	Execute BRE-1 for PV Vertical with New Contract Type	Vertical: PV, Contract Type: New	"1. Log in to the system.
+2. Navigate to QDE 1 screen.
+3. Fill in required data.
+4. Click the ""Proceed"" button.
+5. Ensure BRE-1 execution is triggered."	Offer(s) generated should be displayed on the Offer Listing screen.	Positive								
+	TC002	Execute BRE-1 for PV Vertical with New Contract Type	Vertical: PV, Contract Type: New	"1. Log in to the system.
+2. Navigate to QDE 1 screen.
+3. Fill in required data.
+4. Click the ""Proceed"" button.
+5. Ensure BRE-1 execution is triggered."	no offer, hold or decline Offer(s)  should   be displayed on the Offer Listing screen.	Negative								
+	TC003	Execute BRE-1a for FES Vertical with Sale Purchase Contract Type (Soft Valuation)	Vertical: FES, Contract Type: Sale Purchase, Valuation: Soft	"1. Log in to the system.
+2. Navigate to QDE 1 screen.
+3. Fill in required data including soft valuation.
+4. Click the ""Proceed"" button.
+5. Ensure BRE-1a execution is triggered."	Offer(s) generated should be displayed on the Offer Listing screen.	Positive								
+	TC004	Execute BRE-1a for FES Vertical with Sale Purchase Contract Type (Soft Valuation)	Vertical: FES, Contract Type: Sale Purchase, Valuation: Soft	"1. Log in to the system.
+2. Navigate to QDE 1 screen.
+3. Fill in required data including soft valuation.
+4. Click the ""Proceed"" button.
+5. Ensure BRE-1a execution is triggered."	Offer(s) generated should  not be displayed on the Offer Listing screen.	Negative								
+	TC005	Execute BRE-1b for POCL Vertical with External Refinance Contract Type (Hard Val)	Vertical: POCL, Contract Type: External Refinance, Valuation: Soft & Hard	"1. Log in to the system.
+2. Navigate to QDE 1 screen.
+3. Fill in required data including both soft and hard valuation.
+4. Click the ""Proceed"" button.
+5. Ensure BRE-1b execution is triggered."	Offer(s) generated should be displayed on the Offer Listing screen.	Positive								
+	TC006	Execute BRE-1b for POCL Vertical with External Refinance Contract Type (Hard Val)	Vertical: POCL, Contract Type: External Refinance, Valuation: Soft & Hard	"1. Log in to the system.
+2. Navigate to QDE 1 screen.
+3. Fill in required data including both soft and hard valuation.
+4. Click the ""Proceed"" button.
+5. Ensure BRE-1b execution is triggered."	Offer(s) generated should  not be displayed on the Offer Listing screen.	Negative								
+	TC007	Execute BRE-1 for SOT Vertical with New Contract Type	Vertical: SOT, Contract Type: New	"1. Log in to the system.
+2. Navigate to QDE 1 screen.
+3. Fill in required data.
+4. Click the ""Proceed"" button.
+5. Ensure BRE-1 execution is triggered."	Offer(s) generated should be displayed on the Offer Listing screen.	Positive								
+	TC008	Execute BRE-1 for SOT Vertical with New Contract Type	Vertical: SOT, Contract Type: New	"1. Log in to the system.
+2. Navigate to QDE 1 screen.
+3. Fill in required data.
+4. Click the ""Proceed"" button.
+5. Ensure BRE-1 execution is triggered."	Offer(s) generated should  not be displayed on the Offer Listing screen.	Negative								
+		Acceptance Criteria:BRE 1 Execution & Audit Log Capture (Vertical = PV, FES, SOT & Contract Type = New)												
+	TC021	Execute BRE 1 Normal Mode	Vertical: Any, Contract Type: Any, Indicator: Normal	"1. Log in to the system.
+2. Navigate to QDE 1 screen.
+3. Fill in the required data.
+4. Click the ""Proceed"" button.
+5. Ensure BRE 1 execution in Normal mode."	BRE 1 execution should be triggered in Normal mode, and the correct offers or results should be displayed based on the input data.	Positive								
+	TC022	Execute BRE 1 Normal Mode	Vertical: Any, Contract Type: Any, Indicator: Normal	"1. Log in to the system.
+2. Navigate to QDE 1 screen.
+3. Fill in the required data.
+4. Click the ""Proceed"" button.
+5. Ensure BRE 1 execution in Normal mode."	BRE 1 execution should not be triggered in Normal mode, and the correct offers or results should not be displayed based on the input data.	Negative								
+	TC023	Execute BRE 1 Change Request Mode	Vertical: Any, Contract Type: Any, Indicator: Change Request	"1. Log in to the system.
+2. Navigate to QDE 1 screen.
+3. Fill in the required data.
+4. Click the ""Proceed"" button.
+5. Ensure BRE 1 execution in Change mode."	BRE 1 execution should be triggered in Change Request mode, and the correct offers or results should be displayed based on the input data.	Positive								
+	TC024	Execute BRE 1 Change Request Mode	Vertical: Any, Contract Type: Any, Indicator: Change Request	"1. Log in to the system.
+2. Navigate to QDE 1 screen.
+3. Fill in the required data.
+4. Click the ""Proceed"" button.
+5. Ensure BRE 1 execution in Change mode."	BRE 1 execution should not be triggered in Change Request mode, and the correct offers or results should not be displayed based on the input data.	Negative								
+	TC025	Verify Asynchronous API Calls Before Executing BRE 1 Normal Mode	Vertical: Any, Contract Type: Any, Indicator: Normal	"1. Log in to the system.
+2. Navigate to QDE 1 screen.
+3. Fill in the required data.
+4. Click the ""Proceed"" button.
+5. Monitor the API calls before BRE 1."	All necessary API calls should execute asynchronously in parallel or sequence, depending on design. BRE 1 should trigger in Normal mode.	Positive								
+	TC026	Verify Asynchronous API Calls Before Executing BRE 1 Normal Mode	Vertical: Any, Contract Type: Any, Indicator: Normal	"1. Log in to the system.
+2. Navigate to QDE 1 screen.
+3. Fill in the required data.
+4. Click the ""Proceed"" button.
+5. Monitor the API calls before BRE 1."	All necessary API calls should not execute asynchronously in parallel or sequence, depending on design. BRE 1 should not trigger in Normal mode.	Negative								
+	TC027	Verify Asynchronous API Calls Before Executing BRE 1 Change Request Mode	Vertical: Any, Contract Type: Any, Indicator: Change Request	"1. Log in to the system.
+2. Navigate to QDE 1 screen.
+3. Fill in the required data.
+4. Click the ""Proceed"" button.
+5. Monitor the API calls before BRE 1."	All necessary API calls should execute asynchronously in parallel or sequence, depending on design. BRE 1 should trigger in Change mode.	Positive								
+	TC028	Verify Asynchronous API Calls Before Executing BRE 1 Change Request Mode	Vertical: Any, Contract Type: Any, Indicator: Change Request	"1. Log in to the system.
+2. Navigate to QDE 1 screen.
+3. Fill in the required data.
+4. Click the ""Proceed"" button.
+5. Monitor the API calls before BRE 1."	All necessary API calls should not execute asynchronously in parallel or sequence, depending on design. BRE 1 should not trigger in Change mode.	Negative								
+	2: BRE 1a/1b Execution & Audit Log Capture (Vertical = POCL, FES & Contract Type = Sale Purchase, External Refinance, Internal BT/Refinance)													
+	Case A: Only soft valuation data is available													
+	TC045	Verify BRE 1a Normal execution with valid data	Valid soft valuation data, valid hard valuation data (if applicable), valid API inputs	"1. Navigate to QDE 1 screen.
+2. Fill in the soft and hard valuation data.
+3. Click on the ""Proceed"" button."	"System should pass indicators/flags for BRE 1a Normal to BRE.
+Audit log should be captured with BRE Trigger as BRE-1a."	Positive								
+	TC046	Verify BRE 1a Normal execution with valid data	Valid soft valuation data, valid hard valuation data (if applicable), valid API inputs	"1. Navigate to QDE 1 screen.
+2. Fill in the soft and hard valuation data.
+3. Click on the ""Proceed"" button."	"System should not pass indicators/flags for BRE 1a Normal to BRE.
+Audit log should not be captured with BRE Trigger as BRE-1a."	Negative								
+	TC047	Verify BRE 1a Normal execution with valid soft valuation data only	Valid soft valuation data, no hard valuation data	"1. Navigate to QDE 1 screen.
+2. Fill in the soft valuation data.
+3. Ensure hard valuation data is not provided.
+4. Click on the ""Proceed"" button."	"System should pass indicators/flags for BRE 1a Normal to BRE.
+Audit log should be captured with BRE Trigger as BRE-1a."	Positive								
+	TC048	Verify BRE 1a Normal execution with valid soft valuation data only	Valid soft valuation data, no hard valuation data	"1. Navigate to QDE 1 screen.
+2. Fill in the soft valuation data.
+3. Ensure hard valuation data is not provided.
+4. Click on the ""Proceed"" button."	"System should not pass indicators/flags for BRE 1a Normal to BRE.
+Audit log should not be captured with BRE Trigger as BRE-1a."	Negative								
+	TC049	Verify system behavior when hard valuation data is missing for BRE 1a Normal execution	Valid soft valuation data, missing hard valuation data	"1. Navigate to QDE 1 screen.
+2. Enter valid soft valuation data.
+3. Ensure hard valuation data is missing.
+4. Click on the ""Proceed"" button."	"System should pass indicators/flags for BRE 1a Normal to BRE.
+Audit log should be captured with BRE Trigger as BRE-1a."	Positive								
+	TC050	Verify system behavior when hard valuation data is missing for BRE 1a Normal execution	Valid soft valuation data, missing hard valuation data	"1. Navigate to QDE 1 screen.
+2. Enter valid soft valuation data.
+3. Ensure hard valuation data is missing.
+4. Click on the ""Proceed"" button."	"System should not pass indicators/flags for BRE 1a Normal to BRE.
+Audit log should not be captured with BRE Trigger as BRE-1a."	Negative								
+														
+														
+	Case B: Both Soft & Hard valuation data is filled by User along with Disposal Asset Cost before BRE1a is run.													
+	TC053	Verify BRE 1b Normal execution with both soft and hard valuation data	Valid soft and hard valuation data	"1. Navigate to QDE 1 screen.
+2. Enter valid soft and hard valuation data.
+3. Click the ""Proceed"" button."	"System should pass indicators/flags for BRE 1b Normal to BRE.
+Audit log should be captured with BRE Trigger as BRE-1b."	Positive								
+	TC054	Verify BRE 1b Normal execution with both soft and hard valuation data	Valid soft and hard valuation data	"1. Navigate to QDE 1 screen.
+2. Enter valid soft and hard valuation data.
+3. Click the ""Proceed"" button."	"System should not pass indicators/flags for BRE 1b Normal to BRE.
+Audit log should not be captured with BRE Trigger as BRE-1b."	Negative								
+	TC055	Verify BRE 1b Change Request execution after initial BRE 1b Normal execution	Valid soft and hard valuation data, modified values for the change request	"1. Navigate to QDE 1 screen.
+2. Enter valid data and click ""Proceed"" to execute BRE 1b Normal.
+3. Make modifications and click ""Proceed"" again for BRE 1b Change Request."	"System should pass indicators/flags for BRE 1b Change Request to BRE.
+Audit log should be captured with BRE Trigger as BRE-1b, reflecting the change request."	Positive								
+	TC056	Verify BRE 1b Change Request execution after initial BRE 1b Normal execution	Valid soft and hard valuation data, modified values for the change request	"1. Navigate to QDE 1 screen.
+2. Enter valid data and click ""Proceed"" to execute BRE 1b Normal.
+3. Make modifications and click ""Proceed"" again for BRE 1b Change Request."	"System should not pass indicators/flags for BRE 1b Change Request to BRE.
+Audit log should not be captured with BRE Trigger as BRE-1b, reflecting the change request."	Negative								
+														
+														
+	Case C: Hard valuation data is filled by user in response to the BRE1a loan offer condition													
+	TC059	Verify BRE 1b Normal execution with both soft and hard valuation data	Valid soft and hard valuation data	"1. Navigate to QDE 1 screen.
+2. Enter valid soft and hard valuation data.
+3. Click the ""Proceed"" button."	"System should pass indicators/flags for BRE 1b Normal to BRE.
+Audit log should be captured with BRE Trigger as BRE-1b."	Positive								
+	TC060	Verify BRE 1b Normal execution with both soft and hard valuation data	Valid soft and hard valuation data	"1. Navigate to QDE 1 screen.
+2. Enter valid soft and hard valuation data.
+3. Click the ""Proceed"" button."	"System should not pass indicators/flags for BRE 1b Normal to BRE.
+Audit log should not be captured with BRE Trigger as BRE-1b."	Negative								
+	TC061	Verify BRE 1b Change Request execution after initial BRE 1b Normal execution	Valid soft and hard valuation data, modified values for the change request	"1. Navigate to QDE 1 screen.
+2. Enter valid data and click ""Proceed"" to execute BRE 1b Normal.
+3. Make modifications and click ""Proceed"" again for BRE 1b Change Request."	"System should pass indicators/flags for BRE 1b Change Request to BRE.
+Audit log should be captured with BRE Trigger as BRE-1b, reflecting the change request."	Positive								
+	TC062	Verify BRE 1b Change Request execution after initial BRE 1b Normal execution	Valid soft and hard valuation data, modified values for the change request	"1. Navigate to QDE 1 screen.
+2. Enter valid data and click ""Proceed"" to execute BRE 1b Normal.
+3. Make modifications and click ""Proceed"" again for BRE 1b Change Request."	"System should not pass indicators/flags for BRE 1b Change Request to BRE.
+Audit log should not be captured with BRE Trigger as BRE-1b, reflecting the change request."	Negative								

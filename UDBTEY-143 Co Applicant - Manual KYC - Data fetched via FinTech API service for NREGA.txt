@@ -1,0 +1,47 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P/E2E Integration Requirements	Activity Diagram	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Faile	Defect-ID (JIRA)
+						(Control Flow)								(if Fail)
+UDBTEY-143	Co Applicant - Manual KYC - Data fetched via FinTech API service for NREGA			"
+As a Business executive, I need a system that allows me to manually upload NREGA card details during KYC procedures. The system should facilitate a Data aggregator check on the provided information. This ensures that customer data is accurate and helps streamline the KYC process.
+
+Pre-Conditions to Test:
+The system is operational and accessible.
+Business executives have valid login credentials and access permissions.
+Relevant APIs for Data aggregator integration and OCR service are available and functional.
+NREGA card details are available and ready for upload.
+The system has been configured with the necessary input and output fields.
+OSV documents, if required, are available and ready for confirmation.
+Data aggregator parameters have been discussed and finalized with the vendor.
+A valid Consumer Number is provided for testing.
+The system is in a state where it can perform KYC procedures."	"Data Aggregator Integration:
+
+Requirement 1.1: The system must establish a secure connection with the Data Aggregator's API.
+Requirement 1.2: The system should be able to send a request to the Data Aggregator's API with the Consumer Number as a parameter.
+Requirement 1.3: The system must handle API responses, including errors and successful data retrieval.
+Requirement 1.4: Data Aggregator API credentials (API key, token, etc.) must be securely stored and managed.
+Requirement 1.5: Error handling and logging mechanisms should be in place to track API interactions and troubleshoot issues.
+OCR Service Integration (Temporary Manual Process):
+
+Requirement 2.1: The system should be capable of receiving data from the OCR service.
+Requirement 2.2: Data received from the OCR service should be properly parsed and validated.
+Requirement 2.3: Inaccurate or missing data from the Data Aggregator should trigger the OCR service data retrieval process.
+Requirement 2.4: A mechanism to prioritize and manage OCR service data should be implemented.
+End-to-End Integrations Requirements:
+
+User Interface Integration:
+
+Requirement 3.1: The user interface should provide a user-friendly way for Business Executives to upload and enter NREGA card details.
+Requirement 3.2: The UI should include input fields for Consumer Number and OSV confirmation.
+Requirement 3.3: OSV document uploading should be straightforward with appropriate validation.
+Data Flow and Processing:
+
+Requirement 4.1: Data entered by Business Executives should be captured, stored securely, and associated with the respective customer.
+Requirement 4.2: Data from the Data Aggregator and OCR service should be processed and displayed accurately in the output fields.
+Requirement 4.3: Data accuracy checks should be performed before allowing Business Executives to proceed."		TC01	Upload NREGA card details successfully	Valid NREGA card details	NREGA information auto-populated in output fields	Positive			
+							TC02	Confirm OSV successfully	OSV checkbox checked	OSV confirmation recorded, proceed to QDE	Positive			
+							TC03	No response from Data Aggregator	Valid NREGA card details, OSV checkbox	OCR service used, proceed to QDE	Exception			
+							TC04	Inaccurate response from Data Aggregator	Valid NREGA card details, OSV checkbox	OCR service used, proceed to QDE	Exception			
+							TC05	OSV confirmation required, but not confirmed	Valid NREGA card details	Error message displayed, OSV confirmation required	Negative			
+							TC06	Missing Consumer Number	Missing Consumer Number	Error message displayed, valid Consumer Number required	Negative			
+							TC07	Invalid Consumer Number	Invalid Consumer Number	Error message displayed, valid Consumer Number required	Negative			
+							TC08	Data Aggregator provides accurate response	Valid NREGA card details, OSV checkbox	NREGA information auto-populated in output fields, proceed to QDE	Positive			
+							TC09	No OSV confirmation, but not required	Valid NREGA card details	Proceed to QDE	Positive			

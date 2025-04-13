@@ -1,0 +1,21 @@
+Test Step ID	Test Steps 	Test DATA	Expected Output	Detailed Test Category	Actual Result	Pass/Failed	Defect-ID (JIRA)	Comments
+Test Cases related to Scope								
+TC-01	Verify FOS triggers Scorecard	Initiate Scorecard process in FOS	Scorecard is triggered, and response is received	Positive				
+TC-02	Verify FOS triggers Scorecard	Initiate Scorecard process in FOS	Scorecard is not  triggered, or response is received	Negative				
+TC-03	Verify Scorecard response is fed to BRE-3	Scorecard response available	BRE-3 receives Scorecard response as input	Positive				
+TC-04	Verify Scorecard response is fed to BRE-3a	Scorecard response available	BRE-3a receives Scorecard response as input	Positive				
+TC-05	Verify Scorecard response is fed to BRE-3b	Scorecard response available	BRE-3b receives Scorecard response as input	Positive				
+TC-06	Verify co-applicant Scorecard details are sent to BRE	Co-applicant Scorecard details available	BRE receives co-applicant Scorecard details	Positive				
+TC-07	Verify BRE pulls input parameters from Scorecard	Scorecard response with input parameters	BRE system uses input parameters from Scorecard	Positive				
+Test Cases related to validation								
+TC-08	Verify BRE pulls input parameters from Scorecard for BRE-3	Scorecard response for BRE-3	BRE-3 request includes Scorecard input parameters	Positive				
+TC-09	Verify BRE pulls input parameters from Scorecard for BRE-3a	Scorecard response for BRE-3a	BRE-3a request includes Scorecard input parameters	Positive				
+TC-10	Verify BRE pulls input parameters from Scorecard for BRE-3b	Scorecard response for BRE-3b	BRE-3b request includes Scorecard input parameters	Positive				
+TC-11	Verify co-applicant data is shared for Scorecard when they are the loan repayer	Co-applicant is loan repayer	Scorecard generation includes co-applicant data	Positive				
+TC-12	Verify co-applicant data is input to BRE when they are the loan repayer	Co-applicant data from Scorecard	BRE request includes co-applicant data as input	Positive				
+Scenario1: FOS to trigger Scorecard								
+TC-13	Verify FOS triggers Scorecard	Initiate Scorecard process in FOS	Scorecard is triggered, and response is received	Positive				
+TC-14	Verify Scorecard response is fed as input to BRE system	Scorecard response available	BRE system (CRIF) receives Scorecard response as input	Positive				
+TC-15	Verify BRE-1 is executed with Scorecard response	Scorecard response for BRE-1	BRE-1 is executed using Scorecard response	Positive				
+TC-16	Verify BRE 1a is executed with Scorecard response	Scorecard response for BRE 1a	BRE 1a is executed using Scorecard response	Positive				
+TC-17	Verify BRE 1b is executed with Scorecard response	Scorecard response for BRE 1b	BRE 1b is executed using Scorecard response	Positive				

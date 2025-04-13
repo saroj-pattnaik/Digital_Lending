@@ -1,0 +1,31 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P/E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Faile	"Defect-ID (JIRA)
+(if Fail)"
+UDBTEY-120	As a user (System), should be able to fetch and verify Primary Applicants details from the Data aggregator response, so that the Manual KYC can be completed successfully	Low	Ready for review	"This user story focuses on enhancing the system's functionality to retrieve and validate Primary Applicant details from a Data aggregator's response. The goal is to streamline the manual Know Your Customer (KYC) process. Users will input Driver's License information, and the system will display various personal details received from data aggregators. If the data is available and accurate, it will be auto-populated in the application. In case of no response from the Data aggregator, the system will prompt the user to select the Proof of Identity/Proof of Address (POI/POA) type for manual KYC.
+
+Pre-Conditions to Test:
+
+1. Ensure that the system has integrated with the Data aggregator's API.
+2. A valid and active Driver's License No. and Expiry date should be available for testing.
+3. The system should be in a state where it is ready to initiate the KYC process.
+4. OSV (Other Supporting Verification) documents, if applicable, should be available for selection."	"Product-to-Product Integration Requirements:
+
+1. Data Aggregator Integration: The system must establish a seamless integration with the Data aggregator's API. This integration should allow for the exchange of customer details based on the Driver's License information provided by the user.
+
+2. User Interface Integration: The user interface should be designed to display the received customer details accurately. It should be integrated with the backend systems to auto-populate the fields when data is available.
+
+3. Error Handling Integration: Implement error handling mechanisms within the integration to deal with cases where the Data aggregator API doesn't respond or returns errors. The system should gracefully handle such scenarios and provide appropriate feedback to users.
+
+End-to-End Integration Requirements:
+
+1.OSV Document Integration: If the system includes the option for Other Supporting Verification (OSV) documents, these should be integrated into the KYC process flow. Users should be able to select and submit OSV documents as needed.
+
+2. Data Validation Integration: Implement data validation checks to ensure that the fetched customer details are accurate and consistent with the KYC requirements. Integration with validation rules and data quality checks is crucial.
+
+3. QDE (Quality Data Entry) Integration: If the successful completion of KYC moves the system to QDE, ensure that this transition is smoothly integrated into the workflow. Data collected during KYC should seamlessly flow into the subsequent stages.."	TC01	Data aggregator has customer's information.	Valid Driver's License No. and Expiry date.	Application fetches customer details from Data aggregator and displays them.	Positive			
+						TC02	Data is accurate.	Customer details match the expected values discussed with the customer.	Application auto-populates the fields and provides an option to proceed to QDE.	Positive			
+						TC03	Data is inaccurate.	Customer details do not match the expected values.	Application displays an error message, and the process terminates.	Negative			
+						TC04	No response from Data aggregator.	Valid Driver's License No. and Expiry date.	Application prompts the user to select POI/POA type for Manual KYC.	Positive			
+						TC05	User selects POI/POA type for Manual KYC.	Valid selection of POI/POA type.	Application proceeds to the Manual KYC process.	Positive			
+						TC06	User proceeds to QDE.	Valid input provided, and data is accurate.	Application moves to QDE.	Positive			
+						TC07	User proceeds to QDE with inaccurate data.	Valid input provided, but data is inaccurate.	Application displays an error message, and the process terminates.	Negative			
+						TC08	User proceeds to QDE without fetching data from aggregator.	Valid input provided, but data wasn't fetched (e.g., skipped fetching step).	Application displays an error message, and the process terminates.	Exception			

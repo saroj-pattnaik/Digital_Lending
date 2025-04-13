@@ -1,0 +1,20 @@
+Test Step ID	Test Steps 	Test DATA	Expected Output	Detailed Test Category	Actual Result	Pass/Failed	Defect-ID (JIRA)	Comments
+Scope: System will display the KYC details on the FE app for Primary Applicant, Co-applicant and Guarantor 								
+TC_01	Verify KYC details display for Primary Applicant	Navigate to KYC details section	KYC details for Primary Applicant are displayed on the FE app.	Positive				
+TC_02	Verify KYC details display for Primary Applicant	Navigate to KYC details section	KYC details for Primary Applicant are  not displayed on the FE app.	Negative				
+TC_03	Verify KYC details display for Co-applicant	Navigate to KYC details section	KYC details for Co-applicant are displayed on the FE app.	Positive				
+TC_04	Verify KYC details display for Co-applicant	Navigate to KYC details section	KYC details for Co-applicant are not  displayed on the FE app.	Negative				
+TC_05	Verify KYC details display for Guarantor	Navigate to KYC details section	KYC details for Guarantor are displayed on the FE app.	Positive				
+TC_06	Verify KYC details display for Guarantor	Navigate to KYC details section	KYC details for Guarantor are not  displayed on the FE app.	Negative				
+Validation: Field level validations will be as per field list under DDE worksheet								
+TC_07	Validate format of fields based on DDE work sheet for Primary Applicant	Enter valid Aadhaar number	Fields format is per the DDE worksheet	Positive				
+TC_08	Validate format of fields based on DDE work sheet for Co- Applicant	Enter valid Passport number	Fields format is per the DDE worksheet	Positive				
+TC_09	Validate format of fields based on DDE work sheet for Guarantor	Enter valid Passport number	Fields format is per the DDE worksheet	Positive				
+TC_10	Validate format of fields based on DDE work sheet for(Primary, Co- Applicant Guarantor)	Enter valid Passport number	Fields format does not match as per the DDE worksheet	Negative				
+Scenario 1: KYC details are auto-populated from the QDE stage								
+TC_11	Verify KYC details auto-population for Primary Applicant	Click down arrow for KYC details	KYC details for Primary Applicant are pre-populated and visible on the FE app.	Positive				
+TC_12	Verify KYC details auto-population for Primary Applicant	Click down arrow for KYC details	KYC details for Primary Applicant are not pre-populated OR not visible on the FE app.	Negative				
+TC_13	Verify KYC details auto-population for Co-applicant	Click down arrow for KYC details	KYC details for Co-applicant are pre-populated and visible on the FE app.	Positive				
+TC_14	Verify KYC details auto-population for Co-applicant	Click down arrow for KYC details	KYC details for Co-applicant are  not pre-populated OR not visible on the FE app.	Negative				
+TC_15	Verify KYC details auto-population for Guarantor	Click down arrow for KYC details	KYC details for Guarantor are pre-populated and visible on the FE app.	Positive				
+TC_16	Verify KYC details auto-population for Guarantor	Click down arrow for KYC details	KYC details for Guarantor are not  pre-populated OR not visible on the FE app.	Negative				

@@ -1,0 +1,102 @@
+Test Step ID	Test Steps 	Test DATA	Expected Output	Detailed Test Category	Actual Result	Pass/Failed	Defect-ID (JIRA)	Comments
+Test Cases related to Scope								
+TC01	Verify CPV accordion display for all verticals and contract types	Access FOS for each vertical and contract type	CPV accordion is displayed for all verticals and contract types	Positive				
+TC02	Verify CPV accordion display for all verticals and contract types	Access FOS for each vertical and contract type	CPV accordion is not displayed for any verticals or any contract types	Negative				
+TC03	Verify display of applicable Persona & Address types for mandatory CPV based on BRE flag	BRE flag output for mandatory CPV	Only applicable Persona & Address types are displayed	Positive				
+TC04	Verify display of non-applicable Persona & Address types when BRE flag indicates waiver	BRE flag output indicates CPV waiver	Non-applicable Persona & Address types are  displayed	Negative				
+TC05	Verify 'Status flag' display as 'In Progress' for selected Persona & Address	Initiate CPV for a Persona & Address	'In Progress' status flag is displayed	Positive				
+TC06	Verify 'Status flag' display as 'In Progress' for selected Persona & Address	Initiate CPV for a Persona & Address	In Progress' status flag is not  displayed	Negative				
+TC07	Verify 'Status flag' display as 'Completed' for selected Persona & Address	Complete CPV for a Persona & Address	'Completed' status flag is displayed	Positive				
+TC08	Verify 'Status flag' display as 'Completed' for selected Persona & Address	Complete CPV for a Persona & Address	Completed' status flag is not displayed	Negative				
+TC09	Verify incorrect 'Status flag' display for uninitiated CPV	CPV not initiated for a Persona & Address	'Status flag' should not display 'In Progress' or 'Completed'	Positive				
+TC10	Verify incorrect 'Status flag' display for uninitiated CPV	CPV not initiated for a Persona & Address	Status flag' displays 'In Progress' or 'Completed'	Negative				
+TC11	Verify user can conduct Non-Mandatory/Optional CPV from QDE1B to Post Sanction flow	Select 'Yes' to conduct optional CPV in BRE outcome screen	User is navigated to CPV address verification screen	Positive				
+TC12	Verify user can conduct Non-Mandatory/Optional CPV from QDE1B to Post Sanction flow	Select 'Yes' to conduct optional CPV in BRE outcome screen	User is not navigated to CPV address verification screen	Negative				
+TC13	Verify user is prevented from conducting Non-Mandatory/Optional CPV when not allowed	Select 'Yes' to conduct optional CPV when not allowed	User is not navigated to CPV address verification screen	Positive				
+TC14	Verify user is prevented from conducting Non-Mandatory/Optional CPV when not allowed	Select 'Yes' to conduct optional CPV when not allowed	User is  navigated to CPV address verification screen	Negative				
+Scenario: 1. Manditory CPV (in case of CPV conducted BRE 1/BRE 2 outcome stage)								
+a. Display the CPV Accordion in BRE offer screen.								
+Covered in Scope								
+b. Display the Persona & address in CPV address Verification chip filter Screen.								
+TC-15	Verify CPV chip filter screen displays correct Persona & address based on BRE flag	"BRE outcome with CPV waiver flag ""NO"" for specific personas and addresses"	CPV chip filter screen displays only the mandatory Persona & address types	Positive				
+TC-16	Verify CPV chip filter screen displays correct Persona & address based on BRE flag	"BRE outcome with CPV waiver flag ""NO"" for specific personas and addresses"	CPV chip filter screen is not  displayed  with  the mandatory Persona & address types	Negative				
+TC-17	Verify CPV chip filter screen does not display waived Persona & address	"BRE outcome with CPV waiver flag ""YES"" for specific personas and addresses"	CPV chip filter screen does not display waived Persona & address types	Positive				
+TC-18	Verify CPV chip filter screen does not display waived Persona & address	"BRE outcome with CPV waiver flag ""YES"" for specific personas and addresses"	CPV chip filter screen  displays waived Persona & address types	Negative				
+TC-19	Verify user lands on the selected Persona's CPV chip filter page	User selects a Persona with mandatory CPV	User is navigated to the selected Persona's CPV chip filter page	Positive				
+TC-20	Verify user lands on the selected Persona's CPV chip filter page	User selects a Persona with mandatory CPV	User is not navigated to the selected Persona's CPV chip filter page	Negative				
+TC-21	Verify user cannot switch to another Persona's CPV chip filter page	Attempt to switch to a different Persona's CPV chip filter page	User is unable to switch and remains on the selected Persona's CPV chip filter page	Positive				
+TC-22	Verify user cannot switch to another Persona's CPV chip filter page	Attempt to switch to a different Persona's CPV chip filter page	User is able to switch and remains on the selected Persona's CPV chip filter page	Negative				
+TC-23	"Verify ""In progress"" status flag for unfinished CPV upon clicking ‘Conduct Now’"	User clicks ‘Conduct Now’ for a selected address	"""In progress"" status flag is displayed beside the selected address"	Positive				
+TC-24	"Verify ""In progress"" status flag for unfinished CPV upon clicking ‘Conduct Now’"	User clicks ‘Conduct Now’ for a selected address	"""In progress"" status flag is not displayed beside the selected address"	Negative				
+TC-25	Verify user can view CPV status for any Persona & address using kebab menu	User selects kebab menu for a Persona & address	User can view the status of CPV for the selected Persona & address	Positive				
+TC-26	Verify user can view CPV status for any Persona & address using kebab menu	User selects kebab menu for a Persona & address	User cannot view the status of CPV for the selected Persona & address	Negative				
+TC-27	Verify user can select mandatory addresses to conduct CPV	User attempts to select mandatory addresses for CPV	User is able to select and conduct CPV for mandatory addresses	Positive				
+TC-28	Verify user can select mandatory addresses to conduct CPV	User attempts to select mandatory addresses for CPV	User is unable to select and conduct CPV for mandatory addresses	Negative				
+TC-29	Verify CPV task/status remains unchanged if ‘Conduct Now’ is not clicked	User does not click ‘Conduct Now’ for a mandatory CPV	"CPV task/status in BRE screen remains as ""Verify"""	Positive				
+TC-30	Verify CPV task/status remains unchanged if ‘Conduct Now’ is not clicked	User does not click ‘Conduct Now’ for a mandatory CPV	"CPV task/status in BRE screen is not ""Verify"""	Negative				
+TC-31	Verify BE can proceed with CPV task after reopening the app if CPV is in-progress	BE reopens the app with an in-progress CPV task	"""Verify"" button is enabled for BE to click and proceed with the CPV task"	Positive				
+TC-32	Verify BE can proceed with CPV task after reopening the app if CPV is in-progress	BE reopens the app with an in-progress CPV task	"""Verify"" button is disabled for BE to click and proceed with the CPV task"	Negative				
+TC-33	Verify user is allowed to proceed with Generate Repayment schedule, MAS/MLS	User attempts to proceed with Generate Repayment schedule, MAS/MLS	User is allowed to proceed with Generate Repayment schedule, MAS/MLS but not with DDE/UW stage	Positive				
+TC-34	Verify user is allowed to proceed with Generate Repayment schedule, MAS/MLS	User attempts to proceed with Generate Repayment schedule, MAS/MLS	User is not allowed to proceed with Generate Repayment schedule, MAS/MLS but not with DDE/UW stage	Negative				
+TC-35	Verify user is blocked from proceeding to DDE/UW stage if CPV is not completed	User attempts to proceed to DDE/UW stage with incomplete CPV	User is blocked from proceeding to DDE/UW stage and prompted to complete CPV	Positive				
+TC-36	Verify user is blocked from proceeding to DDE/UW stage if CPV is not completed	User attempts to proceed to DDE/UW stage with incomplete CPV	User is able to  proceed to DDE/UW stage and prompted to complete CPV	Negative				
+2.Optional CPV (in case of CPV conducted from BRE 1/BRE 2 outcome)								
+TC-37	Verify message and options for conducting optional CPV are displayed	"BRE outcome with CPV waiver flag ""YES"""	Message “FI is not required. Would you still want to Conduct?” with “Yes” & “No” options displayed	Positive				
+TC-38	Verify message and options for conducting optional CPV are displayed	"BRE outcome with CPV waiver flag ""YES"""	Message “FI is not required. Would you still want to Conduct?” with “Yes” & “No” options are not displayed	Negative				
+TC-39	Verify “No” is selected by default for optional CPV	BRE outcome screen is accessed	“No” radio button is selected by default	Positive				
+TC-40	Verify “No” is selected by default for optional CPV	BRE outcome screen is accessed	radio button is selected by default	Negative				
+TC-41	Verify user can select “Yes” to conduct optional CPV	User selects “Yes” for optional CPV	User is navigated to CPV address verification Persona & Address screen	Positive				
+TC-42	Verify user can select “Yes” to conduct optional CPV	User selects “Yes” for optional CPV	User is not navigated to CPV address verification Persona & Address screen	Negative				
+TC-43	Verify system restricts user to one persona at a time for optional CPV	User attempts to select multiple personas	User is only able to select one persona at a time	Positive				
+TC-44	Verify system restricts user to one persona at a time for optional CPV	User attempts to select multiple personas	User is not able to select one persona at a time/ able to select multiple persona	Negative				
+TC-45	Verify navigation to same address page of Persona upon clicking ‘Conduct Now’	User clicks ‘Conduct Now’ for a selected address	"User is navigated to the same address page of that Persona with ""In Progress"" status displayed"	Positive				
+TC-46	Verify navigation to same address page of Persona upon clicking ‘Conduct Now’	User clicks ‘Conduct Now’ for a selected address	"User is navigated to the same address page of that Persona with ""In Progress"" status displayed"	Positive				
+TC-47	Verify user can view status of CPV for any persona using kebab menu	User selects kebab menu for a Persona & address	User can view the status of CPV for the selected Persona & address	Positive				
+TC-48	Verify user can view status of CPV for any persona using kebab menu	User selects kebab menu for a Persona & address	User cannot  view the status of CPV for the selected Persona & address	Negative				
+TC-49	Verify CPV status is in progress if user returns to an initiated CPV task	User reopens the FOS App with an initiated CPV task	CPV status is displayed as in progress in CPV address verification chip filter page	Positive				
+TC-50	Verify CPV status is in progress if user returns to an initiated CPV task	User reopens the FOS App with an initiated CPV task	CPV status is not  displayed as in progress in CPV address verification chip filter page	Negative				
+TC-51	Verify user can conduct optional CPV from QDE1B to Post Sanction flow	User attempts to conduct optional CPV in the specified flow	User is allowed to conduct optional CPV	Positive				
+TC-52	Verify user can conduct optional CPV from QDE1B to Post Sanction flow	User attempts to conduct optional CPV in the specified flow	User is not allowed to conduct optional CPV	Negative				
+TC-53	Verify status flag “In progress” is displayed for initiated but incomplete CPV	User initiates CPV for an address but does not complete it	Status flag “In progress” is displayed for the address	Positive				
+TC-54	Verify status flag “In progress” is displayed for initiated but incomplete CPV	User initiates CPV for an address but does not complete it	Status flag “In progress” is not displayed for the address	Negative				
+TC-55	Verify user cannot conduct optional CPV if the waiver flag is “NO”	"BRE outcome with CPV waiver flag ""NO"""	System does not display message for optional CPV; CPV is mandatory	Positive				
+TC-56	Verify user cannot conduct optional CPV if the waiver flag is “NO”	"BRE outcome with CPV waiver flag ""NO"""	System does  display message for optional CPV; CPV is mandatory	Negative				
+TC-57	Verify user cannot navigate to CPV address verification screen if “No” is selected	User selects “No” for optional CPV	User remains on the BRE outcome screen and is not navigated to CPV address verification screen	Positive				
+TC-58	Verify user cannot navigate to CPV address verification screen if “No” is selected	User selects “No” for optional CPV	User does remain on the BRE outcome screen and is not navigated to CPV address verification screen	Negative				
+TC-59	Verify user cannot proceed with optional CPV without selecting a persona	User does not select a persona and clicks ‘Conduct Now’	User is prompted to select a persona before proceeding	Positive				
+TC-60	Verify user cannot proceed with optional CPV without selecting a persona	User does not select a persona and clicks ‘Conduct Now’	User is not prompted to select a persona before proceeding	Negative				
+TC-61	Verify user cannot view CPV status for a persona if CPV task is not initiated	User selects kebab menu for a Persona & address without initiated CPV	User cannot view CPV status as no task is initiated	Positive				
+TC-62	Verify user cannot view CPV status for a persona if CPV task is not initiated	User selects kebab menu for a Persona & address without initiated CPV	User can view CPV status as no task is initiated	Negative				
+TC-63	Verify user cannot conduct optional CPV outside of the allowed flow	User attempts to conduct optional CPV outside of QDE1B to Post Sanction flow	User is prevented from conducting optional CPV	Positive				
+TC-64	Verify user cannot conduct optional CPV outside of the allowed flow	User attempts to conduct optional CPV outside of QDE1B to Post Sanction flow	User is not prevented from conducting optional CPV	Negative				
+3.Mandatory CPV (CPV from BRE3 outcome): -Existing								
+TC-65	Verify CPV accordion is displayed in BRE3 offer screen when CPV is mandatory	"BRE3 outcome with CPV waiver flag ""False"""	"CPV accordion is displayed with all personas and a clickable ""Verify"" button for each"	Positive				
+TC-66	Verify CPV accordion is displayed in BRE3 offer screen when CPV is mandatory	"BRE3 outcome with CPV waiver flag ""False"""	"CPV accordion is not displayed with all personas or not clickable ""Verify"" button for each"	Negative				
+TC-67	Verify CPV accordion is not displayed in BRE3 offer screen when CPV is waived	"BRE3 outcome with CPV waiver flag ""True"""	CPV accordion is not displayed	Positive				
+TC-68	Verify CPV accordion is not displayed in BRE3 offer screen when CPV is waived	"BRE3 outcome with CPV waiver flag ""True"""	CPV accordion is  displayed	Negative				
+TC-69	"Verify ""Verify"" button is displayed for all personas when CPV is mandatory"	"BRE3 outcome with CPV waiver flag ""False"""	"""Verify"" button is displayed for all personas"	Positive				
+TC-70	"Verify ""Verify"" button is displayed for all personas when CPV is mandatory"	"BRE3 outcome with CPV waiver flag ""False"""	"""Verify"" button is not displayed for all personas"	Negative				
+TC-71	"Verify user navigation to CPV chip filter screen upon clicking ""Verify"""	"User clicks ""Verify"" for a persona with mandatory CPV"	User is navigated to CPV chip filter screen for the selected persona	Positive				
+TC-72	"Verify user navigation to CPV chip filter screen upon clicking ""Verify"""	"User clicks ""Verify"" for a persona with mandatory CPV"	User is not navigated to CPV chip filter screen for the selected persona	Negative				
+TC-73	"Verify ""Verified"" flag is displayed in BRE3 outcome screen after completing CPV"	User completes CPV for a persona	"""Verified"" flag is displayed in BRE3 outcome screen for the persona"	Positive				
+TC-74	"Verify ""Verified"" flag is displayed in BRE3 outcome screen after completing CPV"	User completes CPV for a persona	"""Verified"" flag is not displayed in BRE3 outcome screen for the persona"	Negative				
+TC-75	"Verify ""Verified"" flag is not displayed if CPV is not completed"	User does not complete CPV for a persona	"""Verified"" flag is not displayed in BRE3 outcome screen for the persona"	Positive				
+4. (From Underwriter Send back) Should be Part of Training and no build is required.								
+TC-76	Verify manual initiation of CPV via Kebab menu	1. UW requests CPV in comments.2. BE user accesses Kebab menu.3. BE user manually initiates CPV.	BE user successfully initiates CPV task from Kebab menu.	Positive				
+TC-77	Verify manual initiation of CPV via Kebab menu	1. UW requests CPV in comments.2. BE user accesses Kebab menu.3. BE user manually initiates CPV.	BE user cannot initiates CPV task from Kebab menu.	Negative				
+TC-78	Verify CPV is not initiated automatically	1. UW requests CPV in comments.2. BE user does not take action.	No CPV task is initiated automatically.	Positive				
+TC-79	Verify CPV is not initiated automatically	1. UW requests CPV in comments.2. BE user does not take action.	No CPV task is not initiated automatically.	Negative				
+TC-80	Verify ability to reconduct CPV for a specific address	1. UW requests reconduct of CPV.2. BE user selects address from Kebab menu.3. BE user clicks ‘Conduct now’.	BE user is able to edit the completed CPV task for the selected address.	Positive				
+TC-81	Verify ability to reconduct CPV for a specific address	1. UW requests reconduct of CPV.2. BE user selects address from Kebab menu.3. BE user clicks ‘Conduct now’.	BE user is unable to edit the completed CPV task for the selected address.	Negative				
+TC-82	Verify CPV reconduct is not initiated without BE user action	1. UW requests reconduct of CPV.2. BE user does not select address or click ‘Conduct now’.	No CPV reconduct task is initiated.	Positive				
+TC-83	Verify CPV reconduct is not initiated without BE user action	1. UW requests reconduct of CPV.2. BE user does not select address or click ‘Conduct now’.	 CPV reconduct task is   initiated.	Negative				
+TC-84	Verify Proceed button is disabled when CPV is negative	1. CPV outcome is negative in BRE screen.2. BE user attempts to click Proceed.	Proceed button is disabled and BE user cannot proceed.	Positive				
+TC-85	Verify Proceed button is disabled when CPV is negative	1. CPV outcome is negative in BRE screen.2. BE user attempts to click Proceed.	Proceed button is not disabled and BE user can proceed.	Negative				
+TC-86	Verify Proceed button is enabled when CPV is positive	1. CPV outcome is positive in BRE screen.2. BE user attempts to click Proceed.	Proceed button is enabled and BE user can proceed.	Positive				
+TC-87	Verify Proceed button is enabled when CPV is positive	1. CPV outcome is positive in BRE screen.2. BE user attempts to click Proceed.	Proceed button isdisabled	Positive				
+TC-88	Verify InProgress CPV tasks are listed under FI filter	1. BE user creates an InProgress CPV task.2. BE user uses FI filter on Application listing screen.	Application with InProgress CPV is listed under FI filter.	Positive				
+TC-89	Verify InProgress CPV tasks are listed under FI filter	1. BE user creates an InProgress CPV task.2. BE user uses FI filter on Application listing screen.	Application with InProgress CPV is not listed under FI filter.	Negative				
+TC-90	Verify not initiated but mandatory CPV tasks are listed under FI filter	1. CPV task is mandatory but not initiated.2. BE user uses FI filter on Application listing screen.	Application with mandatory but not initiated CPV is listed under FI filter.	Positive				
+TC-91	Verify not initiated but mandatory CPV tasks are listed under FI filter	1. CPV task is mandatory but not initiated.2. BE user uses FI filter on Application listing screen.	Application with mandatory but not initiated CPV is not listed under FI filter.	Negative				
+TC-92	Verify completed CPV tasks are not listed under FI filter	1. BE user completes a CPV task.2. BE user uses FI filter on Application listing screen.	Application with completed CPV is not listed under FI filter.	Positive				
+TC-93	Verify completed CPV tasks are not listed under FI filter	1. BE user completes a CPV task.2. BE user uses FI filter on Application listing screen.	Application with completed CPV is  listed under FI filter.	Negative				

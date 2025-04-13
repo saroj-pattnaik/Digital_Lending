@@ -1,0 +1,76 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P/E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Faile	"Defect-ID (JIRA)
+(if Fail)"
+UDBTEY-177	As a user(Field executive) , I should be able to initiate quick data entry(with required details to feed in BRE) on FE App so that system can initiate Negative/Dedupe post completion of QDE	High	Ready for review	"This user story focuses on enhancing the Field Executive (FE) app within the context of the vehicle lending process. It aims to enable Field Executives to efficiently perform quick data entry (QDE) with essential customer details. The system must initiate Negative List and Dedupe checks upon successful QDE completion. The scope includes designing the QDE screen's user interface, implementing field-level validations, and ensuring seamless integration with the Loan Origination System (LOS). Field-level data entry must follow specific formatting and validation rules, and pre-filled fields need to be clearly identified. The story outlines acceptance criteria for both successful and unsuccessful QDE scenarios.
+
+Testing Pre-conditions:
+
+1. The FE app is installed and accessible on the Field Executive's device.
+2. The Field Executive is logged into the app with valid credentials.
+3. A lending case is in progress and has reached the QDE stage.
+4. Mandatory customer details fields exist and are specified in the QDE worksheet.
+5. KYC (Know Your Customer) data has been collected and partially auto-populated into the QDE stage, if applicable.
+6. The app's user interface is loaded, displaying the QDE screen as per design specifications.
+7. Negative List and Dedupe check functionalities are integrated and operational within the system.
+8. Validation rules based on the QDE worksheet have been defined and are ready for enforcement.
+9. The wireframes for pre-filled field identification and non-editable field styling are available for reference.
+10. Document data from previous stages is accessible and retrievable for display in the QDE stage.
+11. The app supports displaying data in Sentence Case format for alphabetic input.
+12. Any prerequisite data or configurations required for LOS integration have been set up and verified.
+13. The Field Executive understands the process and expectations for QDE data entry."	"Product-to-Product Integration Requirements:
+
+1. FE App to LOS (Loan Origination System):
+   - The FE App must establish a secure communication channel with the LOS.
+   - Data entered or updated in the FE App's QDE stage must be transmitted to the LOS in real-time.
+   - Ensure data consistency between the FE App and the LOS during integration.
+   - Verify that the LOS receives and processes data from the FE App without data loss or corruption.
+   - Confirm that error handling mechanisms are in place in case of integration failures.
+
+2. FE App to Negative List and Dedupe Check System:
+   - The FE App should trigger a request to the Negative List and Dedupe Check System when the user clicks the 'Submit/Proceed' button at the QDE stage.
+   - Data relevant for Negative List and Dedupe checks should be transmitted accurately.
+   - Validate that responses from the Negative List and Dedupe Check System are received promptly and handled appropriately in the FE App.
+   - Confirm that the FE App appropriately routes the case based on the results of these checks.
+
+End-to-End Integration Requirements:
+
+1. Data Flow from KYC to QDE:
+   - Verify that customer details fetched during the KYC stage are correctly pre-filled in the QDE stage where applicable.
+   - Confirm that any missing or additional data required for QDE is seamlessly integrated from the KYC stage.
+
+2. Data Display from Previous Stages to QDE:
+   - Validate that documents and data submitted at previous stages (if any) are accessible and displayed in the QDE stage as needed.
+   - Ensure that there is a consistent linkage between data collected at different stages of the lending process.
+
+3. Field-Level Data Formatting and Validation:
+   - Test that field-level data follows the specified Sentence Case format.
+   - Verify that all field-level validations based on the QDE worksheet are enforced correctly.
+   - Ensure that validation error messages are displayed as expected, guiding the user to correct any issues.
+
+4. Identification of Pre-filled Fields:
+   - Confirm that pre-filled fields are clearly identified as per the wireframes or design specifications.
+   - Ensure that there is no confusion between pre-filled and user-entered data.
+
+5. Non-Editable Field Styling:
+   - Validate that non-editable fields are appropriately styled (e.g., grayed out) to indicate their non-editable nature.
+   - Ensure that users cannot modify non-editable fields."	TC-01	Initiate QDE successfully.	User is on the QDE screen.	QDE data entry screen is displayed.	Positive			
+						TC-02	Verify if the fields which are data populated from lead stage are greyed		Data fields auto populated are greyed	Positive			
+						TC-03	Verify if the fields which are non-editable by FE is greyed out. 		Non-editable fields are greyed out.	Positive			
+						TC-04	Greyed out fields are editable	FE tries to edit Greyed out fields	Fields can be edited	Negative			
+						TC-05	Greyed out fields are not editable	Attempt to edit non-editable fields.	Fields cannot be edited	Positive			
+						TC-06	System to highlight fields which are not pre filled from Lead or KYC stage		Not pre filled fields are highlihtd in QDE stage	Positive			
+						TC-07	System to highlight fields which are not pre filled from Lead or KYC stage		Not pre filled fields are not highlihtd in QDE stage	Negative			
+						TC-08	Field case validation - sentence casing.	Enter data in non-sentence case. 	Data is displayed in sentence case.	Positive			
+						TC-09	QDE stage reflects documents submitted previously.	View documents submitted at previous stages.	Documents are displayed in the QDE stage.	Positive			
+						TC-10	QDE stage does not reflects documents submitted previously.	Documents submitted at previous stages.	Documents are not displayed in the QDE stage.	Negative			
+						TC-11	Verify if KYC completion flag is visible		KYC completion flag must be reflected in QDE stage	Positive			
+						TC-12	Verify if KYC completion flag is not visible		KYC completion flag is not reflected in QDE stage	Negative			
+						TC-13	Application hyperlink should shows Customer name, Make, Model, Lead source (editable), Lead ID, FE details (branch code, Dealer) etc.		Clicking Application hyperlink must navigate to screen showing Customer name, Make, Model, Lead source (editable), Lead ID, FE details (branch code, Dealer) etc.	Positive			
+						TC-14	Application hyperlink does not shows Customer name, Make, Model, Lead source (editable), Lead ID, FE details (branch code, Dealer) etc.	FE clicks on Hyperlink	Screen does not navigate to data fields showing Customer name, Make, Model, Lead source (editable), Lead ID, FE details (branch code, Dealer) / Data fields are not visible/Partial data fileds are visible	Negative			
+						TC-15	Error message displayed when QDE data is invalid in any fields/Field validations are not met	QDE form with invalid data and click Submit.	Error message indicating invalid data is displayed system doesnt allow FE to move to next stage	Positive			
+						TC-16	System proceeds to next satage when QDE data is invalid in any fields/Field validations are not met	QDE form with invalid data and click Submit.	System proceeds to next stage	Negative			
+						TC-17	Move to the next stage with rectified data	Correct data entered after validation failure and click Submit.	Progress to the next stage.	Positive			
+						TC-18	Submit QDE data with missing mandatory fields.	Incomplete QDE form and click Submit.	Error message indicating missing fields/ are mandatory to filled is displayed and system doesnt allow FE to move to next stage	Positive			
+						TC-19	Submit QDE data with missing mandatory fields.	Incomplete QDE form and click Submit.	System accepts QDE data and flows to next stage	Negative			
+						TC-20	Submission error due to technical issue.	Valid QDE data and click Submit (simulating a failure).	Error message Techinical error is displayed and system doesnt allow Fe to move to next stage	Positive			
+						TC-21	Move to the next stage after successful checks.	Pass all checks and validations.	Progress to the next stage.	Positive			
+						TC-22	Enter all the mandatory fields with valid data entry	Complete QDE form with valid data and click Submit.	Move to the next stage (Negative/Dedupe check).	Positive			

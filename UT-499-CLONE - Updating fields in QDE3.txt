@@ -1,0 +1,64 @@
+Story #	Story Description	Scope	Integrations	Validations	Acceptance Criteria	Test Step ID	Test Step Description	Test Input	Expected Output	Test Category	Actual Result	Pass/Failed	"Defect-ID (JIRA)
+(if Fail)"	"Automation
+(Status)"	MMFSL Remarks
+	As a User (system), It should be able to check the fields edited by BE in QDE3 and proceed with the journey so that case can move proceed with the journey accordingly.	1. System will trigger the check on the basis of fields edited while proceeding with the case	FOS needs to be integrated with SFDC	"1. Rerun APIs on change in input parameters
+2. Remarks fields needs to be mandatory
+3. All the validations needs to be validated against the screens wireframe
+
+4. Consent section should be enable to edit if the mode of consent is manual.
+
+5. KYC section should be enabled to edit if the mode of KYC is manual."	"Scenario 1: User updating any fields under Income details category:
+Given that user has updated any fields from Income details category i.e. Income verification/assessment, system should run a check post clicking on Proceed that if any of the input parameters have been for BRE3
+In case if any of the input parameters are changed then system should run the BRE3 in the respective sequence as per the defined journey
+In case any of the input parameter is not changed which requires to trigger any of the API, then system should route the case back to the CPC and all the updated data must get stored in Database, documents in DMS and the updated data/document must get sync between the systems i.e. Thoughtworks and SFDC
+Note: Please refer the field list mapping with input parameters of the above mentioned utilities/APIs
+Scenario 2: User updating any fields under Personal discussion Result category:
+Given that user has updated any fields from Personal discussion result category, system should run a check post clicking on Proceed that if any of the input parameters have been for BRE3
+In case if any of the input parameters are changed then system should run the BRE3 in the respective sequence as per the defined journey
+In case any of the input parameter is not changed which requires to trigger any of the API, then system should route the case back to the CPC and all the updated data must get stored in Database, documents in DMS and the updated data/document must get sync between the systems i.e. FOS and SFDC
+Note: Please refer the field list mapping with input parameters of the above mentioned utilities/APIs
+Scenario 3: User updating any fields under CPV:
+Given that user has updated any fields for CPV task and clicking on proceed, the case should move to CPC for review.
+Scenario 4: Case was initially sanctioned from BRE3 and CPC sends back that case requesting to update few field.
+Given that user update any of the fields from below category along with fields from details category i.e. ITR details or Banking Details and clicks on proceed, system should retrigger BRE1 and follow the defined journey
+1. Asset details
+2. Loan information
+3. KYC
+If there is no change from any of the above category i.e., Asset Details or Loan Information or KYC, then BRE1 will not be retriggered. 
+System should check and retrigger the same sanction channel i.e. BRE3 (For this scenario) if there is change in input parameter for that API.
+Note: Please refer the field list mapping with input parameters of the above mentioned utilities/APIs
+Scenario 5: Identifier to CPC for the changes
+Given that user have edited the details due to which BRE is retrigger, system should pass an identifier to CPC of rerun of BRE while user submits the case back to CPC.
+Scenario 6: Case moves to approval authority for approval:
+Given that BRE has rerun post user updating the requested fields and clicking on proceed, case should move to the highest level of authority as per the deviation associated along with a flag of BRE rerun
+"	Scope & Validation: System will trigger the check on the basis of fields edited while proceeding with the case									
+						TC01	After changing any of the field, remarks needs to be captured. 	After edting field/s, user captures remarks and submits the case	Case moves ahead to CPC	Positive					
+						TC02	After changing any of the field, remarks needs to be captured. 	After edting field/s, user does not capture remarks and submits the case	Case moves ahead to CPC	Negative					
+						TC03	Consent section should be enable to edit if the mode of consent is manual.	Consent mode is manual	Section should be editable	Positive					
+						TC04	KYC section should be enabled to edit if the mode of KYC is manual.	KYC mode is manual	Section should be editable	Positive					
+						TC05	KYC and/or consent section should not be editable if modes not manual	KYC and/or consent is not manual	Section should be editable	Negative					
+						Test Cases for Scenario 1: User updating any fields under Income details									
+						TC06	User updates Income details fields	Updated Income details	system should identify if any of the input parameters have been for BRE3	Positive					
+						TC07	User updates Income details fields	Updated Income details	system should run a check post clicking on Proceed that if any of the input parameters have been for BRE3	Positive					
+						TC08	User doesn't update any Income details fields	No updates and user submits the case	Case is routed back to CPC	Positive					
+						TC09	User update any Income details fields	No updates and user submits the case	Updated data is stored in Database, DMS, and syncs between systems	Positive					
+						Test Cases for Scenario 2: User updating any fields under Personal discussion Result category									
+						TC10	User updating any fields under Personal discussion Result category	User changes BRE3 input parameters	system should run the BRE3 in the respective sequence as per the defined journey	Positive					
+						TC11	User updating any fields under Personal discussion Result category	User does not changes BRE3 input parameters	all the updated data must get stored in Database, documents in DMS 	Positive					
+						TC12	User updating any fields under Personal discussion Result category	User does not changes BRE3 input parameters	System checks and retriggers the same sanction channel (BRE3) if input parameters change	Positive					
+						TC13	User doesn't update any fields	No updates and user submits the case	Case is routed back to CPC	Positive					
+						Scenario 3: User updating any fields under CPV:									
+						TC14	User edits CPV tasks	Edited details and submits the case	the case should move to CPC 	Positive					
+						Scenario 4: Case was initially sanctioned from BRE3 and CPC sends back that case requesting to update few field.									
+						TC15	User updates Asset details fields and Banking Details	Updated Asset and Banking Details	System retriggers BRE3 and follows defined journey	Positive					
+						TC16	User updates KYC fields and Mobile number	Updated KYC and Mobile number	System retriggers BRE3 and follows defined journey	Positive					
+						TC17	User updates fields but there's no change in the categories mentioned	Updated fields	System checks and retriggers the same sanction channel (BRE3) if input parameters change	Negative					
+						TC18	User doesn't update any fields	No updates and user submits the case	Case is routed back to CPC	Positive					
+						TC19	User update any fields	Updates and user submits the case	System checks and retriggers BRE3 if input parameters change	Positive					
+						Scenario 5: Identifier to CPC for the changes									
+						TC20	User edits details that triggers BRE2	Edit data & proceed	system should pass an identifier to CPC (SFDC) of rerun of BRE 	Positive					
+						TC21	User edits details that triggers BRE2	Edit data & proceed	system does not pass an identifier to CPC (SFDC) of rerun of BRE 	Negative					
+						Scenario 6: Case moves to approval authority for approval:									
+						TC22	BRE3 rerun triggers due to user updates	User updates requested fields	Case moves to the highest authority with a flag of BRE3 rerun	Positive					
+						TC23	BRE3 rerun doesn't trigger as there are no updates	No updates	Case doesn't move to higher authority	Positive					
+						TC24	BRE3 rerun triggers due to user updates	User updates requested fields	Case does not move to the highest authority with a flag of BRE3 rerun	Negative					

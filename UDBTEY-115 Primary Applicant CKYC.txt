@@ -1,0 +1,49 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P / E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Failed	"Defect-ID (JIRA)
+(if Fail)"
+UDBTEY-115	As a user (System), system should be able to capture Primary Applicant's CKYC details using their  Aadhar number/PAN number/Voter ID/Driver's License/Passport number so that the primary applicant's KYC can be completed successfully	High	Ready For Review	"As a system user (Field executive), I should be able to capture the Primary Applicant's CKYC details using their Aadhaar number/PAN number/Voter ID/Driver's License/Passport number so that the primary applicant's KYC can be completed successfully. This includes auto-populating relevant data, displaying essential customer information, and handling CKYC verification through integration with a FinTech API.
+
+Pre-Conditions to Test:
+
+The system should be in a functional state, and all required software components, including the FinTech API integration, should be accessible and operational.
+
+Test data for CKYC verification, including Aadhaar numbers, PAN numbers, Voter IDs, Driver's License numbers, and Passport numbers, should be available and correctly configured in the test environment.
+
+The CKYC verification process should be correctly set up with the FinTech API, ensuring that it responds to requests appropriately and provides CKYC data.
+
+The system's database should be ready to store CKYC responses, timestamps, and other relevant data accurately.
+
+User accounts with the role of Field executive should be created and have the necessary permissions to access the CKYC functionality.
+
+The system's UI should be designed and implemented to display CKYC data accurately and intuitively to Field executives.
+
+Error handling mechanisms for CKYC verification and data retrieval should be in place to ensure smooth testing even in case of failures or unexpected scenarios.
+
+Document management integration should be operational, allowing access to customer documents provided during CKYC for review.
+
+The system should be configured to initiate manual KYC processes if CKYC fails, and this functionality should be thoroughly tested as part of the test cases.
+
+Test cases for positive, negative, and exceptional scenarios, as well as test data, should be prepared and organized for efficient testing of the CKYC process."	"Product-to-Product Integration Requirements:
+
+Data Mapping
+1.Error Handling
+2.Data Privacy and Security
+
+End-to-End Integration Requirements:
+1.Database Integration
+2.User Interface Integration
+3.Document Retrieval
+4.Retry Mechanism
+5.Manual KYC Integration
+6.Data Consistency
+7.Audit Trail
+8.Notification IntegrationCompliance and Reporting
+9.Testing Environment"	TC-01	cKYC placeholder working correctly	BE selectes/clicks cKYC option	cKYC option is initiated	Positive			
+						TC-03	Multiple or single KYC documnet availablility	cKYC succesfull	Multiple or single document flown to FE				
+						TC-04	E-KYC response document	PDF file of E-KYC response is available on DMS folder.	Date and Time stamp is available in document. 	Positive			
+						TC-05	eKYC failure	Unsuccessful biometric authentication	Re-initiate eKYC for 2 more tries 	Exception			
+						TC-06	eKYC fails post three times	eKYC fails post three tries	System auto-initiates cKYC process	Exception			
+						TC-07	Option of Proceed with QDE and Manual KYC	Post E-KYC response, primary applicant accepts details	BE proceeds with QDE	Positive			
+						TC-08	Option of Proceed with QDE and Manual KYC	Post E-KYC response, primary applicant rejects one or more details	BE opts for Maunal KYC	Positive			
+						TC-09	Customer name populated by E-KYC to be preffered	Customer name input by FE and E-KYC name is different	Customer name populated in E-KYC will be preffered 	Positive			
+						TC-10	Data not populated due to API response failure	API response failure 	System retries E-KYC three times and post that initate cKYC	Positive			
+						TC-11	eKYC failure due to expired time (more than 60 seconds)	EKYC failure due to delay in process	System auto initates E-KYC process or initiates cKYC 	Positive			

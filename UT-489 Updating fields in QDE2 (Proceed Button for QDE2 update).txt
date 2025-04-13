@@ -1,0 +1,71 @@
+Story #	Story Description	Scope	Integrations	Validations	Acceptance Criteria	Test Step ID	Test Step Description	Test Input	Expected Output	Test Category	Actual Result	Pass/Failed	"Defect-ID (JIRA)
+(if Fail)"	"Automation
+(Status)"	MMFSL Remarks
+UT-489	As a BE, if I modify any “field values” or “input parameters” for BRE/Perfios/ITR and clicks on the PROCEED button, then System should be able to check/track the fields edited by BE in QDE2 and proceed with the journey.	1. System will trigger the check on the basis of fields edited while proceeding with the case	1. FE app needs to be integrated with LOS	"1. Rerun APIs on change in input parameters
+
+2. Remarks fields needs to be mandatory
+
+3. All the validations needs to be validated against the screens wireframe
+
+4. Consent section should be enable to edit if the mode of consent is manual.
+
+5. KYC section should be enabled to edit if the mode of KYC is manual."	"Scenario 1: User updating any fields under Income details:
+Given that user has updated any fields from Income details category i.e. ITR details or Banking Details, system should run a check post clicking on Proceed that if any of the input parameters have been changed for following APIs:
+1. Perfios
+2. ITR
+3. BRE2
+
+In case if any of the input parameters are changed then system should run the APIs in the respective sequence as per the defined journey
+
+In case any of the input parameter is not changed which requires to trigger any of the API, then system should route the case back to the CPC and all the updated data must get stored in Database, documents in DMS and the updated data/document must get sync between the systems i.e. Thoughtworks and SFDC
+
+Note: Please refer the field list mapping with input parameters of the above mentioned utilities/APIs
+
+Scenario 2: Case was initially sanctioned from BRE2 and CPC sends back that case requesting to update few field.
+Given that user update any of the fields from below category along with fields from details category i.e. ITR details or Banking Details and clicks on proceed, system should retrigger BRE1 and follow the defined journey
+1. Asset details
+2. Loan information
+3. KYC
+4. Bureau has retrigger as there was a change in Mobile number, Email ID(TBD)
+
+If there is no change from any of the above category, system should check and retrigger the same sanction channel i.e. BRE2 (For this scenario) if there is change in input parameter for that API.
+
+Note: Please refer the field list mapping with input parameters of the above mentioned utilities/APIs
+
+Scenario 3: Identifier to CPC for the changes
+Given that user have edited the details due to which BRE2 is retrigger, system should pass an identifier to CPC of rerun of BRE while user submits the case back to CPC.
+
+Scenario 4: Case moves to approval authority for approval:
+Given that BRE2 has rerun post user updating the requested fields and clicking on proceed, case should move to the highest level of authority as per the deviation associated along with a flag of BRE2 rerun."	Scope & Validations:									
+						TC01	Validate rerun of APIs on changing input parameters.	Change input parameters.	Affected APIs are rerun and data is processed.	Positive					
+						TC02	Confirm that remarks field is mandatory.	Attempt to proceed without remarks.	Error message displayed, and unable to proceed.	Negative					
+						TC03	Validate fields against the screen's wireframe.	Enter data in all fields.	Data entered matches the wireframe specifications.	Positive					
+						TC04	Attempt to edit consent section when mode is not manual.	Attempt to edit consent section.	Editing is disabled unless consent mode is manual.	Negative					
+						TC05	Edit KYC section with manual KYC mode.	Switch KYC mode to manual and edit.	KYC section is editable and updates are saved.	Positive					
+						TC06	Attempt to proceed without mandatory remarks.	Click proceed without entering remarks.	Error message and prevention of proceeding.	Negative					
+						TC07	Fill in mandatory remarks and proceed.	Enter remarks and click proceed.	Case proceeds and remarks are stored.	Positive					
+						TC08	Edit consent section with manual mode enabled.	Enable manual mode and edit consent.	Consent section updates and changes are saved.	Positive					
+						TC09	Try to edit consent section with manual mode disabled.	Disable manual mode and edit consent.	Editing is not allowed; no changes are stored.	Negative					
+						TC10	Edit KYC section with manual KYC mode.	Set KYC to manual and edit details.	KYC details updated and stored successfully.	Positive					
+						TC11	Attempt to edit KYC with non-manual mode set.	Keep KYC non-manual and try to edit.	Editing is blocked; no changes are permitted.	Negative					
+						Scenario 1: User updating any fields under Income details									
+						TC12	Update Income details with changed ITR details, trigger Perfios API.	Edited ITR details field.	Perfios API is called. Updated data stored and synced.	Positive					
+						TC13	Update Income details with unchanged parameters, check system storage.	Edited Income details without changing parameters.	No API is called. Case routed back to CPC. Data stored and synced.	Positive					
+						TC14	Update Income details with invalid input, trigger Perfios API.	Invalid ITR details input.	System validation error. No API call.	Negative					
+						TC15	Update Income details with changed Banking Details, trigger ITR API.	Edited Banking Details field.	ITR API is called. Updated data stored and synced.	Positive					
+						TC16	Update Income details with no change, check API call behavior.	No changes to Income details.	No API is called. Case routed back to CPC. Data stored and synced.	Positive					
+						Scenario 2: Case update involving BRE2 and CPC									
+						TC17	Update Asset details and check for BRE1 retrigger.	Edited Asset details.	BRE1 API is retriggered. Defined journey is followed.	Positive					
+						TC18	Update Loan information without needing BRE2, check sanctioning channel.	Edited Loan information without affecting BRE2 parameters.	No retrigger of BRE2. Case moves along defined journey.	Positive					
+						TC19	Update KYC details and flag change for Mobile number.	Edited KYC details with new Mobile number.	Bureau API is retriggered due to Mobile number change.	Positive					
+						TC20	Update fields causing no change to be retriggered.	No relevant changes to trigger areas.	System checks and does not retrigger any API.	Positive					
+						TC21	Update Loan information with invalid data.	Invalid Loan information entries.	Error detected. No API is retriggered.	Negative					
+						Scenario 3: Identifier to CPC for the changes									
+						TC22	Update triggers BRE2 retrigger, check for identifier at CPC.	Edited details that affect BRE2 triggering.	CPC receives identifier for BRE2 rerun.	Positive					
+						TC23	No changes requiring BRE2 retrigger, verify identifier is not set.	No relevant changes for BRE2.	No identifier is sent to CPC.	Positive					
+						TC24	Update triggers BRE2 retrigger, but identifier is missing.	Edited details that affect BRE2 triggering.	System error due to missing identifier for CPC.	Negative					
+						Scenario 4: Case moves to approval authority for approval									
+						TC25	BRE2 rerun with deviation, validate routing to highest authority level.	Edited details causing BRE2 rerun with deviations.	Case routed to highest authority level with BRE2 rerun flag.	Positive					
+						TC26	BRE2 rerun, validate approval authority receives all necessary info.	Trigger BRE2 rerun appropriately.	All information, including rerun flag, is visible to the authority.	Positive					
+						TC27	No BRE2 rerun, check if case is incorrectly escalated.	No changes justifying BRE2 rerun.	Case does not escalate to higher authority without justification.	Positive					
+						TC28	Incorrect authority level flagging despite BRE2 rerun.	BRE2 rerun needed, authority not flagged.	System prevents progress due to missing rerun flag for authority.	Negative					

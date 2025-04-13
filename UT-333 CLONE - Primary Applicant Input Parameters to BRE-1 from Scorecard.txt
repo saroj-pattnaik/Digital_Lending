@@ -1,0 +1,38 @@
+Story #	Story Description	Scope	Integrations	Validations	Acceptance Criteria	Test Step ID	Test Step Description	Test Input	Expected Output	Test Category	Actual Result	Pass/Failed	"Defect-ID (JIRA)
+(if Fail)"	"Automation
+(Status)"	MMFSL Remarks
+UT-333	As a User (system), to allow FOS to trigger Scorecard and response from Scorecard needs to be pushed as an input parameters for BRE-1 so that BRE can consume the feed for scheme approvals	"1) FOS to trigger Scorecard and response must be fed to BRE-1 
+
+2) Below fields will be sent as an input to fetch scorecard response-
+1.	Age
+2.	Constitution
+3.	Customer Segment
+4.	Total Requested Finance Amount
+5.	Residence Ownership
+6.	Repayment mode
+7.	Dealer
+8.	Asset LTV
+9.	Contract Type
+10.	Date Stamp
+11.	PAN
+12.	Repayment frequency
+13.	Date Stamp
+14.	State
+15.	Tenure
+16.	No. of Dependents
+17.	No. of Earning Members
+18.	Education Qualification
+19.	Marital Status
+20.	Vehicles Owned
+21.	Dealer/Partner Name & Code
+22.	Date & Time Stamp"	Integration of FOS with Scorecard	1) System should pull the input parameters from Scorecard and provide a feed to the BRE-1 request	"Scenario1: FOS to trigger Scorecard
+System to fetch Scorecard response and can be fed as input to BRE system(CRIF)  so that BRE-1 can be executed"	TC01	Trigger Scorecard with all valid inputs	All valid fields: a-v filled correctly	Scorecard response with calculated scores and recommendations	Positive					
+						TC02	Trigger Scorecard with missing mandatory field 'Age'	Inputs excluding 'Age'	Error response indicating missing 'Age' field	Negative					
+						TC03	Trigger Scorecard with invalid 'Total Requested Finance Amount'	Total Requested Finance Amount: -10000	Error response indicating invalid finance amount value	Negative					
+						TC04	Trigger Scorecard at the edge of the applicant’s age limit	Age: Min/Max acceptable value	Scorecard response calculated based on edge age values	Edge					
+						TC05	Trigger Scorecard with special characters in 'PAN'	PAN: 'ABC@!123D'	Error response indicating invalid PAN	Negative					
+						TC06	Scorecard response with maximum 'Asset LTV'	Asset LTV: Maximum permissible limit	Scorecard response with maximum LTV accounted for.	Edge					
+						TC07	Trigger Scorecard with invalid 'Repayment frequency'	Repayment frequency: 'Every leap year'	Error response indicating invalid repayment frequency	Negative					
+						TC08	Trigger Scorecard on a future 'Date Stamp'	Date Stamp: Future date beyond acceptable range	Error response indicating future date not acceptable	Negative					
+						TC09	Scorecard trigger with valid 'No. of Dependents' but high 'No. of Earning Members'	Dependents: 2, Earning Members: 8	Scorecard response showing the unusual but acceptable situation	Edge					
+						TC10	Scorecard trigger with all inputs but with the FOS service down	All valid inputs while Scorecard service is unavailable	Error/BRE-1 does not execute due to unavailable Scorecard response	Negative					

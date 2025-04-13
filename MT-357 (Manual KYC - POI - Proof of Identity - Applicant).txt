@@ -1,0 +1,38 @@
+Test Step ID	Test Steps 	Test DATA	Expected Output	Detailed Test Category	Actual Result	Pass/Failed	Defect-ID (JIRA)	Comments
+Scope:Fields to select the POI type 								
+TC_01	Verify the presence of POI dropdown in the FE App.	-	The FE App should have a dropdown menu to select a POI type.	Positive				
+TC_02	Select Aadhaar from the POI dropdown.	Aadhaar	Aadhaar should be selected as the POI type in the dropdown.	Positive				
+TC_03	Select Driver's License from the POI dropdown.	Driver's License	Driver's License should be selected as the POI type in the dropdown.	Positive				
+TC_04	Select Passport from the POI dropdown.	Passport	Passport should be selected as the POI type in the dropdown.	Positive				
+TC_05	Select Voter ID from the POI dropdown.	Voter ID	Voter ID should be selected as the POI type in the dropdown.	Positive				
+TC_06	Select NREGA from the POI dropdown.	NREGA	NREGA should be selected as the POI type in the dropdown.	Positive				
+TC_07	Select NPR (national population register) from the POI dropdown.	NPR	NPR should be selected as the POI type in the dropdown.	Positive				
+Validations: System should provide options to select the POI type (dropdown to be available) as per the field list excel.								
+TC_08	Verify the availability of the POI dropdown options in the FE App.	Open the FE App	The FE App should display a dropdown menu to select a POI type.	Positive				
+TC_09	Compare the options in the POI dropdown with the specified field list from Excel.	View dropdown options	The dropdown options (Aadhaar, Driver's License, Passport, Voter ID, NREGA, NPR) should exactly match the POI types listed in the field list from Excel.	Positive				
+Scenario 1: Business executive selects the POI type and the details were captured previously:								
+TC_10	Business executive selects Aadhaar with previously captured details.	Select Aadhaar	Details for Aadhaar are previously captured.	Positive				
+TC_11	Business executive selects Driver's License with previously captured details.	Select Driver's License	Details for Driver's License are previously captured.	Positive				
+TC_12	Business executive selects Passport with previously captured details.	Select Passport	Details for Passport are previously captured.	Positive				
+TC_13	Business executive selects Voter ID with previously captured details.	Select Voter ID	Details for Voter ID are previously captured.	Positive				
+TC_14	Business executive selects NREGA with previously captured details.	Select NREGA	Details for NREGA are previously captured.	Positive				
+TC_15	Business executive selects NPR with previously captured details.	Select NPR	Details for NPR are previously captured.	Positive				
+TC_16	Business executive selects Aadhaar without previously captured details.	Select Aadhaar	Fields for capturing Aadhaar details should be displayed for manual input.	Negative				
+TC_17	Business executive selects Driver's License without previously captured details.	Select Driver's License	Fields for capturing Driver's License details should be displayed for manual input.	Negative				
+TC_18	Business executive selects Passport without previously captured details.	Select Passport	Fields for capturing Passport details should be displayed for manual input.	Negative				
+TC_19	Business executive selects Voter ID without previously captured details.	Select Voter ID	Fields for capturing Voter ID details should be displayed for manual input.	Negative				
+TC_20	Business executive selects NREGA without previously captured details.	Select NREGA	Fields for capturing NREGA details should be displayed for manual input.	Negative				
+TC_21	Business executive selects NPR without previously captured details.	Select NPR	Fields for capturing NPR details should be displayed for manual input.	Negative				
+Scenario 2: Business executive selects the POI type but the details weren't captured previously:								
+TC_22	Business executive selects Aadhaar without previously captured details.	Select Aadhaar	Fields for capturing Aadhaar details (like Aadhaar number, name, etc.) should be displayed for manual input.	Positive				
+TC_23	Business executive selects Driver's License without previously captured details.	Select Driver's License	Fields for capturing Driver's License details (like license number, issuing authority, etc.) should be displayed for manual input.	Positive				
+TC_24	Business executive selects Passport without previously captured details.	Select Passport	Fields for capturing Passport details (like passport number, issue date, etc.) should be displayed for manual input.	Positive				
+TC_25	Business executive selects Voter ID without previously captured details.	Select Voter ID	Fields for capturing Voter ID details (like voter ID number, name, etc.) should be displayed for manual input.	Positive				
+TC_26	Business executive selects NREGA without previously captured details.	Select NREGA	Fields for capturing NREGA details (like NREGA number, name, etc.) should be displayed for manual input.	Positive				
+TC_27	Business executive selects NPR without previously captured details.	Select NPR	Fields for capturing NPR details (like NPR number, name, etc.) should be displayed for manual input.	Positive				
+TC_28	Business executive selects Aadhaar with previously captured details.	Select Aadhaar	Details for Aadhaar are previously captured.	Negative				
+TC_29	Business executive selects Driver's License with previously captured details.	Select Driver's License	Details for Driver's License are previously captured.	Negative				
+TC_30	Business executive selects Passport with previously captured details.	Select Passport	Details for Passport are previously captured.	Negative				
+TC_31	Business executive selects Voter ID with previously captured details.	Select Voter ID	Details for Voter ID are previously captured.	Negative				
+TC_32	Business executive selects NREGA with previously captured details.	Select NREGA	Details for NREGA are previously captured.	Negative				
+TC_33	Business executive selects NPR with previously captured details.	Select NPR	Details for NPR are previously captured.	Negativ				

@@ -1,0 +1,41 @@
+Test Step ID	Test Steps 	Test DATA	Expected Output	Detailed Test Category	Actual Result	Pass/Failed	Defect-ID (JIRA)	Comments
+Scope								
+TC-01	"Click on ""Repayment schedule"" button"	"Click the ""Repayment schedule"" button"	Repayment schedule form is displayed	Positive				
+TC-02	Fill all required fields for repayment schedule	Sanction amount, repayment frequency, tenure, installment type, rate, etc.	Fields are accepted and ready for schedule generation	Positive				
+TC-03	Generate repayment schedule with complete inputs	All required fields filled	Repayment schedule is generated and displayed	Positive				
+TC-04	Attempt to generate schedule without filling fields	Missing one or more required fields	System prompts for missing fields	Negative				
+TC-05	Handle broken period interest for advance mode	Installment mode = Advance	BPI is not charged	Positive				
+TC-06	Handle broken period interest for arrear mode	Installment mode = Arrear, DO issuance date - First installment date > 30 days	BPI is charged and collected in first installment	Positive				
+TC-07	"Do not charge BPI if selected as ""No"""	"BPI selected as ""No"""	Repayment schedule differs from the one at disbursement stage	Positive				
+TC-08	Default interest start date as DO issuance date	-	Interest start date is set to DO issuance date	Positive				
+Validation 								
+TC-09	Validate input fields are filled	All required fields filled	System allows schedule generation	Positive				
+TC-10	Validate input fields are not filled	One or more required fields not filled	System does not allow schedule generation	Negative				
+TC-11	Validate user cannot proceed without schedule	Do not generate repayment schedule	System does not allow proceeding	Negative				
+TC-12	Generate schedule on change request	Change request raised	System regenerates repayment schedule	Positive				
+TC-13	Regenerate schedule on insurance add-ons	Insurance add-ons added	System regenerates repayment schedule	Positive				
+TC-14	Moratorium auto-selected based on conditions	Sanction date, first installment month, repayment frequency	"Moratorium field is auto-selected as ""Yes"" or ""No"""	Positive				
+Scenario 1: User inputs the fields on repayment schedule page to generate the schedule as per customer request								
+TC-15	"Click on ""Repayment schedule"" button"	"Click the ""Repayment schedule"" button"	Repayment schedule form is displayed	Positive				
+TC-16	Fill all required fields	Sanction amount, repayment frequency, tenure, installment type, rate, etc.	Fields are accepted and ready for schedule generation	Positive				
+TC-17	Generate schedule with complete inputs	All required fields filled	Repayment schedule is generated and displayed	Positive				
+TC-18	Attempt to generate schedule with missing fields	Missing one or more required fields	System prompts for missing fields	Negative				
+TC-19	Generate schedule with invalid input values	Invalid values for required fields	System shows error messages for invalid input values	Negative				
+TC-20	Display of repayment schedule	Complete and valid input fields	System displays repayment type, amount financed, tenure, rate, and installments	Positive				
+TC-21	Input fields validation for correct format	Correct format and type for each input field	System accepts inputs without errors	Positive				
+Scenario 2: Customer does not agree on generated repayment schedule and ask BE to change parameters on repayment schedule page								
+TC-22	Customer requests change in repayment schedule	Edit fields such as rate, tenure, etc.	System updates and displays the new repayment schedule	Positive				
+TC-23	Multiple edits to repayment schedule	Edit fields multiple times	System allows edits and updates schedule accordingly	Positive				
+TC-24	Customer disagrees with initial schedule	Edit fields based on customer request	System displays updated repayment schedule	Positive				
+TC-25	Validate schedule after each edit	Make several changes to repayment fields and generate schedule each time	System generates and updates repayment schedule correctly after each edit	Positive				
+TC-26	Check system handling of reduced interest rate	User reduces interest rate	System updates Change Request = 'Rate' and triggers case for approval	Positive				
+TC-27	Check system handling of unchanged interest rate	User raises Change Request without changing interest rate	System processes Change Request without additional approval steps	Positive				
+TC-28	Validate round-off calculation of installment amount	Input causing installment amount to round off	Installment amount rounded off to lower 100, remaining amount in first EMI	Positive				
+Scenario 3: Moratorium Handling								
+TC-29	Apply moratorium based on conditions	Monthly repayment frequency, first installment month > (Loan Sanction month + X days)	"System selects moratorium field as ""Yes"""	Positive				
+TC-30	Compute moratorium interest	Number of moratorium days	System computes and adjusts moratorium interest	Positive				
+TC-31	Validate moratorium interest calculation accuracy	Various combinations of sanction date, first installment month, and moratorium days	System correctly computes moratorium interest	Positive				
+TC-32	Handle non-equated repayment scenarios	Non-equated scenario inputs	System handles non-equated scenarios correctly	Positive				
+TC-33	Validate default handling for moratorium	Conditions for moratorium not met	"System sets moratorium field to ""No"""	Positive				
+TC-34	Impact of moratorium on overall repayment schedule	Schedule with moratorium applied	System adjusts repayment schedule according to moratorium	Positive				
+TC-35	Moratorium selection validation	Sanction date, first installment month not meeting conditions	System does not select moratorium field	Negative				

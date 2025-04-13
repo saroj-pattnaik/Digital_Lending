@@ -1,0 +1,39 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P/E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Faile	"Defect-ID (JIRA)
+(if Fail)"
+UDBTEY- 308	As a user (System), it will pre-populate the details related to KYC from the QDE stage so that all the details related to the customer (Primary Applicant, Co-applicant and Guarantor) is visible	High	Ready for review	"The user story aims to improve the efficiency of the lending process by automatically populating KYC (Know Your Customer) details for the Primary Applicant, Co-applicant, and Guarantor from the QDE (Quality Data Entry) stage to the Front-End (FE) application. This enhancement ensures that all customer-related KYC information is readily visible to Business executives, streamlining their workflow.
+
+Pre-Conditions to Test:
+1. A functional Front-End (FE) application is available for testing.
+2. The Quality Data Entry (QDE) stage has been successfully completed with relevant KYC data for the customer.
+3. Field-level validations defined in the DDE (Data Definition and Extraction) worksheet have been configured in the FE application.
+4. Business executives have appropriate access rights and privileges to view KYC details.
+5. The Business executive is logged into the FE application.
+6. The user has navigated to the KYC details section and clicked on the down arrow to initiate the pre-population."	"Product-to-Product Integration Requirements:
+
+1. QDE System Integration: Ensure that the Quality Data Entry (QDE) system is integrated with the Front-End (FE) application for data transfer.
+   - The FE application should be able to fetch KYC data from the QDE system.
+
+2. KYC Data Validation: Implement a mechanism to validate the KYC data received from the QDE system to ensure its completeness and accuracy.
+   - Define validation rules and logic for KYC data.
+
+3. Error Handling: Establish error-handling procedures for handling communication failures or data discrepancies between the QDE system and the FE application.
+   - Define error codes, messages, and logging mechanisms.
+
+4. Access Control: Set up access control and authentication mechanisms to ensure that only authorized users, such as Business executives, can access the KYC data.
+   - Define user roles and permissions.
+
+End-to-End Integration Requirements:
+
+1. User Journey: Define the end-to-end user journey that includes the steps leading to and following the KYC details section.
+   - Specify the workflow from logging in to completing the Asset details section.
+
+2. Data Flow: Document how data flows through the entire lending process, from the QDE stage to the Asset details section.
+   - Identify data sources, transformations, and destinations.
+
+3. Data Consistency: Ensure that data consistency is maintained throughout the process, with KYC details matching the data entered in the QDE stage.
+   - Implement synchronization or update mechanisms as needed."	TC01	Business executive clicks on the KYC dropdown		KYC details section expands	Positive			
+						TC02	Business executive clicks on the KYC dropdown		KYC details section s unresponsive	Negative			
+						TC03	KYC details are pre-populated and visible for Primary applicant, Co-applicant and Guarantor		FE proceeds to Asset details section	Positive			
+						TC04	KYC details are not pre-populated and visible for all stakeholders (Applicant, Co-applicant & Gaurantor) or partial stakeholders  		FE to work on the current section	Positive			
+						TC05	Field-level validation for KYC details not met	Incorrect or incomplete KYC data	Appropriate error message displayed and FE to stay on current stage	Positive			
+						TC05	Field-level validation for KYC details met	Corrent KYC data auto populated	FE moves to asset details stage	Positive			

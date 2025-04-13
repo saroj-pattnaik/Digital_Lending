@@ -1,0 +1,93 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P / E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Fail	"Defect-ID (JIRA)
+(if Fail)"	"Automation
+(Status)"
+UDBTEY-159	Guarantor - Manual KYC - Data fetched via FinTech API service for NREGA	High	Ready for review	"As a Business Executive, I want the ability to manually input and upload details from NREGA cards during the Know Your Customer (KYC) process. This will enable us to conduct Data aggregator checks on NREGA cards, even in the absence of Optical Character Recognition (OCR) capabilities. If the Data aggregator provides accurate information, it should be displayed, and if not, we will use data from the OCR service. This feature includes input fields for Consumer Number, output fields for NREGA data, and an OSV confirmation checkbox.
+
+  Pre-Conditions for Testing  :
+
+1.   System Configuration  :
+   - Ensure that the system is configured to accept and store NREGA cards as Proof of Identity (POI) documents.
+   - Verify that the OSV checkbox is present on the user interface.
+
+2.   Integration with Data Aggregator  :
+   - Confirm that the system is integrated with Data aggregators via the FinTech API.
+   - Ensure that the integration is set up to fetch customer details based on the Consumer Number.
+
+3.   Data Aggregator Responses  :
+   - Prepare test scenarios to simulate different responses from the Data aggregator, including accurate responses, inaccurate responses, and no responses.
+
+4.   Data Validation (if applicable)  :
+   - Define data validation rules and criteria for accurate KYC data.
+   - Ensure that data validation mechanisms are in place as per the business requirements.
+
+5.   Consumer Number Input  :
+   - Prepare test data with valid and invalid Consumer Numbers for testing different scenarios.
+   - Confirm that the input field for the Consumer Number is functional and accepts valid data.
+
+6.   OCR Service (if available)  :
+   - If the OCR service is available, validate its functionality to extract data accurately from NREGA cards.
+   - Prepare test data and scenarios to cover OCR functionality.
+
+7.   Quality Data Entry (QDE)  :
+   - Ensure that the QDE stage is set up and functional.
+   - Define criteria for successful data entry during the QDE stage.
+
+8.   User Interface  :
+   - Validate the user interface to ensure that it displays the necessary input fields (Consumer Number), output fields (Job card number, Name of the applicant, Address), and checkboxes (OSV confirmation).
+
+9.   Testing Environment  :
+   - Prepare a testing environment that mimics the production environment to accurately simulate real-world scenarios.
+
+10.   Test Data  :
+    - Prepare test data sets that cover various scenarios, including accurate Data aggregator responses, inaccurate responses, and no responses."	"  Product-to-Product Integrations  :
+
+1.   FinTech API Integration  :
+   - Product: Lending Application (FOS, LOS-SFDC, FinnOne Neo LMS, or FinnOne Neo Collection)
+   - Integration with the Data aggregator's system through the FinTech API to fetch customer details.
+   - Ensure that the integration supports sending and receiving data in a structured format.
+
+2.   OCR Service Integration (if available)  :
+   - Product: OCR Service
+   - Integration with the OCR service to extract data from NREGA cards.
+   - Verify that the OCR service can handle NREGA card data and return it in a usable format.
+   - Establish a communication protocol for sending and receiving data.
+
+  End-to-End Integrations  :
+
+1.   User Interface Integration  :
+   - Product: User Interface (Front-End App)
+   - Ensure that the user interface has been updated to include input fields for Consumer Number, output fields for NREGA data (Job card number, Name of the applicant, Address), and an OSV confirmation checkbox.
+   - Verify that user interactions trigger the necessary API calls and actions.
+
+2.   Data Aggregator Interaction  :
+   - Product: Data Aggregator System
+   - Integration with the Data aggregator's system to receive responses to queries based on Consumer Numbers.
+   - Confirm that the Data aggregator can process requests, retrieve data, and provide responses to the FinTech API.
+
+3.   Quality Data Entry (QDE) Integration  :
+   - Product: Quality Data Entry Stage
+   - Integration with the QDE stage to ensure that processed KYC data is properly captured and stored.
+   - Verify that data from the Data aggregator and OCR service (if used) is correctly passed to the QDE stage.
+
+4.   Document Storage Integration  :
+   - Product: Document Management System (DMS)
+   - Integration with the DMS to store captured NREGA cards and associate them with customer records.
+   - Ensure that NREGA card images are stored securely and can be retrieved for future reference.
+
+5.   Exception Handling Integration  :
+   - Product: Exception Handling Mechanism
+   - Integration with an exception handling mechanism to manage cases where the Data aggregator provides inaccurate or no responses.
+   - Define how to fall back on OCR data and continue the KYC process."	TC-001	Verify flow when Data aggregator has customer's information	Consumer Number should be of any acceptable format and unique number defined by vendor	Ensure that Displayed data matches with Data aggregator response	Positive				
+						TC-002	Verify flow when Data aggregator has no information	Consumer Number should be of any acceptable format and unique number defined by vendor	Ensure that System uses OCR data to populate NREGA details	Positive				
+						TC-003	Verify flow when Data aggregator response is inaccurate	Consumer Number should be of any acceptable format and unique number defined by vendor	Ensure that Use OCR data to populate NREGA details	Positive				
+						TC-004	Verify flow when OCR capabilities are available, accurate data obtained	Fetch Data from Data Aggregator	Ensure that Displayed Data matches the input data	Positive				
+						TC-005	Verify flow when OCR capabilities are available, inaccurate data obtained	OCR Data from NREGA card	Ensure that Displayed OCR data matches the input data	Positive				
+						TC-006	Verfiy flow when OCR capabilities are not available, Data aggregator has information	Consumer Number should be of any acceptable format and unique number defined by vendor	Ensure that Displayed data matches Data aggregator response	Positive				
+						TC-007	Verify flow when OCR capabilities are not available, Data aggregator has no information	Consumer Number should be of any acceptable format and unique number defined by vendor	Ensure that OCR data to populate NREGA details	Positive				
+						TC-008	Verify flow when OCR capabilities are not available, Data aggregator response is inaccurate	Consumer Number should be of any acceptable format and unique number defined by vendor	Ensure that system Use OCR data to populate NREGA details	Positive				
+						TC-009	Verify flow when OCR capabilities are being explored, Data aggregator has information	Consumer Number should be of any acceptable format and unique number defined by vendor	Ensure that Displayed data matches Data aggregator response	Exception				
+						TC-010	Verify flow when OCR capabilities are being explored, Data aggregator has no information	Consumer Number should be of any acceptable format and unique number defined by vendor	"Ensure that throws an exception saying "" No data available from any source"""	Exception				
+						TC-011	OCR capabilities are being explored, Data aggregator response is inaccurate	Consumer Number should be of any acceptable format and unique number defined by vendor	"Ensure that throws an exception saying "" No accurate data available"""	Exception				
+						TC-012	Verify flow when OCR capabilities are being explored, OCR fails	OCR Data from NREGA card	"Ensure that throws an exception saying ""OCR failure"""	Exception				
+						TC-013	Vrify flow when Invalid Consumer Number input (Non-numeric)	Consumer Number should be of any random number which is not acceptable format by vendor	"Ensure that system throws an Error message saying ""Invalid Consumer Number format"""	Negative				
+						TC-014	Verify flow when Invalid Consumer Number input (Too long)	Consumer Number should be of any random number which is not acceptable format by vendor	"Ensure that system throws an Error message saying "" Invalid Consumer Number format"""	Negative				

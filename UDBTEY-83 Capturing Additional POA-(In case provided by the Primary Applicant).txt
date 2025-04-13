@@ -1,0 +1,48 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P/E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Faile	"Defect-ID (JIRA)
+(if Fail)"
+UDBTEY- 83	As a Business executive I should be able to untick POI=POA checkbox, select POA and add the number so that user can successfully capture POA details provided by the Primary Applicant 	High	Ready for review	"The user story aims to empower Business executives within the lending application to efficiently manage Proof of Address (POA) details for primary applicants. It allows them to untick the POI=POA checkbox, select the type of POA from a dropdown list, and input the corresponding POA number. This feature ensures flexibility in capturing POA information provided by customers.
+
+Pre-Conditions to Test:
+1. The lending application is accessible and properly logged in.
+2. A primary applicant's loan application is in progress or initiated.
+3. The POI=POA checkbox is displayed on the user interface.
+4. The dropdown list for selecting POA types (Aadhaar Card, Driver's License, Passport, Voter Id, NREGA, NPR) is available.
+5. The application is in a state where POA information can be added or edited (e.g., during the application submission or update process).
+6. Relevant field validation rules, as specified in the field list excel, are configured and functional.
+7. The user has necessary permissions and privileges to edit and save POA details for the primary applicant.
+8. Any additional dependencies or prerequisites specific to the lending application are met."	"Product-to-Product Integrations Requirements:
+
+1. Lending Application to Field Validation Engine: The lending application must be integrated with a field validation engine to perform real-time validation of POA data as specified in the field list excel.
+     - The lending application should send POA data to the validation engine.
+     - The validation engine should provide validation results (e.g., valid or invalid) and error messages back to the lending application.
+     - Integration endpoints and data formats should be defined.
+
+2. Lending Application to PAN Verification Service: After capturing POA data, the lending application needs to verify the PAN number of the primary applicant.
+     - The lending application should have an integration with a PAN verification service.
+     - It should send the captured PAN number for verification.
+     - The service should return a verification status (e.g., verified or not verified) to the lending application.
+     - Integration endpoints and data formats should be defined.
+
+End-to-End Integrations Requirements:
+
+1. User Authentication and Authorization:   The lending application must integrate with the authentication and authorization system to ensure that Business executives have the necessary permissions to access and edit applicant data, including POA information.
+     - Integration with the user management system to validate user credentials and roles.
+     - Access control rules should be enforced based on user roles.
+
+2. User Interface Integration: The user interface of the lending application should seamlessly integrate the new POA capture feature.
+     - The user interface components for unticking the POI=POA checkbox, selecting POA type, entering POA number, and capturing PAN should be integrated and functional.
+     - Integration should ensure a smooth user experience.
+
+3. Exception Handling and Logging : The lending application should have integrated error handling and logging mechanisms to capture and report exceptions during the POA capture process.
+     - Integration with a logging and monitoring system to record and alert on system errors and exceptions.
+     - Proper error messages and handling should be implemented for exceptions."	TC1	Verify the POA checkbox can be unticked.	Click on the POI=POA checkbox.	The checkbox is unticked.	Positive			
+						TC2	POA checkbox is disabled	Click on the POI=POA checkbox.	Checkbox disbaled. Still remaims ticked	Negative			
+						TC3	Option to add Additional POA only appears after clicking POI=POA (unticked)	Untick on the POI=POA checkbox.	Option to add additional POA appears	Positive			
+						TC4	Option to add Additional POA does not appear after clicking POI=POA (unticked)	Untick on the POI=POA checkbox.	Option to add additional POA is not provided	Negative			
+						TC5	Select a valid POA type from the dropdown.	"Choose ""Aadhaar Card"" from the dropdown. Similarly try all the available option "	"""Aadhaar Card"" is selected. Similarly all intended options are selected. "	Positive			
+						TC6	Enter a valid POA number.	Enter a valid Aadhaar number. Try for all other options also. 	The entered number is saved.	Positive			
+						TC7	Verify that the system performs field validations for all the options - Aadhar, DL, Passport etc	Enter an invalid POA number and click proceed. 	Validation error message is displayed.	Positive			
+						TC8	Verify that the system performs field validations for all the options - Aadhar, DL, Passport etc	Enter an invalid POA number and click proceed. 	Validation error message is not displayed / System navigates to PAN verification page. 	Negative			
+						TC9	For valid POA data entry, Additional POA is added successfully	Valid data entry.	Additional POA is successfully added.	Positive			
+						TC10	If POA is added succesfully, Verify that the system navigates to capture PAN details after capturing POA.	Click Proceed to capture PAN number.	PAN number page is displayed	Positive			
+						TC11	If POI=POA is unticked, Verify that the system does not allow capturing PAN number if POA is not added 	Proceed to capture PAN without adding POA.	Proceed is disabled, and a message is displayed.	Positive			

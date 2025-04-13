@@ -1,0 +1,55 @@
+#Story	Test Case ID	Test Description	Test Data	Test Steps	Expected Output	Test Category	Actual Result	Pass/Failed	"Defect-ID (JIRA)
+(if Fail)"	Pass/Failed.1
+MT-60	TC01	AML Check - Positive Match	Valid applicant data	"1. Perform Posidex check
+2. Initiate AML check API
+3. Analyze result"	"AML match found
+Case hard stopped
+Declined status shown on FE App"	Positive				
+	TC02	AML Check - No Match	Valid applicant data	"1. Perform Posidex check
+2. Initiate AML check API
+3. Analyze result"	"No AML match found
+Proceed to external fraud check"	Positive				
+	TC03	AML Check - System Error Handling	Valid applicant data	"1. Perform Posidex check
+2. Initiate AML check API
+3. Induce error"	"Error message displayed on FE App
+Case processing halted"	Negative				
+	TC04	External Fraud Check - Above Threshold	Valid applicant data	"1. Initiate external fraud check API
+2. Analyze result	"	"Score above threshold
+Case moves to bureau check	"	Positive				
+	TC05	"External Fraud Check - Below Threshold (APPROVED)	"	Valid applicant data	"1. Initiate external fraud check API
+2. Analyze result	"	"Score below threshold
+Decision APPROVED
+Proceed with application	"	Positive				
+	TC06	External Fraud Check - Below Threshold (REFER)	Valid applicant data	"1. Initiate external fraud check API
+2. Analyze result	"	"Score below threshold
+Decision REFER
+Manual review required	"	Negative				
+	TC07	External Fraud Check - Below Threshold (REJECT)	Valid applicant data	"1. Initiate external fraud check API
+2. Analyze result	"	"Score below threshold
+Decision REJECT
+Application declined	"	Negative				
+	TC08	"External Fraud Check API - Retry on Technical Failure	"	Valid applicant data	"1. Initiate external fraud check API
+2. Simulate technical failure	"	"System retries API call up to 2 times
+Error description displayed after failures
+Retry option	"	Negative				
+	TC09	"Mandatory Parameters Check for AML and Fraud	"	"Incomplete applicant data	"	"1. Initiate AML or fraud check without all parameters	"	"System checks for mandatory parameters
+Error message displayed if missing	"	Negative				
+	TC10	"AML Check - Co-applicant/Guarantor Replacement	"	"Positive match for co-applicant/guarantor	"	"1. Perform AML check with positive match
+2. Attempt to replace co-applicant/guarantor	"	"Co-applicant/guarantor flagged
+Option to delete and add new provided	"	Positive				
+	TC11	"AML Check - API Specification Changes	"	"Valid applicant data	"	"1. Perform AML check with new API specifications	"	"AML check successful with updated API specifications	"	Positive				
+	TC12	Sherlock Implementation Consistency	"Valid applicant data	"	"1. Perform Posidex check
+2. Initiate AML check API
+3. Analyze result	"	"AML check runs for new applicants
+Appropriate action taken based on result	"	Positive				
+	TC13	"AML Check - Handling of New Applicants	"	"New applicant data	"	"1. Perform Posidex check
+2. Initiate AML check API
+3. Analyze result	"	"AML check runs for new applicants
+Appropriate action taken based on result	"	Positive				
+	TC14	"External Fraud Check - Handling of New Applicants	"	"New applicant data	"	"1. Initiate external fraud check API
+2. Analyze result	"	"Fraud check runs for new applicants
+Appropriate action taken based on result	"	Positive				
+	TC15	"AML and Fraud Check - Missing API Response	"	"Valid applicant data	"	"1. Perform AML or fraud check
+2. Simulate missing API response	"	"System attempts retries
+Error description displayed
+Manual retry option provided	"	Negative				

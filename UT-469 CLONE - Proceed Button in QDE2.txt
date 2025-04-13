@@ -1,0 +1,21 @@
+Story #	Story Description	Scope	Integrations	Validations	Acceptance Criteria	Test Step ID	Test Step Description	Test Input	Expected Output	Test Category	Actual Result	Pass/Failed	"Defect-ID (JIRA)
+(if Fail)"	"Automation
+(Status)"	MMFSL Remarks
+UT-469	As a Business executive, I should be able to click on Proceed button from the QDE 2 Page so that system can move to the next stage.	1. User must be able to click on the button - 'Proceed'	1. FE APP integrated with LOS(SFDC) to reflect the details upto this point in the LOS	"1. All the required mandatory fields should be validating before submitting (As per field list document)
+
+2.Proceed Button should be enabled:
+a. Once all the mandatory fields are entered as per the field list
+b. Once all the documents related to that particular screen/stage are field as per document checklist
+c. Once all the mandatory APIs integrated into that particular screen are called successfully.
+d. Reports are generated (If any) for that screen."	"Scenario 1: The user clicks on the Proceed button and no error is thrown:
+Given that the Business executive clicks on the proceed Button and there is no error thrown, then the screen should be automatically be re-routed to conduct BRE 2."	Scenario 1: The user clicks on the Proceed button and no error is thrown									
+						TC01	Verify Proceed button is clickable when all conditions met	All mandatory fields and documents filled properly, and APIs called	System moves to next stage (BRE 2)	Positive					
+						TC02	Verify Proceed button is disabled when mandatory fields are missing	Mandatory fields left blank	Proceed button is disabled	Negative					
+						TC03	Verify error handling when mandatory API calls fail	Mandatory API call fails	Proceed button is disabled, and error message displayed	Negative					
+						TC04	Verify Proceed button is disabled when mandatory documents are missing	Mandatory documents not uploaded	Proceed button is disabled	Negative					
+						TC05	Verify system behavior with one non-mandatory field empty	One non-mandatory field left empty	System moves to next stage (BRE 2) without errors	Edge					
+						TC06	Check for successful report generation	All conditions met, including report generation	System generates the report and moves to BRE 2	Positive					
+						TC07	Verify system response to incomplete API response	Incomplete data from an API call	Proceed button is disabled, and error message displayed	Negative					
+						TC08	Test Proceed button with slow network conditions	All conditions met with slow network	System moves to next stage (BRE 2) with possible delay	Edge					
+						TC09	Confirm Proceed button state after user session timeout	User session times out	Proceed button is disabled or user is logged out	Negative					
+						TC10	Verify Proceed button with rapid multiple clicks	User clicks Proceed button rapidly	Only one click is registered and system moves to BRE 2	Edge					

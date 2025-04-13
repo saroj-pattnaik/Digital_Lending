@@ -1,0 +1,17 @@
+Story #	Story Description	Test Priority	Test Status	Description of Story	P2P / E2E Integration Requirements	Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual Result	Pass/Failed	"Defect-ID (JIRA)
+(if Fail)"
+													
+													
+													
+													
+						TC-01	E-KYC placeholder working correctly	BE selectes/clicks E-KYC option	E-KYC option is initiated	Positive			
+						TC-02	Biometric device connection establishment	User plugs in Biometric authentication device	Notfication of Biometric device connected succesfully	Positive			
+						TC-03	E-KYC response documnet availablility	Biometric authntication succesfull	PDF filr of E-KYC response is available on DMS folder.				
+						TC-04	E-KYC response document	PDF file of E-KYC response is available on DMS folder.	Date and Time stamp is available in document. 	Positive			
+						TC-05	eKYC failure	Unsuccessful biometric authentication	Re-initiate eKYC for 2 more tries 	Exception			
+						TC-06	eKYC fails post three times	eKYC fails post three tries	System auto-initiates cKYC process	Exception			
+						TC-07	Option of Proceed with QDE and Manual KYC	Post E-KYC response, primary applicant accepts details	BE proceeds with QDE	Positive			
+						TC-08	Option of Proceed with QDE and Manual KYC	Post E-KYC response, primary applicant rejects one or more details	BE opts for Maunal KYC	Positive			
+						TC-09	Customer name populated by E-KYC to be preffered	Customer name input by FE and E-KYC name is different	Customer name populated in E-KYC will be preffered 	Positive			
+						TC-10	Data not populated due to API response failure	API response failure 	System retries E-KYC three times and post that initate cKYC	Positive			
+						TC-11	eKYC failure due to expired time (more than 60 seconds)	EKYC failure due to delay in process	System auto initates E-KYC process or initiates cKYC 	Positive			

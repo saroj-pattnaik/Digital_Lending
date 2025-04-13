@@ -1,0 +1,26 @@
+Test Step ID	Test Steps Description	Test Input	Expected Outputs	Test Category	Actual	PASS/FAIL
+TC-001	Select NREGA as POI Type	NREGA	POI Type selected: NREGA	Positive	BE is able to select NREGA as an option 	PASS
+TC-001	Select NREGA as POI Type	NREGA	POI = POA Checkbox auto-ticked	Positive	POI = POA Checkbox auto-ticked	PASS
+TC-002	Capture photo of the NREGA document	Valid image of NREGA document	OCR processing initiated	Positive	OCR is not applicable for NREGA	
+TC-003	Check if OCR was successful	OCR result: Success	OCR results displayed	Positive	OCR is not applicable for NREGA	
+TC-004	Verify OCR accuracy	OCR accuracy: High	All details are captured correctly	Positive	OCR is not applicable for NREGA	
+TC-005	Verify OCR accuracy	OCR accuracy: Low (inaccurate)	Details captured partially. Business executive edits fields	Positive	OCR is not applicable for NREGA	
+TC-006	Check if OCR was unsuccessful (exception)	OCR result: Failure	No details captured. Business executive changes to Manual data entry	Exception	BE is able to enter NREGA data manually	PASS
+TC-007	Capture photo of the blank document	Blank/empty image	Error message displayed	Negative	No data is captured	PASS
+TC-008	Manually enter NREGA number	Valid NREGA number	All details are captured correctly	Positive	BE is able to enter NREGA data manually	PASS
+TC-009	Manually enter invalid NREGA number	Invalid NREGA number (e.g., incorrect format)	Error message displayed	Negative	Only Valid NREGA data is accepted	PASS
+TC-010	Proceed to PAN verification	Selected POI: PAN Card	PAN verification initiated	Positive	PAN verification initiated	PASS
+TC-011	Select NREGA as POI Type	NREGA	POI Type selected: NREGA	Positive	POI Type selected: NREGA	PASS
+TC-012	Capture photo of the NREGA document	Valid image of NREGA document	OCR processing initiated	Positive	OCR is not applicable for NREGA	
+TC-013	Check if OCR was successful	OCR result: Success	OCR results displayed	Positive	OCR is not applicable for NREGA	
+TC-014	Verify OCR accuracy	OCR accuracy: High	OCR accuracy should be perfect 	Positive	OCR is not applicable for NREGA(BE is able to enter NREGA data manually)	
+TC-015	Verify OCR accuracy	OCR accuracy: Low (inaccurate)	Business executive edits fields	Positive	(BE is able to enter NREGA data manually)	PASS
+TC-016	Capture photo of the NREGA document	Invalid image format	Error message displayed	Negative	(BE is able to enter NREGA data manually)	PASS
+TC-017	Capture photo of the NREGA document	Blank/empty image	Error message displayed	Negative	(BE is able to enter NREGA data manually)	PASS
+TC-018	Manually enter NREGA number	Valid NREGA number	POI = POA Checkbox auto-ticked	Positive	POI = POA Checkbox auto-ticked	PASS
+TC-019	Manually enter NREGA number	Invalid NREGA number (e.g., incorrect format)	Error message displayed	Negative	Only Valid NREGA data is accepted	PASS
+TC-020	Select different POI Type (e.g., Aadhaar)	Aadhaar	POI Type selected: Aadhaar	Positive	POI Type selected: Aadhaar	PASS
+TC-021	Proceed to PAN verification	-	PAN verification initiated	Positive	PAN verification initiated	PASS
+TC-022	Select NREGA as POI Type	NREGA	POI Type selected: NREGA	Positive	POI Type selected: NREGA	PASS
+TC-023	Capture photo of the NREGA document	Valid image of NREGA document	OCR processing initiated	Positive	OCR is not applicable for NREGA	
+TC-024	Check if OCR was unsuccessful (exception)	OCR result: Failure	Error message displayed	Exception	OCR is not applicable for NREGA	
